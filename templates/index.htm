@@ -1,0 +1,719 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<!--
+Template Name: NobleUI - HTML Bootstrap 5 Admmin Dashboard Template
+Author: NobleUI
+Website: https://www.nobleui.com
+Portfolio: https://themeforest.net/user/nobleui/portfolio
+Contact: nobleui123@gmail.com
+Purchase: https://1.envato.market/nobleui_admin
+License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
+-->
+<html lang="en">
+<head>
+  <script src="{% static 'js/color-mode.js' %}"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Responsive HTML Admin &amp; Dashboard Template based on Bootstrap 5">
+	<meta name="author" content="NobleUI">
+	<meta name="keywords" content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, laravel, angular, react, reactjs, vue, vuejs, jquery, theme, front-end, ui kit, web, nobleuihtml, nobleuilaravel, nobleuiangular, nobleuivuejs, nobleuireactjs">
+
+  <title>NobleUI - HTML Bootstrap 5 Admin Dashboard Template</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="../css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <!-- End fonts -->
+  
+  <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/png">
+  <link rel="stylesheet" href="{% static 'plugins/feather-font/css/iconfont.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+  <!-- <link rel="stylesheet" href="css/style.css"> -->
+
+  <!-- Global site tag (gtag.js) - Google Analytics start -->
+  <script async="" src="../gtag/js?id=UA-146586338-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-146586338-1');
+  </script>
+  <!-- Google Analytics end -->
+
+</head>
+<body>
+
+  <script>
+    var pre = document.createElement("div");
+    pre.innerHTML = '<div class="loader-wrapper"><div class="loader">Loading...</div></div>';
+    document.body.insertBefore(pre, document.body.firstChild);
+
+    document.addEventListener("DOMContentLoaded", function(event) {
+        document.body.className += " loaded"
+    });
+  </script>
+  
+  <div class="container-fluid p-0 overflow-hidden">
+
+    <nav class="navbar navbar-expand-lg navbar-light border-bottom">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <!-- Noble<span>N</span> -->
+          <img src="{% static 'images/logo-light.png' %}" class="logo-light" alt="nobleui-logo">
+          <img src="{% static 'images/logo-dark.png' %}" class="logo-dark" alt="nobleui-logo">
+        </a>
+        <button class="navbar-toggler btn" id="navbarToggler" type="button">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-menu" id="navbarMenu">
+          <div class="navbar-nav ms-md-auto">
+
+            <div class="theme-switcher-wrapper nav-item nav-link">
+              <input type="checkbox" value="" id="theme-switcher">
+              <label for="theme-switcher">
+                <div class="box">
+                  <div class="ball"></div>
+                  <div class="icons">
+                    <i class="feather icon-sun"></i>
+                    <i class="feather icon-moon"></i>
+                  </div>
+                </div>
+              </label>
+            </div>
+
+            <a class="nav-item nav-link" href="documentation/docs.html" target="_blank">Docs</a>
+            <a class="nav-item nav-link" href="https://themeforest.net/item/nobleui-admin-dashboard-template/24606935/support" target="_blank">Support</a>
+            <a class="nav-item nav-link" href="https://themeforest.net/user/nobleui/portfolio" target="_blank">Portfolio</a>
+            <a class="btn btn-outline-primary rounded-pill btn-sm px-3 mt-2 mt-md-0" href="https://1.envato.market/nobleui_admin" target="_blank"><span class="feather icon-shopping-cart me-1"></span> register</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="landing-header">
+      <!-- <img src="images/header-bg2.png" class="landing-header-bg d-none d-md-block" alt="header-bg"> -->
+      <div class="container h-100">
+        <div class="row h-100 align-items-center">
+          <div class="col-12 d-none">
+            <ul class="nav mb-5 justify-content-start justify-content-lg-center d-none d-sm-flex">
+              <a href="#" class="d-flex align-items-center btn btn-sm py-1 btn-primary rounded-pill me-2 mb-2 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="NobleUI HTML Version"><img src="images/logos/html.png" class="me-2" width="16" alt=""> <span>HTML</span></a>
+              <a href="https://nobleui.com/laravel/" target="_blank" class="d-flex align-items-center btn btn-sm py-1 btn-outline-primary rounded-pill me-2 mb-2 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="NobleUI Laravel Version"><img src="images/logos/laravel.png" class="me-2" width="16" alt=""> <span>Laravel</span></a>
+              <a href="https://nobleui.com/angular/" target="_blank" class="d-flex align-items-center btn btn-sm py-1 btn-outline-primary rounded-pill me-2 mb-2 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="NobleUI Angular Version"><img src="images/logos/angular.png" class="me-2" width="16" alt=""> <span>Angular</span></a>
+              <!-- <a href="https://nobleui.com/reactjs/" target="_blank" class="d-flex align-items-center btn btn-sm py-1 btn-outline-primary rounded-pill me-2 mb-2 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="NobleUI ReactJs Version"><img src="./images/logos/scss.png" class="me-2" width="16" alt=""> <span>ReactJs</span></a>
+              <a href="https://nobleui.com/vuejs/" target="_blank" class="d-flex align-items-center btn btn-sm py-1 btn-outline-primary rounded-pill mb-2 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="NobleUI VueJs Version"><img src="./images/logos/gulp.png" class="me-2" width="16" alt=""> <span>VueJs</span></a> -->
+            </ul>
+          </div>
+          <div class="col-lg-5">
+            <div class="d-flex align-items-start">
+              <h1 class="mb-4 fw-light"><span class="fw-bolder">Noble</span><span class="text-primary">UI - HTML</span></h1>
+              <span class="badge bg-secondary ms-2 mt-1 mt-lg-2">v 3.0</span>
+            </div>
+            <h3 class="mb-4">The most developer friendly and highly customizable <span style="color: #6571ff;">Bootstrap 5</span> Admin Dashboard Template.</h3>
+            <p class="mb-4 text-secondary">A professional package that comes with plenty of UI components, forms, tables, charts, pages and svg icons. Each one is fully customizable, responsive and easy to use.</p>
+            <a class="btn btn-primary rounded-pill px-3 btn-sm me-2" href="#demos">View Demos</a>
+            <a class="btn btn-outline-primary rounded-pill px-3 btn-sm" href="https://1.envato.market/nobleui_admin" target="_blank"><span class="feather icon-shopping-cart me-1"></span> Buy Now</a>
+
+            <div class="brand-logos d-flex align-items-center">
+              <img src="{% static 'images/logos/bootstrap.png' %}" alt="bootstrap">
+              <img src="{% static 'images/logos/html.png' %}" alt="html">
+              <img src="{ % static 'images/logos/css.png' %}" alt="css">
+              <img src="{% static 'images/logos/js.png' %}" alt="js">
+              <img src="{% static 'images/logos/npm.png' %}" alt="npm">
+              <img src="{5 static 'images/logos/scss.png' %}" alt="gulp">
+              <img src="{% static 'images/logos/gulp.png' %}" alt="gulp">
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="dashboard-img">
+              <img src="{% static 'images/dashboard.png' %}" class="img-fluid landing-header-bg d-none d-lg-block" alt="header-bg">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="animation-effect-1">
+        <i class="feather icon-circle effect-icon text-primary"></i>
+      </div>
+      <div class="animation-effect-2">
+        <i class="feather icon-heart effect-icon text-danger"></i>
+      </div>
+      <div class="animation-effect-3">
+        <i class="feather icon-triangle effect-icon text-info"></i>
+      </div>
+      <div class="animation-effect-4">
+        <i class="feather icon-thumbs-up effect-icon text-success"></i>
+      </div>
+      <div class="animation-effect-5">
+        <i class="feather icon-square effect-icon text-info"></i>
+      </div>
+      <div class="animation-effect-6">
+        <i class="feather icon-octagon effect-icon text-primary"></i>
+      </div>
+      <div class="animation-effect-7">
+        <i class="feather icon-gift effect-icon text-danger"></i>
+      </div>
+
+    </section>
+
+    <!-- <div class="bg-curve-shape">
+      <img src="images/blue-bg-curve.png" alt="bg" class="w-100">
+    </div> -->
+
+    <section class="demos" id="demos">
+      <div class="container">
+        <header class="section-header">
+          <!-- <small>options</small> -->
+          <h2>Creative Demos</h2>
+          <hr>
+          <p class="lead text-secondary">NobleUI is beautifully crafted, clean & modern designed admin theme
+            with different demos.</p>
+        </header>
+        <div class="row">
+          <div class="col-md-6 col-lg-4 grid-margin">
+            <h4 class="mb-3 mt-4 text-center fw-normal">Vertical Menu - Light</h4>
+            <div class="d-flex justify-content-center mb-4">
+              <a href="template/demo1/dashboard.html?theme=light" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
+              <a href="template/demo1-rtl/dashboard.html?theme=light" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
+            </div>
+            <a href="template/demo1/dashboard.html?theme=light" target="_blank" class="item">
+              <img src="{% static 'images/v-l.jpg' %}" alt="nobleui" class="d-block mx-auto">
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4 grid-margin">
+            <h4 class="mb-3 mt-4 text-center fw-normal">Vertical Menu - Dark Sidebar</h4>
+            <div class="d-flex justify-content-center mb-4">
+              <a href="template/demo1-ds/dashboard.html?theme=light" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
+              <a href="template/demo1-ds-rtl/dashboard.html?theme=light" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
+            </div>
+            <a href="template/demo1-ds/dashboard.html?theme=light" target="_blank" class="item">
+              <img src="{% static 'images/v-ds.jpg' %}" alt="nobleui" class="d-block mx-auto">
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4 grid-margin">
+            <h4 class="mb-3 mt-4 text-center fw-normal">Vertical Menu - Dark</h4>
+            <div class="d-flex justify-content-center mb-4">
+              <a href="template/demo1/dashboard-1.html?theme=dark" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
+              <a href="template/demo1-rtl/dashboard-1.html?theme=dark" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
+            </div>
+            <a href="template/demo1/dashboard-1.html?theme=dark" target="_blank" class="item">
+              <img src="{% static 'images/v-d.jpg' %}" alt="nobleui" class="d-block mx-auto">
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4 grid-margin">
+            <h4 class="mb-3 mt-4 text-center fw-normal">Horizontal Menu - Light</h4>
+            <div class="d-flex justify-content-center mb-4">
+              <a href="template/demo2/dashboard.html?theme=light" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
+              <a href="template/demo2-rtl/dashboard.html?theme=light" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
+            </div>
+            <a href="template/demo2/dashboard.html?theme=light" target="_blank" class="item">
+              <img src="{% static 'images/h-l.jpg' %}" alt="nobleui" class="d-block mx-auto">
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4 grid-margin">
+            <h4 class="mb-3 mt-4 text-center fw-normal">Horizontal Menu - Dark Header</h4>
+            <div class="d-flex justify-content-center mb-4">
+              <a href="template/demo2-dh/dashboard.html?theme=light" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
+              <a href="template/demo2-dh-rtl/dashboard.html?theme=light" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
+            </div>
+            <a href="template/demo2-dh/dashboard.html?theme=light" target="_blank" class="item">
+              <img src="images/h-dh.jpg" alt="nobleui" class="d-block mx-auto">
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4 grid-margin">
+            <h4 class="mb-3 mt-4 text-center fw-normal">Horizontal Menu - Dark</h4>
+            <div class="d-flex justify-content-center mb-4">
+              <a href="template/demo2/dashboard-1.html?theme=dark" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
+              <a href="template/demo2-rtl/dashboard-1.html?theme=dark" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
+            </div>
+            <a href="template/demo2/dashboard-1.html?theme=dark" target="_blank" class="item">
+              <img src="{% static 'images/h-d.jpg' %}" alt="nobleui" class="d-block mx-auto">
+            </a>
+          </div>
+        </div>
+        
+        <!-- <header class="section-header mt-5 pt-5">
+          <h2>Applications</h2>
+          <hr>
+          <p class="lead text-secondary">NobleUI is beautifully crafted, clean & modern designed admin theme
+            with different applications.</p>
+        </header>
+        <div class="row">
+          <div class="col-md-6 col-lg-4 grid-margin">
+            <h4 class="mb-3 mt-4 text-center fw-normal">Email</h4>
+            <div class="d-flex justify-content-center mb-4">
+              <a href="https://www.nobleui.com/html/template/demo1/pages/email/inbox.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
+              <a href="https://www.nobleui.com/html/template/demo1-rtl/pages/email/inbox.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
+            </div>
+            <a href="https://www.nobleui.com/html/template/demo1/pages/email/inbox.html" target="_blank" class="item">
+              <img src="images/email.jpg" alt="nobleui" class="d-block mx-auto">
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4 grid-margin">
+            <h4 class="mb-3 mt-4 text-center fw-normal">Chat</h4>
+            <div class="d-flex justify-content-center mb-4">
+              <a href="https://www.nobleui.com/html/template/demo1/pages/apps/chat.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
+              <a href="https://www.nobleui.com/html/template/demo1-rtl/pages/apps/chat.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
+            </div>
+            <a href="https://www.nobleui.com/html/template/demo1/pages/apps/chat.html" target="_blank" class="item">
+              <img src="images/chat.jpg" alt="nobleui" class="d-block mx-auto">
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4 grid-margin">
+            <h4 class="mb-3 mt-4 text-center fw-normal">Calendar</h4>
+            <div class="d-flex justify-content-center mb-4">
+              <a href="https://www.nobleui.com/html/template/demo1/pages/apps/calendar.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
+              <a href="https://www.nobleui.com/html/template/demo1-rtl/pages/apps/calendar.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
+            </div>
+            <a href="https://www.nobleui.com/html/template/demo1/pages/apps/calendar.html" target="_blank" class="item">
+              <img src="images/calendar.jpg" alt="nobleui" class="d-block mx-auto">
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4 grid-margin">
+            <h4 class="mb-3 mt-4 text-center fw-normal">Cropper</h4>
+            <div class="d-flex justify-content-center mb-4">
+              <a href="https://www.nobleui.com/html/template/demo1/pages/advanced-ui/cropper.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
+              <a href="https://www.nobleui.com/html/template/demo1-rtl/pages/advanced-ui/cropper.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
+            </div>
+            <a href="https://www.nobleui.com/html/template/demo1/pages/advanced-ui/cropper.html" target="_blank" class="item">
+              <img src="images/cropper.jpg" alt="nobleui" class="d-block mx-auto">
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4 grid-margin">
+            <h4 class="mb-3 mt-4 text-center fw-normal">More coming soon...</h4>
+            <div class="d-flex justify-content-center mb-4">
+              <a href="javascript:;" class="btn btn-inverse-primary btn-sm py-1">...</a>
+            </div>
+            <a href="javascript:;" class="item">
+              <img src="images/blank.jpg" alt="nobleui" class="d-block mx-auto">
+            </a>
+          </div>
+        </div>
+
+        <header class="section-header mt-5 pt-5">
+          <h2>Creative Pages</h2>
+          <hr>
+          <p class="lead text-secondary">NobleUI Admin provides many creative pages. It contains all the commonly used pages to 
+            develop any applications which will ease the developer's efforts.</p>
+        </header>
+        <div class="row">
+          <div class="col-md-6 col-lg-4 grid-margin">
+            <h4 class="mb-3 mt-4 text-center fw-normal">Profile</h4>
+            <div class="d-flex justify-content-center mb-4">
+              <a href="https://www.nobleui.com/html/template/demo1/pages/general/profile.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
+              <a href="https://www.nobleui.com/html/template/demo1-rtl/pages/general/profile.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
+            </div>
+            <a href="https://www.nobleui.com/html/template/demo1/pages/general/profile.html" target="_blank" class="item">
+              <img src="images/profile.jpg" alt="nobleui" class="d-block mx-auto">
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4 grid-margin">
+            <h4 class="mb-3 mt-4 text-center fw-normal">Pricing</h4>
+            <div class="d-flex justify-content-center mb-4">
+              <a href="https://www.nobleui.com/html/template/demo1/pages/general/pricing.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
+              <a href="https://www.nobleui.com/html/template/demo1-rtl/pages/general/pricing.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
+            </div>
+            <a href="https://www.nobleui.com/html/template/demo1/pages/general/pricing.html" target="_blank" class="item">
+              <img src="images/pricing.jpg" alt="nobleui" class="d-block mx-auto">
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4 grid-margin">
+            <h4 class="mb-3 mt-4 text-center fw-normal">Authentication</h4>
+            <div class="d-flex justify-content-center mb-4">
+              <a href="https://www.nobleui.com/html/template/demo1/pages/auth/login.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
+              <a href="https://www.nobleui.com/html/template/demo1-rtl/pages/auth/login.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
+            </div>
+            <a href="https://www.nobleui.com/html/template/demo1/pages/auth/login.html" target="_blank" class="item">
+              <img src="images/login.jpg" alt="nobleui" class="d-block mx-auto">
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4 grid-margin">
+            <h4 class="mb-3 mt-4 text-center fw-normal">Error</h4>
+            <div class="d-flex justify-content-center mb-4">
+              <a href="https://www.nobleui.com/html/template/demo1/pages/error/404.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
+              <a href="https://www.nobleui.com/html/template/demo1-rtl/pages/error/404.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
+            </div>
+            <a href="https://www.nobleui.com/html/template/demo1/pages/error/404.html" target="_blank" class="item">
+              <img src="images/error.jpg" alt="nobleui" class="d-block mx-auto">
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4 grid-margin">
+            <h4 class="mb-3 mt-4 text-center fw-normal">Timeline</h4>
+            <div class="d-flex justify-content-center mb-4">
+              <a href="https://www.nobleui.com/html/template/demo1/pages/general/timeline.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
+              <a href="https://www.nobleui.com/html/template/demo1-rtl/pages/general/timeline.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
+            </div>
+            <a href="https://www.nobleui.com/html/template/demo1/pages/general/timeline.html" target="_blank" class="item">
+              <img src="images/timeline.jpg" alt="nobleui" class="d-block mx-auto">
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4 grid-margin">
+            <h4 class="mb-3 mt-4 text-center fw-normal">And more...</h4>
+            <div class="d-flex justify-content-center mb-4">
+              <a href="javascript:;" class="btn btn-inverse-primary btn-sm py-1">...</a>
+            </div>
+            <a href="javascript:;" class="item">
+              <img src="images/blank.jpg" alt="nobleui" class="d-block mx-auto">
+            </a>
+          </div>
+        </div> -->
+
+      </div>
+
+    </section>
+
+    <!-- <div class="bg-curve-shape inverse">
+      <img src="images/blue-bg-curve-inverse.png" alt="bg" class="w-100">
+    </div> -->
+
+    <section class="why">
+      <div class="container">
+        <header class="section-header">
+          <!-- <small>works</small> -->
+          <h2>Why Choose <span class="fw-bolder">Noble</span><span class="fw-light text-primary">UI</span></h2>
+          <hr>
+          <p class="lead text-secondary">A responsive bootstrap admin template built for everyone who wants to create webapps on top of Bootstrap.</p>
+        </header>
+        <div class="row">
+          <div class="col-md-6 col-xl-4 grid-margin item">
+            <div class="card">
+              <div class="card-body">
+                <div class="icon my-4 d-flex align-items-center justify-content-center">
+                  <i class="feather icon-code icon-xxl text-primary"></i>
+                </div>
+                <div class="d-flex flex-column align-items-center text-center">
+                  <h5 class="mb-3">Clean Code</h5 class="mb-3">
+                  <p class="text-secondary">Our developers love to keep their code elegant and clean. Every commits are tested before it goes to live!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-4 grid-margin item">
+            <div class="card">
+              <div class="card-body">
+                <div class="icon my-4 d-flex align-items-center justify-content-center">
+                  <i class="feather icon-smartphone icon-xxl text-primary"></i>
+                </div>
+                <div class="d-flex flex-column align-items-center text-center">
+                  <h5 class="mb-3">Responsive Layout</h5 class="mb-3">
+                  <p class="text-secondary">Our themes are tested on different devices and view sizes to serve you a better user experience.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-4 grid-margin item">
+            <div class="card">
+              <div class="card-body">
+                <div class="icon my-4 d-flex align-items-center justify-content-center">
+                  <i class="feather icon-message-square icon-xxl text-primary"></i>
+                </div>
+                <div class="d-flex flex-column align-items-center text-center">
+                  <h5 class="mb-3">Amazing Support</h5 class="mb-3">
+                  <p class="text-secondary">A group of dedicated support crews are ready to serve you when you need them most, even in holidays and weekends.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-4 grid-margin item">
+            <div class="card">
+              <div class="card-body">
+                <div class="icon my-4 d-flex align-items-center justify-content-center">
+                  <i class="feather icon-feather icon-xxl text-primary"></i>
+                </div>
+                <div class="d-flex flex-column align-items-center text-center">
+                  <h5 class="mb-3">Impressive Design</h5 class="mb-3">
+                  <p class="text-secondary">Our themes are carefully designed with trendy touch. Each theme represents an elegant choice of typography, ui components and personality.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-4 grid-margin item">
+            <div class="card">
+              <div class="card-body">
+                <div class="icon my-4 d-flex align-items-center justify-content-center">
+                  <i class="feather icon-edit icon-xxl text-primary"></i>
+                </div>
+                <div class="d-flex flex-column align-items-center text-center">
+                  <h5 class="mb-3">Easy Customization</h5 class="mb-3">
+                  <p class="text-secondary">To make sure that no one gets lost in a pool of cluttered configurations and options, our admins panels are always designed keeping simplicity in mind.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-4 grid-margin item">
+            <div class="card">
+              <div class="card-body">
+                <div class="icon my-4 d-flex align-items-center justify-content-center">
+                  <i class="feather icon-gift icon-xxl text-primary"></i>
+                </div>
+                <div class="d-flex flex-column align-items-center text-center">
+                  <h5 class="mb-3">Free Updates</h5 class="mb-3">
+                  <p class="text-secondary">You're guaranteed to get all the future updates after you purchase a theme. And it will not cost you a single Time! All updates are completely free.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="animation-effect-1">
+        <i class="feather icon-circle effect-icon text-primary"></i>
+      </div>
+      <div class="animation-effect-2">
+        <i class="feather icon-heart effect-icon text-danger"></i>
+      </div>
+      <div class="animation-effect-3">
+        <i class="feather icon-triangle effect-icon text-info"></i>
+      </div>
+      <div class="animation-effect-4">
+        <i class="feather icon-thumbs-up effect-icon text-success"></i>
+      </div>
+      <div class="animation-effect-5">
+        <i class="feather icon-square effect-icon text-info"></i>
+      </div>
+      <div class="animation-effect-6">
+        <i class="feather icon-octagon effect-icon text-primary"></i>
+      </div>
+      <div class="animation-effect-7">
+        <i class="feather icon-gift effect-icon text-danger"></i>
+      </div>
+    </section>
+
+    <section class="licenses">
+      <div class="container">
+        <header class="section-header">
+          <!-- <small>works</small> -->
+          <h2>Licenses</h2>
+          <hr>
+          <p class="lead text-secondary">Do you have any questions about the Envato Licenses? Please check the <a href="https://themeforest.net/licenses/faq" target="_blank">Envato License FAQ</a>.</p>
+        </header>
+        <div class="row justify-content-center">
+          <div class="col-md-6 col-lg-5 grid-margin d-flex">
+            <div class="card shadow-none border-0">
+              <div class="card-body">
+                <h3 class="mb-3">Regular License</h3>
+                <hr>
+                <p class="mb-4">
+                  Use by you or your one client in a single end product which
+                  <span class="fw-bold">end users <span class="text-primary"> are not </span> charged.</span>
+                </p>
+                <p class="mb-2 text-secondary tx-14"><span class="feather icon-check text-success me-1"></span>6 Months Premium Support Included</p>
+                <p class="mb-2 text-secondary tx-14"><span class="feather icon-check text-success me-1"></span>Quality checked by Envato</p>
+                <p class="mb-2 text-secondary tx-14"><span class="feather icon-check text-success me-1"></span>Lifetime Free Updates</p>
+                <h3 class="my-4 text-successs">Only $24 Now</h3>
+                <a href="https://1.envato.market/nobleui_admin" target="_blank" class="btn btn-primary btn-sms rounded-pilll px-3"><span class="feather icon-shopping-cart me-1"></span> Purchase Now</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-5 grid-margin d-flex">
+            <div class="card shadow-none border-0">
+              <div class="card-body">
+                <h3 class="mb-3">Extended License</h3>
+                <hr>
+                <p class="mb-3">
+                  Use by you or your one client in a single end product which
+                  <span class="fw-bold">end users <span class="text-primary"> can be </span> charged.</span>
+                </p>
+                <p class="mb-2 text-secondary tx-14"><span class="feather icon-check text-success me-1"></span>6 Months Premium Support Included</p>
+                <p class="mb-2 text-secondary tx-14"><span class="feather icon-check text-success me-1"></span>Quality checked by Envato</p>
+                <p class="mb-2 text-secondary tx-14"><span class="feather icon-check text-success me-1"></span>Lifetime Free Updates</p>
+                <h3 class="my-4 text-successs">Only $499 Now</h3>
+                <a href="https://1.envato.market/nobleui_admin" target="_blank" class="btn btn-primary btn-sms rounded-pilll px-3"><span class="feather icon-shopping-cart me-1"></span> Purchase Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="faq">
+      <div class="container">
+        <header class="section-header">
+          <!-- <small>works</small> -->
+          <!-- <h2>FAQ</h2> -->
+          <h2>Frequently Asked Questions</h2>
+          <hr>
+          <p class="lead text-secondary">Do you have any auestion? Here are some of the basic types of questions for our customers. If you have some other questions, feel free to <a href="https://themeforest.net/item/nobleui-admin-dashboard-template/24606935/support" target="_blank">contact us</a>.</p>
+        </header>
+        <div class="accordion col-md-10 col-lg-8 col-xxl-7 mx-auto" id="accordionExample">
+          <div class="accordion-item border mb-3">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Do you charge for each upgrade?
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                Not at all. Once you purchase a license, you'll receive all future releases for free.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item border mb-3">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Do I need to purchase a license for each website?
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                Yes, you need to have a separate license for each website. You might need to purchase extended license for your web application.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item border mb-3">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                What is regular license?
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                Regular license can be used for end products that do not charge users for access or service(access is free and there will be no monthly subscription fee). 
+                Single regular license can be used for single end product and end product can be used by you or your client. If you want to sell end product to multiple 
+                clients then you will need to purchase separate license for each client. The same rule applies if you want to use the same end product on multiple domains(unique setup). 
+                For more info on regular license you can check official description.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item border mb-3">
+            <h2 class="accordion-header" id="headingFour">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                What is extended license?
+              </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                Extended license can be used for end products(web service or SaaS) that charges users for access or service(e.g: monthly subscription fee). 
+                Single extended license can be used for single end product and end product can be used by you or your client. If you want to sell end product to multiple clients then you will need to purchase separate extended license for each client. 
+                The same rule applies if you want to use the same end product on multiple domains(unique setup). For more info on extended licenses you can check official description.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item border mb-3">
+            <h2 class="accordion-header" id="headingFive">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                Which license is applicable for SaaS application?
+              </button>
+            </h2>
+            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                If you are charging your customer for using your SaaS based application you must buy an Extended License for each end product. If you aren't charging your customer then purchase Regular License for each end product.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item border mb-3">
+            <h2 class="accordion-header" id="headingSix">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+               Do you have more questions?
+              </button>
+            </h2>
+            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                Please check the <a href="https://themeforest.net/licenses/faq" target="_blank">Envato License FAQ</a>.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="other-products">
+      <div class="container">
+
+        <header class="section-header">
+          <!-- <small>options</small> -->
+          <h2>Other Products</h2>
+          <hr>
+          <p class="lead text-secondary">NobleUI Laravel and Angular versions are available as separate products.</p>
+        </header>
+        <div class="row justify-content-center">
+          <div class="col-md-6 col-lg-4 grid-margin">
+            <h4 class="mb-3 mt-4 text-center fw-normal"><img src="images/logos/laravel.png" width="23" class="mb-1 me-1" alt="NobleUI - Laravel"> NobleUI - Laravel</h4>
+            <div class="d-flex justify-content-center mb-4">
+              <a href="https://nobleui.com/laravel/" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Check Now <span class="feather icon-arrow-right ms-1"></span></a>
+              <a href="https://1.envato.market/nobleui_laravel" target="_blank" class="btn btn-inverse-primary btn-sm py-1"><span class="feather icon-shopping-cart me-1"></span> Buy Now</a>
+            </div>
+            <a href="https://nobleui.com/laravel/" target="_blank" class="item">
+              <img src="images/laravel-cover.jpg" alt="nobleui" class="d-block mx-auto w-90">
+            </a>
+          </div>
+          <div class="col-md-6 col-lg-4 grid-margin">
+            <h4 class="mb-3 mt-4 text-center fw-normal"><img src="images/logos/angular.png" width="23" class="mb-1 me-1" alt="NobleUI - Angular"> NobleUI - Angular</h4>
+            <div class="d-flex justify-content-center mb-4">
+              <a href="https://nobleui.com/angular/" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Check Now <span class="feather icon-arrow-right ms-1"></span></a>
+              <a href="https://1.envato.market/nobleui_angular" target="_blank" class="btn btn-inverse-primary btn-sm py-1"><span class="feather icon-shopping-cart me-1"></span> Buy Now</a>
+            </div>
+            <a href="https://nobleui.com/angular/" target="_blank" class="item">
+              <img src="images/angular-cover.jpg" alt="nobleui" class="d-block mx-auto w-90">
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="request-feature py-5">
+      <div class="container">
+        <h2 class="mb-3">Request Feature</h2>
+        <p class="mb-3 text-secondarys">Missing anything or need more features to complete your project? Or you have something specific in your mind? We’re happy for any new ideas or features.</p>
+        <a href="https://themeforest.net/item/nobleui-admin-dashboard-template/24606935/support" target="_blank" class="btn btn-primary btn-sm">Let Us Know <span class="feather icon-arrow-right"></span></a>
+      </div>
+    </section>
+
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <img src="images/logo-light.png" class="logo-light mb-4" width="30" class="mb-4" alt="nobleui">
+              <img src="images/logo-dark.png" class="logo-dark mb-4" width="30" class="mb-4" alt="nobleui">
+              <p class="text-secondary tx-14s pe-xl-5 me-md-4 mb-5 mb-md-0">A professional package that comes with plenty of UI components, forms, tables, charts, pages and svg icons. Each one is fully customizable, responsive and easy to use.</p>
+            </div>
+            <div class="col-6 col-md-3">
+              <h6 class="text-secondary mb-4 fw-bold">Quick links</h6>
+              <ul class="list-unstyled">
+                <li><a href="https://themeforest.net/item/nobleui-admin-dashboard-template/24606935/support" target="_blank" class="tx-14">Support</a></li>
+                <li><a href="documentation/docs.html" target="_blank" class="tx-14">Documentation</a></li>
+                <li><a href="https://themeforest.net/user/nobleui/portfolio" target="_blank" class="tx-14">Portfolio</a></li> 
+              </ul>
+            </div>
+            <div class="col-6 col-md-3">
+              <h6 class="text-secondary mb-4 fw-bold">Find Us</h6>
+              <div class="d-flex">
+                <a href="javascript:;">
+                  <i class="feather icon-github icon-sm me-3"></i>
+                </a>
+                <a href="javascript:;">
+                  <i class="feather icon-twitter icon-sm me-3"></i>
+                </a>
+                <a href="javascript:;">
+                  <i class="feather icon-linkedin icon-sm me-3"></i>
+                </a>
+                <a href="javascript:;">
+                  <i class="feather icon-facebook icon-sm me-3"></i>
+                </a>
+                <a href="javascript:;">
+                  <i class="feather icon-instagram icon-sm me-3"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <div class="footer-bottom py-3">
+        <div class="container">
+          <div class="d-flex align-items-center justify-content-center">
+            <p class="text-secondary">Copyright © 2024 <a href="https://www.nobleui.com" target="_blank" class="text-secondary">NobleUI</a>.</p>
+          </div>
+        </div>
+      </div>
+  
+  </div>
+
+  <script src="plugins/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+
+</body>
+</html>
