@@ -20,7 +20,7 @@ License: For each use you must have a valid license purchased only from above li
 	<title>NobleUI - HTML Bootstrap 5 Admin Dashboard Template</title>
 
   <!-- color-modes:js -->
-  <script src="../../../assets/js/color-modes.js"></script>
+  <script src="{% static 'assets/js/color-modes.j' %}s"></script>
   <!-- endinject -->
 
   <!-- Fonts -->
@@ -30,18 +30,18 @@ License: For each use you must have a valid license purchased only from above li
   <!-- End fonts -->
 
 	<!-- core:css -->
-	<link rel="stylesheet" href="../../../assets/vendors/core/core.css">
+	<link rel="stylesheet" href="{% static 'assets/vendors/core/core.css' %}">
 	<!-- endinject -->
 
 	<!-- Plugin css for this page -->
 	<!-- End plugin css for this page -->
 
 	<!-- inject:css -->
-	<link rel="stylesheet" href="../../../assets/fonts/feather-font/css/iconfont.css">
+	<link rel="stylesheet" href="{% static 'assets/fonts/feather-font/css/iconfont.css' %}">
 	<!-- endinject -->
 
   <!-- Layout styles -->  
-	<link rel="stylesheet" href="../../../assets/css/demo1/style.css">
+	<link rel="stylesheet" href="{assets/css/demo1/style.css}">
   <!-- End layout styles -->
 
   <link rel="shortcut icon" href="../../../assets/images/favicon.png">
@@ -104,15 +104,15 @@ License: For each use you must have a valid license purchased only from above li
 	</div>
 
 	<!-- core:js -->
-	<script src="../../../assets/vendors/core/core.js"></script>
+	<script src="{% static 'assets/vendors/core/core.js' %}"></script>
 	<!-- endinject -->
 
 	<!-- Plugin js for this page -->
 	<!-- End plugin js for this page -->
 
 	<!-- inject:js -->
-	<script src="../../../assets/vendors/feather-icons/feather.min.js"></script>
-	<script src="../../../assets/js/app.js"></script>
+	<script src="{% static 'assets/vendors/feather-icons/feather.min.js' %}"></script>
+	<script src="{% static 'assets/js/app.js' %}"></script>
 	<!-- endinject -->
 
 	<!-- Custom js for this page -->
