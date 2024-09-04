@@ -721,7 +721,7 @@ progress {
     margin-top: -1rem;
     margin-bottom: 1rem;
     font-size: .875em;
-    color: #7987a1
+    color: #7982a1
 }
 
 .blockquote-footer::before {
@@ -15810,3 +15810,28 @@ footer {
     -webkit-box-shadow: 3px 0 10px 0 #03060b;
     box-shadow: 3px 0 10px 0 #03060b
 }
+.effect-icon {
+    animation: your-existing-animation; /* This should be the animation that was applied to the icon */
+    width: 50px; /* Adjust the size as needed */
+    height: auto;
+    /* Other styles for positioning, etc. */
+  }
+  .other-products {
+    padding: 60px 0;
+  }
+  
+  .section-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .section-header h2 {
+    font-size: 36px;
+  }
+  
+  .section-header p {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  
+  

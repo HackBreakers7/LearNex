@@ -87,73 +87,52 @@ License: For each use you must have a valid license purchased only from above li
             <a class="nav-item nav-link" href="documentation/docs.html" target="_blank">About us</a>
             <a class="nav-item nav-link" href="https://themeforest.net/item/nobleui-admin-dashboard-template/24606935/support" target="_blank">features</a>
             <a class="nav-item nav-link" href="https://themeforest.net/user/nobleui/portfolio" target="_blank">Gallery</a>
-            <a class="btn btn-outline-primary rounded-pill btn-sm px-3 mt-2 mt-md-0" href="https://1.envato.market/nobleui_admin" target="_blank"><span class="feather icon-shopping-cart me-1"></span> register</a>
+            <a class="nav-item nav-link" href="https://themeforest.net/user/nobleui/portfolio" target="_blank">FAQ</a>
+            <a class="nav-item nav-link" href="https://themeforest.net/user/nobleui/portfolio" target="_blank">contact us</a>
+            <a class="btn btn-outline-primary rounded-pill btn-sm px-3 mt-2 mt-md-0" href="{% url 'user_register' %}"></span> register</a>
+              <a class="btn btn-outline-primary rounded-pill btn-sm px-3 mt-2 mt-md-0" href="{% url 'new' %}"></span>  login</a>
           </div>
         </div>
       </div>
     </nav>
 
     <section class="landing-header">
-      <!-- <img src="images/header-bg2.png" class="landing-header-bg d-none d-md-block" alt="header-bg"> -->
       <div class="container h-100">
-        <div class="row h-100 align-items-center">
-          <div class="col-12 d-none">
-            <ul class="nav mb-5 justify-content-start justify-content-lg-center d-none d-sm-flex">
-              <a href="#" class="d-flex align-items-center btn btn-sm py-1 btn-primary rounded-pill me-2 mb-2 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="NobleUI HTML Version"><img src="images/logos/html.png" class="me-2" width="16" alt=""> <span>HTML</span></a>
-              <a href="https://nobleui.com/laravel/" target="_blank" class="d-flex align-items-center btn btn-sm py-1 btn-outline-primary rounded-pill me-2 mb-2 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="NobleUI Laravel Version"><img src="images/logos/laravel.png" class="me-2" width="16" alt=""> <span>Laravel</span></a>
-              <a href="https://nobleui.com/angular/" target="_blank" class="d-flex align-items-center btn btn-sm py-1 btn-outline-primary rounded-pill me-2 mb-2 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="NobleUI Angular Version"><img src="images/logos/angular.png" class="me-2" width="16" alt=""> <span>Angular</span></a>
-              <!-- <a href="https://nobleui.com/reactjs/" target="_blank" class="d-flex align-items-center btn btn-sm py-1 btn-outline-primary rounded-pill me-2 mb-2 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="NobleUI ReactJs Version"><img src="./images/logos/scss.png" class="me-2" width="16" alt=""> <span>ReactJs</span></a>
-              <a href="https://nobleui.com/vuejs/" target="_blank" class="d-flex align-items-center btn btn-sm py-1 btn-outline-primary rounded-pill mb-2 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="NobleUI VueJs Version"><img src="./images/logos/gulp.png" class="me-2" width="16" alt=""> <span>VueJs</span></a> -->
-            </ul>
-          </div>
-          <div class="col-lg-5">
-            <div class="d-flex align-items-start">
-              <h1 class="mb-4 fw-light"><span class="fw-bolder">Noble</span><span class="text-primary">UI - HTML</span></h1>
-              <span class="badge bg-secondary ms-2 mt-1 mt-lg-2">v 3.0</span>
-            </div>
-            <h3 class="mb-4">The most developer friendly and highly customizable <span style="color: #6571ff;">Bootstrap 5</span> Admin Dashboard Template.</h3>
-            <p class="mb-4 text-secondary">A professional package that comes with plenty of UI components, forms, tables, charts, pages and svg icons. Each one is fully customizable, responsive and easy to use.</p>
-            <a class="btn btn-primary rounded-pill px-3 btn-sm me-2" href="#demos">View Demos</a>
-            <a class="btn btn-outline-primary rounded-pill px-3 btn-sm" href="https://1.envato.market/nobleui_admin" target="_blank"><span class="feather icon-shopping-cart me-1"></span> Buy Now</a>
-
-            <div class="brand-logos d-flex align-items-center">
-              <img src="{% static 'images/logos/bootstrap.png' %}" alt="bootstrap">
-              <img src="{% static 'images/logos/html.png' %}" alt="html">
-              <img src="{ % static 'images/logos/css.png' %}" alt="css">
-              <img src="{% static 'images/logos/js.png' %}" alt="js">
-              <img src="{% static 'images/logos/npm.png' %}" alt="npm">
-              <img src="{5 static 'images/logos/scss.png' %}" alt="gulp">
-              <img src="{% static 'images/logos/gulp.png' %}" alt="gulp">
-            </div>
-          </div>
-          <div class="col-lg-7">
-            <div class="dashboard-img">
-              <img src="{% static 'images/dashboard.png' %}" class="img-fluid landing-header-bg d-none d-lg-block" alt="header-bg">
+        <div class="row h-100 justify-content-center align-items-center">
+          <div class="col-lg-7 text-center">
+            <div class="dashboard-video">
+              <iframe width="100%" height="315" 
+                      src="" 
+                      title="YouTube video player" frameborder="0" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                      allowfullscreen></iframe>
             </div>
           </div>
         </div>
       </div>
-
+    </section>
+    
+    
       <div class="animation-effect-1">
-        <i class="feather icon-circle effect-icon text-primary"></i>
+        <img src="{% static 'images/trophy.png' %}" class="effect-icon" alt="trophy-icon">
       </div>
       <div class="animation-effect-2">
-        <i class="feather icon-heart effect-icon text-danger"></i>
+       
       </div>
       <div class="animation-effect-3">
         <i class="feather icon-triangle effect-icon text-info"></i>
       </div>
       <div class="animation-effect-4">
-        <i class="feather icon-thumbs-up effect-icon text-success"></i>
+        <img src="{% static 'images/trophy.png' %}" class="effect-icon" alt="trophy-icon">
       </div>
-      <div class="animation-effect-5">
-        <i class="feather icon-square effect-icon text-info"></i>
-      </div>
+      <!-- <div class="animation-effect-5">
+        <img src="{% static 'images/pensile.png' %}" class="effect-icon" alt="pencil-icon">
+      </div> -->
       <div class="animation-effect-6">
-        <i class="feather icon-octagon effect-icon text-primary"></i>
+        <img src="{% static 'images/notebook.png' %}" class="effect-icon" alt="notebook-icon">
       </div>
       <div class="animation-effect-7">
-        <i class="feather icon-gift effect-icon text-danger"></i>
+        <img src="{% static 'images/aboutM.png' %}" class="effect-icon" alt="book-icon">
       </div>
 
     </section>
@@ -163,19 +142,19 @@ License: For each use you must have a valid license purchased only from above li
           <div class="row h-100 align-items-center">
               <div class="col-lg-7">
                   <div class="dashboard-img">
-                    <img src="{% static '' %}" alt="" height="500px" width="500px">
+                    <img src="{% static 'images/untitled design.jpg' %}"  height="500px" width="650px">
                       <!-- <img src="{% static 'images/dashboard.png' %}" class="img-fluid landing-header-bg d-none d-lg-block" alt="header-bg"> -->
                   </div>
               </div>
               <div class="col-lg-5">
                   <div class="d-flex align-items-start">
-                      <h1 class="mb-4 fw-light"><span class="fw-bolder">About</span><span class="text-primary">Us</span></h1>
-                      <span class="badge bg-secondary ms-2 mt-1 mt-lg-2">v 3.0</span>
+                      <h1 class="mb-4 fw-light"><span class="fw-bolder">About</span><span class="fw-light text-primary">Us</span></h1>
+                      <span class="badge bg-secondary ms-2 mt-1 mt-lg-2"></span>
                   </div>
-                  <h3 class="mb-4">Welcome to [Your Website Name], where learning meets fun! We are passionate about making education an exciting adventure for kids. Our mission is to create a smart, engaging, and playful learning environment that helps children discover their potential and develop a lifelong love for learning. <span style="color: #6571ff;">Bootstrap 5</span> Admin Dashboard Template.</h3>
+           <p>Welcome to<span class="text-primary"> Learn Nex</span> for Kids, where learning meets fun and creativity! Our platform is specially designed to make education an exciting adventure for young minds. We believe that every child is unique, and our system is built to adapt to each child's learning style, making education more personalized and effective.</p>
                   <p class="mb-4 text-secondary"></p>
                   <a class="btn btn-primary rounded-pill px-3 btn-sm me-2" href="#demos">Register</a>
-                  <a class="btn btn-outline-primary rounded-pill px-3 btn-sm" href="https://1.envato.market/nobleui_admin" target="_blank"><span class="feather icon-shopping-cart me-1"></span> Buy Now</a>
+                  <!-- <a class="btn btn-outline-primary rounded-pill px-3 btn-sm" href="https://1.envato.market/nobleui_admin" target="_blank"><span class="feather icon-shopping-cart me-1"></span> Buy Now</a> -->
   
                   <!-- <div class="brand-logos d-flex align-items-center">
                       <img src="{% static 'images/logos/bootstrap.png' %}" alt="bootstrap">
@@ -191,25 +170,28 @@ License: For each use you must have a valid license purchased only from above li
       </div>
   
       <div class="animation-effect-1">
-          <i class="feather icon-circle effect-icon text-primary"></i>
+        <img src="{% static 'images/notebook.png' %}" class="effect-icon" alt="notebook-icon">
       </div>
+      
       <div class="animation-effect-2">
-          <i class="feather icon-heart effect-icon text-danger"></i>
+        <img src="{% static 'images/pensile.png' %}" class="effect-icon" alt="pencil-icon">
       </div>
+      
       <div class="animation-effect-3">
-          <i class="feather icon-triangle effect-icon text-info"></i>
+        <img src="{% static 'images/pen.png' %}" class="effect-icon" alt="pen-icon">
       </div>
+      
       <div class="animation-effect-4">
-          <i class="feather icon-thumbs-up effect-icon text-success"></i>
+        <img src="{% static 'images/trophy.png' %}" class="effect-icon" alt="trophy-icon">
       </div>
       <div class="animation-effect-5">
-          <i class="feather icon-square effect-icon text-info"></i>
+        <img src="{% static 'images/G_cap.png' %}" class="effect-icon" alt="cap-icon">
       </div>
       <div class="animation-effect-6">
-          <i class="feather icon-octagon effect-icon text-primary"></i>
+        <img src="{% static 'images/G_cap.png' %}" class="effect-icon" alt="cap-icon">
       </div>
       <div class="animation-effect-7">
-          <i class="feather icon-gift effect-icon text-danger"></i>
+        <img src="{% static 'images/trophy.png' %}" class="effect-icon" alt="trophy-icon">
       </div>
   
   </section>
@@ -218,14 +200,138 @@ License: For each use you must have a valid license purchased only from above li
       <img src="images/blue-bg-curve.png" alt="bg" class="w-100">
     </div> -->
 
+    
+    <!-- <div class="bg-curve-shape inverse">
+      <img src="images/blue-bg-curve-inverse.png" alt="bg" class="w-100">
+    </div> -->
+
+    <section class="why">
+      <div class="container">
+        <header class="section-header">
+          <!-- <small>works</small> -->
+          <h2>Why Choose<span class="fw-light text-primary"><b> Learn</b></span><span class="fw-light text-primary"><b>Nex</b></span></h2>
+          <hr>
+          <p class="lead text-secondary"><b>"A smart educational hub that combines fun and learning, helping kids explore, discover, and grow"</b></p>
+        </header>
+        <div class="row">
+          <div class="col-md-6 col-xl-4 grid-margin item">
+            <div class="card">
+              <div class="card-body">
+                <div class="icon my-4 d-flex align-items-center justify-content-center">
+                  <img src="{% static 'images/e-leaning 5.png' %}"></img>
+                  
+                </div>
+                <div class="d-flex flex-column align-items-center text-center">
+                  <h5 class="mb-3">E-learning Platform</h5 class="mb-3">
+                  <p class="text-secondary">A child-friendly e-learning platform that makes education enjoyable through interactive games and engaging academic activities.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-xl-4 grid-margin item">
+            <div class="card">
+              <div class="card-body">
+                <div class="icon my-4 d-flex align-items-center justify-content-center">
+                  <img src="{% static 'images/abn.png' %}"></img>
+                </div>
+                <div class="d-flex flex-column align-items-center text-center">
+                  <h5 class="mb-3">Age-Based Navigation</h5 class="mb-3">
+                  <p class="text-secondary">Easy access to content based on the child’s age group or grade level (e.g., Junior KG, Senior KG, 1st Grade, etc.)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-4 grid-margin item">
+            <div class="card">
+              <div class="card-body">
+                <div class="icon my-4 d-flex align-items-center justify-content-center">
+                  <img src="{% static 'images/ic2.1.jpeg' %}"></img>
+                </div>
+                <div class="d-flex flex-column align-items-center text-center">
+                  <h5 class="mb-3">Interactive Carousel</h5 class="mb-3">
+                  <p class="text-secondary">key features like 3D animations, canvas tools, educational games, and extracurricular activities with clickable icons or images..</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-4 grid-margin item">
+            <div class="card">
+              <div class="card-body">
+                <div class="icon my-4 d-flex align-items-center justify-content-center">
+                  <img src="{% static 'images/GL1.jpeg' %}"></img>
+                </div>
+                <div class="d-flex flex-column align-items-center text-center">
+                  <h5 class="mb-3">Gamified Learning</h5 class="mb-3">
+                  <p class="text-secondary">rewards system where kids can earn badges, stars, or points for completing tasks and reaching milestones..</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-xl-4 grid-margin item">
+            <div class="card">
+              <div class="card-body">
+                <div class="icon my-4 d-flex align-items-center justify-content-center">
+                  <img src="{% static 'images/visual progress report.png' %}"></img>
+                </div>
+                <div class="d-flex flex-column align-items-center text-center">
+                  <h5 class="mb-3">Visual Progress Reports</h5 class="mb-3">
+                  <p class="text-secondary"> you can Monitor your child’s growth with our detailed graphical progress reports..</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <div class="col-md-6 col-xl-4 grid-margin item">
+            <div class="card">
+              <div class="card-body">
+                <div class="icon my-4 d-flex align-items-center justify-content-center">
+                  <img src="{% static 'images/beyond the syllabus.png' %}"></img>
+                </div>
+                <div class="d-flex flex-column align-items-center text-center">
+                  <h5 class="mb-3">Beyond the Syllabus</h5 class="mb-3">
+                  <p class="text-secondary">  To explore a world of extra-curricular activities to enrich your child's education and nurture diverse talents.
+                    .</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="animation-effect-1">
+        <img src="{% static 'images/notebook.png' %}" class="effect-icon" alt="notebook-icon">
+      </div>
+      <div class="animation-effect-2">
+        <img src="{% static 'images/trophy.png' %}" class="effect-icon" alt="trophy-icon">
+      </div>
+      <div class="animation-effect-3">
+        <img src="{% static 'images/pensile.png' %}" class="effect-icon" alt="pensile-icon">
+      </div>
+      <div class="animation-effect-4">
+        <img src="{% static 'images/pen.png' %}" class="effect-icon" alt="pen-icon">
+      </div>
+      <div class="animation-effect-5">
+        <img src="{% static 'images/pensile.png' %}" class="effect-icon" alt="pensile-icon"> 
+      </div>
+      <div class="animation-effect-6">
+        <img src="{% static 'images/trophy.png' %}" class="effect-icon" alt="trophy-icon">
+      </div>
+      <div class="animation-effect-7">
+        <img src="{% static 'images/pensile.png' %}" class="effect-icon" alt="pensile-icon">
+      </div>
+    </section>
+
     <section class="demos" id="demos">
       <div class="container">
         <header class="section-header">
           <!-- <small>options</small> -->
-          <h2>What We Offer</h2>
+          <h2><span class="fw-light text-primary"><b>Gallery</b></span></h2>
           <hr>
-          <p class="lead text-secondary">NobleUI is beautifully crafted, clean & modern designed admin theme
-            with different demos.</p>
+          <p class="lead text-secondary"><b>"Discover the moments that define our students' journey to success"</b></p>
         </header>
         <div class="row">
           <div class="col-md-6 col-lg-4 grid-margin">
@@ -235,7 +341,7 @@ License: For each use you must have a valid license purchased only from above li
               <a href="template/demo1-rtl/dashboard.html?theme=light" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
             </div>
             <a href="template/demo1/dashboard.html?theme=light" target="_blank" class="item">
-              <img src="{% static '' %}" alt="" height="250px" width="250px">
+              <img src="{% static 'images/front.png' %}" alt="" height="250px" width="250px">
             </a>
           </div>
           <div class="col-md-6 col-lg-4 grid-margin">
@@ -245,27 +351,27 @@ License: For each use you must have a valid license purchased only from above li
               <a href="template/demo1-ds-rtl/dashboard.html?theme=light" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
             </div>
             <a href="template/demo1-ds/dashboard.html?theme=light" target="_blank" class="item">
-              <img src="{% static '' %}" alt="" height="250px" width="250px">
+              <img src="{% static 'images/download.png' %}" alt="" height="250px" width="250px">
             </a>
           </div>
           <div class="col-md-6 col-lg-4 grid-margin">
             <h4 class="mb-3 mt-4 text-center fw-normal">Vertical Menu - Dark</h4>
             <div class="d-flex justify-content-center mb-4">
-              <a href="template/demo1/dashboard-1.html?theme=dark" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
-              <a href="template/demo1-rtl/dashboard-1.html?theme=dark" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
+              <!-- <a href="template/demo1/dashboard-1.html?theme=dark" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2"></a>
+              <a href="template/demo1-rtl/dashboard-1.html?theme=dark" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a> -->
             </div>
             <a href="template/demo1/dashboard-1.html?theme=dark" target="_blank" class="item">
-              <img src="{% static '' %}" alt="" height="250px" width="250px">
+              <img src="{% static 'images/new3.1.png' %}" alt="" height="250px" width="250px">
             </a>
           </div>
           <div class="col-md-6 col-lg-4 grid-margin">
             <h4 class="mb-3 mt-4 text-center fw-normal">Horizontal Menu - Light</h4>
             <div class="d-flex justify-content-center mb-4">
-              <a href="template/demo2/dashboard.html?theme=light" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
-              <a href="template/demo2-rtl/dashboard.html?theme=light" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
+              <!-- <a href="template/demo2/dashboard.html?theme=light" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
+              <a href="template/demo2-rtl/dashboard.html?theme=light" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a> -->
             </div>
             <a href="template/demo2/dashboard.html?theme=light" target="_blank" class="item">
-              <img src="{% static '' %}" alt="" height="250px" width="250px">
+              <img src="{% static 'images/new5.png' %}" alt="" height="250px" width="250px">
             </a>
           </div>
           <div class="col-md-6 col-lg-4 grid-margin">
@@ -275,7 +381,7 @@ License: For each use you must have a valid license purchased only from above li
               <a href="template/demo2-dh-rtl/dashboard.html?theme=light" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
             </div>
             <a href="template/demo2-dh/dashboard.html?theme=light" target="_blank" class="item">
-              <img src="{% static '' %}" alt="" height="250px" width="250px">
+              <img src="{% static 'images/new3.1.png' %}" alt="" height="250px" width="250px">
             </a>
           </div>
           <div class="col-md-6 col-lg-4 grid-margin">
@@ -285,10 +391,26 @@ License: For each use you must have a valid license purchased only from above li
               <a href="template/demo2-rtl/dashboard-1.html?theme=dark" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
             </div>
             <a href="template/demo2/dashboard-1.html?theme=dark" target="_blank" class="item">
-              <img src="{% static '' %}" alt="" height="250" width="250">
+              <img src="{% static 'images/new5.png' %}" alt="" height="250" width="250">
             </a>
           </div>
         </div>
+        <div class="animation-effect-1">
+          <img src="{% static 'images/notebook.png' %}" class="effect-icon" alt="notebook-icon">
+        </div>
+        <div class="animation-effect-4">
+          <img src="{% static 'images/trophy.png' %}" class="effect-icon" alt="trophy-icon">
+        </div>
+        <div class="animation-effect-5">
+          <img src="{% static 'images/G_cap.png' %}" class="effect-icon" alt="cap-icon">
+        </div>
+        <div class="animation-effect-6">
+          <img src="{% static 'images/G_cap.png' %}" class="effect-icon" alt="cap-icon">
+        </div>
+        <div class="animation-effect-7">
+          <img src="{% static 'images/trophy.png' %}" class="effect-icon" alt="trophy-icon">
+        </div>
+        
         
         <!-- <header class="section-header mt-5 pt-5">
           <h2>Applications</h2>
@@ -420,128 +542,11 @@ License: For each use you must have a valid license purchased only from above li
 
     </section>
 
-    <!-- <div class="bg-curve-shape inverse">
-      <img src="images/blue-bg-curve-inverse.png" alt="bg" class="w-100">
-    </div> -->
-
-    <section class="why">
+    <!-- <section class="licenses">
       <div class="container">
         <header class="section-header">
-          <!-- <small>works</small> -->
-          <h2>Why Choose <span class="fw-bolder">Noble</span><span class="fw-light text-primary">UI</span></h2>
-          <hr>
-          <p class="lead text-secondary">A responsive bootstrap admin template built for everyone who wants to create webapps on top of Bootstrap.</p>
-        </header>
-        <div class="row">
-          <div class="col-md-6 col-xl-4 grid-margin item">
-            <div class="card">
-              <div class="card-body">
-                <div class="icon my-4 d-flex align-items-center justify-content-center">
-                  <i class="feather icon-code icon-xxl text-primary"></i>
-                </div>
-                <div class="d-flex flex-column align-items-center text-center">
-                  <h5 class="mb-3">Clean Code</h5 class="mb-3">
-                  <p class="text-secondary">Our developers love to keep their code elegant and clean. Every commits are tested before it goes to live!</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-xl-4 grid-margin item">
-            <div class="card">
-              <div class="card-body">
-                <div class="icon my-4 d-flex align-items-center justify-content-center">
-                  <i class="feather icon-smartphone icon-xxl text-primary"></i>
-                </div>
-                <div class="d-flex flex-column align-items-center text-center">
-                  <h5 class="mb-3">Responsive Layout</h5 class="mb-3">
-                  <p class="text-secondary">Our themes are tested on different devices and view sizes to serve you a better user experience.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-xl-4 grid-margin item">
-            <div class="card">
-              <div class="card-body">
-                <div class="icon my-4 d-flex align-items-center justify-content-center">
-                  <i class="feather icon-message-square icon-xxl text-primary"></i>
-                </div>
-                <div class="d-flex flex-column align-items-center text-center">
-                  <h5 class="mb-3">Amazing Support</h5 class="mb-3">
-                  <p class="text-secondary">A group of dedicated support crews are ready to serve you when you need them most, even in holidays and weekends.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-xl-4 grid-margin item">
-            <div class="card">
-              <div class="card-body">
-                <div class="icon my-4 d-flex align-items-center justify-content-center">
-                  <i class="feather icon-feather icon-xxl text-primary"></i>
-                </div>
-                <div class="d-flex flex-column align-items-center text-center">
-                  <h5 class="mb-3">Impressive Design</h5 class="mb-3">
-                  <p class="text-secondary">Our themes are carefully designed with trendy touch. Each theme represents an elegant choice of typography, ui components and personality.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-xl-4 grid-margin item">
-            <div class="card">
-              <div class="card-body">
-                <div class="icon my-4 d-flex align-items-center justify-content-center">
-                  <i class="feather icon-edit icon-xxl text-primary"></i>
-                </div>
-                <div class="d-flex flex-column align-items-center text-center">
-                  <h5 class="mb-3">Easy Customization</h5 class="mb-3">
-                  <p class="text-secondary">To make sure that no one gets lost in a pool of cluttered configurations and options, our admins panels are always designed keeping simplicity in mind.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-xl-4 grid-margin item">
-            <div class="card">
-              <div class="card-body">
-                <div class="icon my-4 d-flex align-items-center justify-content-center">
-                  <i class="feather icon-gift icon-xxl text-primary"></i>
-                </div>
-                <div class="d-flex flex-column align-items-center text-center">
-                  <h5 class="mb-3">Free Updates</h5 class="mb-3">
-                  <p class="text-secondary">You're guaranteed to get all the future updates after you purchase a theme. And it will not cost you a single Time! All updates are completely free.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="animation-effect-1">
-        <i class="feather icon-circle effect-icon text-primary"></i>
-      </div>
-      <div class="animation-effect-2">
-        <i class="feather icon-heart effect-icon text-danger"></i>
-      </div>
-      <div class="animation-effect-3">
-        <i class="feather icon-triangle effect-icon text-info"></i>
-      </div>
-      <div class="animation-effect-4">
-        <i class="feather icon-thumbs-up effect-icon text-success"></i>
-      </div>
-      <div class="animation-effect-5">
-        <i class="feather icon-square effect-icon text-info"></i>
-      </div>
-      <div class="animation-effect-6">
-        <i class="feather icon-octagon effect-icon text-primary"></i>
-      </div>
-      <div class="animation-effect-7">
-        <i class="feather icon-gift effect-icon text-danger"></i>
-      </div>
-    </section>
-
-    <section class="licenses">
-      <div class="container">
-        <header class="section-header">
-          <!-- <small>works</small> -->
-          <h2>Licenses</h2>
+           <small>works</small> -->
+          <!-- <h2>Licenses</h2>
           <hr>
           <p class="lead text-secondary">Do you have any questions about the Envato Licenses? Please check the <a href="https://themeforest.net/licenses/faq" target="_blank">Envato License FAQ</a>.</p>
         </header>
@@ -583,80 +588,75 @@ License: For each use you must have a valid license purchased only from above li
         </div>
       </div>
     </section>
-
+ -->
 
     <section class="faq">
       <div class="container">
         <header class="section-header">
           <!-- <small>works</small> -->
           <!-- <h2>FAQ</h2> -->
-          <h2>Frequently Asked Questions</h2>
+          <h2><span class="fw-light text-primary"><b>Frequently Asked Questions</b></span></h2>
           <hr>
-          <p class="lead text-secondary">Do you have any auestion? Here are some of the basic types of questions for our customers. If you have some other questions, feel free to <a href="https://themeforest.net/item/nobleui-admin-dashboard-template/24606935/support" target="_blank">contact us</a>.</p>
+          <p class="lead text-secondary"><b>"Have questions? Here are some common queries from our users. If you need further assistance, feel free to ask"</b><a href="https://themeforest.net/item/nobleui-admin-dashboard-template/24606935/support" target="_blank"><b>contact us</b></a>.</p>
         </header>
         <div class="accordion col-md-10 col-lg-8 col-xxl-7 mx-auto" id="accordionExample">
           <div class="accordion-item border mb-3">
             <h2 class="accordion-header" id="headingOne">
               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Do you charge for each upgrade?
+                How is the content structured for different grades?
               </button>
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
               <div class="accordion-body">
-                Not at all. Once you purchase a license, you'll receive all future releases for free.
+                Our content is carefully structured to match the learning needs of each grade from 1st to 5th. Each grade level has tailored lessons, exercises, and quizzes that align with educational standards.
               </div>
             </div>
           </div>
           <div class="accordion-item border mb-3">
             <h2 class="accordion-header" id="headingTwo">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Do I need to purchase a license for each website?
+                What kind of interactive activities are available?
               </button>
             </h2>
             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
               <div class="accordion-body">
-                Yes, you need to have a separate license for each website. You might need to purchase extended license for your web application.
+               We offer a variety of interactive activities including educational games, quizzes, and puzzles that reinforce learning while making it fun. These activities are designed to enhance understanding and retention.
               </div>
             </div>
           </div>
           <div class="accordion-item border mb-3">
             <h2 class="accordion-header" id="headingThree">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                What is regular license?
+                How do you ensure the safety and privacy of students?
               </button>
             </h2>
             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
               <div class="accordion-body">
-                Regular license can be used for end products that do not charge users for access or service(access is free and there will be no monthly subscription fee). 
-                Single regular license can be used for single end product and end product can be used by you or your client. If you want to sell end product to multiple 
-                clients then you will need to purchase separate license for each client. The same rule applies if you want to use the same end product on multiple domains(unique setup). 
-                For more info on regular license you can check official description.
+                Yes, our platform is accessible on various devices including tablets, smartphones, and desktop computers. This ensures your child can learn anytime, anywhere.
               </div>
             </div>
           </div>
           <div class="accordion-item border mb-3">
             <h2 class="accordion-header" id="headingFour">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                What is extended license?
+                                How often is the content updated?
               </button>
             </h2>
             <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
               <div class="accordion-body">
-                Extended license can be used for end products(web service or SaaS) that charges users for access or service(e.g: monthly subscription fee). 
-                Single extended license can be used for single end product and end product can be used by you or your client. If you want to sell end product to multiple clients then you will need to purchase separate extended license for each client. 
-                The same rule applies if you want to use the same end product on multiple domains(unique setup). For more info on extended licenses you can check official description.
+                Our content is regularly updated to ensure it remains current and relevant. We also add new lessons and activities periodically to keep the learning experience fresh and engaging.
               </div>
             </div>
           </div>
           <div class="accordion-item border mb-3">
             <h2 class="accordion-header" id="headingFive">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                Which license is applicable for SaaS application?
+                Can teachers use this platform in the classroom?
               </button>
             </h2>
             <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
               <div class="accordion-body">
-                If you are charging your customer for using your SaaS based application you must buy an Extended License for each end product. If you aren't charging your customer then purchase Regular License for each end product.
+                Yes, teachers can integrate our platform into their classroom activities. We provide tools for teachers to track student progress and assign specific lessons or activities as needed.
               </div>
             </div>
           </div>
@@ -674,94 +674,119 @@ License: For each use you must have a valid license purchased only from above li
           </div>
         </div>
       </div>
+      <div class="animation-effect-1">
+        <img src="{% static 'images/notebook.png' %}" class="effect-icon" alt="notebook-icon">
+      </div>
+      <div class="animation-effect-2">
+        <img src="{% static 'images/trophy.png' %}" class="effect-icon" alt="trophy-icon">
+      </div>
+      <div class="animation-effect-3">
+        <img src="{% static 'images/pensile.png' %}" class="effect-icon" alt="pensile-icon">
+      </div>
+      <div class="animation-effect-4">
+        <img src="{% static 'images/pen.png' %}" class="effect-icon" alt="pen-icon">
+      </div>
+      <div class="animation-effect-5">
+        <img src="{% static 'images/pensile.png' %}" class="effect-icon" alt="pensile-icon"> 
+      </div>
+      <div class="animation-effect-6">
+        <img src="{% static 'images/trophy.png' %}" class="effect-icon" alt="trophy-icon">
+      </div>
+      <div class="animation-effect-7">
+        <img src="{% static 'images/pensile.png' %}" class="effect-icon" alt="pensile-icon">
+      </div>
     </section>
+    <div class="animation-effect-5">
+      <img src="{% static 'images/G_cap.png' %}" class="effect-icon" alt="cap-icon">
+    </div>
     
     <section class="other-products">
       <div class="container">
-
         <header class="section-header">
-          <!-- <small>options</small> -->
-          <h2>Other Products</h2>
+          <h2>Contact <span class="fw-light text-primary">Us</span></h2>
           <hr>
-          <p class="lead text-secondary">NobleUI Laravel and Angular versions are available as separate products.</p>
+          <p class="lead text-secondary"><b>"Have questions or need assistance? Reach out to us, and we'll help you on your learning journey!"</b></p>
         </header>
-        <div class="row justify-content-center">
-          <div class="col-md-6 col-lg-4 grid-margin">
-            <h4 class="mb-3 mt-4 text-center fw-normal"><img src="images/logos/laravel.png" width="23" class="mb-1 me-1" alt="NobleUI - Laravel"> NobleUI - Laravel</h4>
-            <div class="d-flex justify-content-center mb-4">
-              <a href="https://nobleui.com/laravel/" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Check Now <span class="feather icon-arrow-right ms-1"></span></a>
-              <a href="https://1.envato.market/nobleui_laravel" target="_blank" class="btn btn-inverse-primary btn-sm py-1"><span class="feather icon-shopping-cart me-1"></span> Buy Now</a>
-            </div>
-            <a href="https://nobleui.com/laravel/" target="_blank" class="item">
-              <img src="{% static 'images/laravel-cover.jpg' %}" alt="nobleui" class="d-block mx-auto w-90">
-            </a>
+        <div class="row justify-content-center align-items-center">
+          <!-- Left Image Column -->
+          <div class="col-lg-4 col-md-5 text-center mb-4">
+            <img src="{% static 'images/contact us.png' %}" alt="Contact Image" class="img-fluid" style="max-width: 100%; height: auto;">
           </div>
-          <div class="col-md-6 col-lg-4 grid-margin">
-            <h4 class="mb-3 mt-4 text-center fw-normal"><img src="images/logos/angular.png" width="23" class="mb-1 me-1" alt="NobleUI - Angular"> NobleUI - Angular</h4>
-            <div class="d-flex justify-content-center mb-4">
-              <a href="https://nobleui.com/angular/" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Check Now <span class="feather icon-arrow-right ms-1"></span></a>
-              <a href="https://1.envato.market/nobleui_angular" target="_blank" class="btn btn-inverse-primary btn-sm py-1"><span class="feather icon-shopping-cart me-1"></span> Buy Now</a>
-            </div>
-            <a href="https://nobleui.com/angular/" target="_blank" class="item">
-              <img src="{% static 'images/angular-cover.jpg' %}" alt="nobleui" class="d-block mx-auto w-90">
-            </a>
+          <!-- Right Form Column -->
+          <div class="col-lg-6 col-md-7">
+            <form class="forms-sample">
+              <div class="mb-3 row">
+                <label for="inputName" class="col-sm-3 col-form-label">Name</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="inputName" placeholder="Your Name">
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
+                <div class="col-sm-9">
+                  <input type="email" class="form-control" id="inputEmail" placeholder="Your Email" autocomplete="off">
+                </div>
+              </div>  
+              <div class="mb-3 row">
+                <label for="inputSubject" class="col-sm-3 col-form-label">Subject</label>
+                <div class="col-sm-9">  
+                  <input type="text" class="form-control" id="inputSubject" placeholder="Subject">
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="inputMessage" class="col-sm-3 col-form-label">Message</label>
+                <div class="col-sm-9">
+                  <textarea class="form-control" id="inputMessage" rows="5" placeholder="Your Message"></textarea>
+                </div>
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary me-2">Submit</button>
+                <button type="reset" class="btn btn-secondary">Cancel</button>
+              </div>
+            </form>
           </div>
         </div>
-
+        <div class="animation-effect-1">
+          <img src="{% static 'images/notebook.png' %}" class="effect-icon" alt="notebook-icon">
+        </div>
+        <div class="animation-effect-2">
+          <img src="{% static 'images/trophy.png' %}" class="effect-icon" alt="trophy-icon">
+        </div>
+        <div class="animation-effect-3">
+          <img src="{% static 'images/pensile.png' %}" class="effect-icon" alt="pensile-icon">
+        </div>
+        <div class="animation-effect-4">
+          <img src="{% static 'images/pen.png' %}" class="effect-icon" alt="pen-icon">
+        </div>
+        <div class="animation-effect-5">
+          <img src="{% static 'images/pensile.png' %}" class="effect-icon" alt="pensile-icon"> 
+        </div>
+        <div class="animation-effect-6">
+          <img src="{% static 'images/trophy.png' %}" class="effect-icon" alt="trophy-icon">
+        </div>
+        <div class="animation-effect-7">
+          <img src="{% static 'images/pensile.png' %}" class="effect-icon" alt="pensile-icon">
+        </div>
+      </div>
+    </section>
+    
+    
       </div>
     </section>
 
-    <section class="request-feature py-5">
+    <!-- <section class="request-feature py-5">
       <div class="container">
         <h2 class="mb-3">Request Feature</h2>
         <p class="mb-3 text-secondarys">Missing anything or need more features to complete your project? Or you have something specific in your mind? We’re happy for any new ideas or features.</p>
         <a href="https://themeforest.net/item/nobleui-admin-dashboard-template/24606935/support" target="_blank" class="btn btn-primary btn-sm">Let Us Know <span class="feather icon-arrow-right"></span></a>
       </div>
-    </section>
+    </section> -->
 
-      <footer>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6">
-              <img src="{% static 'images/logo-light.png' %}" class="logo-light mb-4" width="30" class="mb-4" alt="nobleui">
-              <img src="{% static 'images/logo-dark.png'%}" class="logo-dark mb-4" width="30" class="mb-4" alt="nobleui">
-              <p class="text-secondary tx-14s pe-xl-5 me-md-4 mb-5 mb-md-0">A professional package that comes with plenty of UI components, forms, tables, charts, pages and svg icons. Each one is fully customizable, responsive and easy to use.</p>
-            </div>
-            <div class="col-6 col-md-3">
-              <h6 class="text-secondary mb-4 fw-bold">Quick links</h6>
-              <ul class="list-unstyled">
-                <li><a href="https://themeforest.net/item/nobleui-admin-dashboard-template/24606935/support" target="_blank" class="tx-14">Support</a></li>
-                <li><a href="documentation/docs.html" target="_blank" class="tx-14">Documentation</a></li>
-                <li><a href="https://themeforest.net/user/nobleui/portfolio" target="_blank" class="tx-14">Portfolio</a></li> 
-              </ul>
-            </div>
-            <div class="col-6 col-md-3">
-              <h6 class="text-secondary mb-4 fw-bold">Find Us</h6>
-              <div class="d-flex">
-                <a href="javascript:;">
-                  <i class="feather icon-github icon-sm me-3"></i>
-                </a>
-                <a href="javascript:;">
-                  <i class="feather icon-twitter icon-sm me-3"></i>
-                </a>
-                <a href="javascript:;">
-                  <i class="feather icon-linkedin icon-sm me-3"></i>
-                </a>
-                <a href="javascript:;">
-                  <i class="feather icon-facebook icon-sm me-3"></i>
-                </a>
-                <a href="javascript:;">
-                  <i class="feather icon-instagram icon-sm me-3"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      
       <div class="footer-bottom py-3">
         <div class="container">
           <div class="d-flex align-items-center justify-content-center">
-            <p class="text-secondary">Copyright © 2024 <a href="https://www.nobleui.com" target="_blank" class="text-secondary">NobleUI</a>.</p>
+            <p class="text-secondary" ><a href="https://www.nobleui.com" target="_blank" class="text-secondary">LearnNex</a>.</p>
           </div>
         </div>
       </div>
@@ -770,6 +795,9 @@ License: For each use you must have a valid license purchased only from above li
 
   <script src="{% static 'plugins/bootstrap/bootstrap.bundle.min.js' %}"></script>
   <script src="{% static 'js/script.js' %}"></script>
+
+  
+  
 
 </body>
 </html>
