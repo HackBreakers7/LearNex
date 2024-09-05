@@ -1,4 +1,5 @@
 ﻿{% load static %}
+
 <!DOCTYPE html>
 <!--
 Template Name: NobleUI - HTML Bootstrap 5 Admin Dashboard Template
@@ -10,203 +11,226 @@ Purchase: https://1.envato.market/nobleui_admin
 License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
 -->
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="description" content="Responsive HTML Admin Dashboard Template based on Bootstrap 5">
-	<meta name="author" content="NobleUI">
-	<meta name="keywords" content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
-	<title>Learn Nex</title>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Responsive HTML Admin Dashboard Template based on Bootstrap 5">
+    <meta name="author" content="NobleUI">
+    <meta name="keywords"
+      content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
-  <!-- color-modes:js -->
-  <script src="{% static 'assets/js/color-modes.js' %}"></script>
-  <!-- endinject -->
+    <title>Learn Nex</title>
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="../../../../../css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-  <!-- End fonts -->
+    <!-- color-modes:js -->
+    <script src="{% static 'assets/js/color-modes.js' %}"></script>
+    <!-- endinject -->
 
-	<!-- core:css -->
-	<link rel="stylesheet" href="{% static 'assets/vendors/core/core.css' %}">
-	<!-- endinject -->
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="../../../../../css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- End fonts -->
 
-	<!-- Plugin css for this page -->
-	<!-- End plugin css for this page -->
+    <!-- core:css -->
+    <link rel="stylesheet" href="{% static 'assets/vendors/core/core.css' %}">
+    <!-- endinject -->
 
-	<!-- inject:css -->
-	<link rel="stylesheet" href="{% static 'assets/fonts/feather-font/css/iconfont.css' %}">
-	<!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
 
-  <!-- Layout styles -->  
-	<link rel="stylesheet" href="{% static 'assets/css/demo1/style.css' %}">
-  <!-- End layout styles -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{% static 'assets/fonts/feather-font/css/iconfont.css' %}">
+    <!-- endinject -->
 
-  <link rel="shortcut icon" href="{% static 'assets/images/favicon.png' %}">
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="{% static 'assets/css/demo1/style.css' %}">
+    <!-- End layout styles -->
 
-  <style>
-    .table-container {
-      padding: 20px;
-    }
-    .table th, .table td {
-      text-align: center;
-    }
-    .table {
-      width: 100%;
-      margin-bottom: 1rem;
-      color: #212529;
-      border-collapse: collapse;
-    }
-    .table thead th {
-      vertical-align: bottom;
-      border-bottom: 2px solid #dee2e6;
-    }
-    .table tbody + tbody {
-      border-top: 2px solid #dee2e6;
-    }
-    .table .table {
-      background-color: #fff;
-    }
-    .table-bordered {
-      border: 1px solid #dee2e6;
-    }
-    .table-bordered th, .table-bordered td {
-      border: 1px solid #dee2e6;
-    }
-  </style>
-</head>
-<body>
-	<div class="main-wrapper">
-    <div class="page-wrapper full-page">
-      <div class="page-content d-flex align-items-center justify-content-center">
-        <div class="row w-100 mx-0 auth-page">
-          <div class="col-md-10 col-lg-8 col-xl-6 mx-auto">
-            <div class="card">
-              <div class="row">
-                <div class="col-md-4 pe-md-0">
-                  <div class="image"><img src="{% static 'images/childrens.png' %}"></div>
-                </div>
-               
-                <div class="col-md-8 ps-md-0">
-                  <div class="auth-form-wrapper px-4 py-5">
-                    <a href="#" class="nobleui-logo d-block mb-2"><span></span></a>
-                    <h3>Register</h3>
-                    <h5 class="text-secondary fw-normal mb-4">Create a free account.</h5>
-                    <form class="forms-sample">
-                      <!-- Row for Username and Email -->
-                      <div class="row">
-                        <div class="col-md-6 mb-3">
-                          <label for="username" class="form-label">Username</label>
-                          <input type="text" class="form-control" id="username" autocomplete="username" placeholder="Username">
-                        </div>
-                        <div class="col-md-6 mb-3">
-                          <label for="email" class="form-label">Email address</label>
-                          <input type="email" class="form-control" id="email" placeholder="Email address">
-                        </div>
-                      </div>
-                      <!-- Row for Password and Confirm Password -->
-                      <div class="row">
-                        <div class="col-md-6 mb-3">
-                          <label for="password" class="form-label">Password</label>
-                          <input type="password" class="form-control" id="password" autocomplete="current-password" placeholder="Password">
-                        </div>
-                        <div class="col-md-6 mb-3">
-                          <label for="confirmPassword" class="form-label">Confirm Password</label>
-                          <input type="password" class="form-control" id="confirmPassword" autocomplete="current-password" placeholder="Confirm Password">
-                        </div>
-                      </div>
-                      <!-- Row for Date of Birth and Standard -->
-                      <div class="row">
-                        <div class="col-md-6 mb-3">
-                          <label for="dob" class="form-label">Date of Birth</label>
-                          <input type="date" class="form-control" id="dob">
-                        </div>
-                        <div class="col-md-6 mb-3">
-                          <label for="standard" class="form-label">Standard</label>
-                          <input type="text" class="form-control" id="standard" placeholder="Standard">
-                        </div>
-                      </div>
-                      <!-- Row for Educational Board and Address -->
-                      <div class="row">
-                        <div class="col-md-6 mb-3">
-                          <label for="board" class="form-label">Educational Board</label>
-                          <select class="form-select" id="board">
-                            <option value="" selected disabled>Select Board</option>
-                            <option value="maharashtra">Maharashtra Board</option>
-                            <option value="cbse">CBSE</option>
-                            <option value="icse">ICSE</option>
-                          </select>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                          <label for="address" class="form-label">Address</label>
-                          <textarea class="form-control" id="address" rows="2" placeholder="Address"></textarea>
-                        </div>
-                      </div>
-                      <!-- Row for Parent/Guardian Name and Parent Email -->
-                      <div class="row">
-                        <div class="col-md-6 mb-3">
-                          <label for="parentName" class="form-label">Parent/Guardian Name</label>
-                          <input type="text" class="form-control" id="parentName" placeholder="Parent/Guardian Name">
-                        </div>
-                        <div class="col-md-6 mb-3">
-                          <label for="parentEmail" class="form-label">Parent/Guardian Email</label>
-                          <input type="email" class="form-control" id="parentEmail" placeholder="Parent/Guardian Email">
-                        </div>
-                      </div>
-                      <!-- Row for Contact Number and Profile Picture -->
-                      <div class="row">
-                        <div class="col-md-6 mb-3">
-                          <label for="contactNo" class="form-label">Contact Number</label>
-                          <input type="tel" class="form-control" id="contactNo" placeholder="Contact Number">
-                        </div>
-                        <div class="col-md-6 mb-3">
-                          <label for="profilePicture" class="form-label">Profile Picture</label>
-                          <input type="file" class="form-control" id="profilePicture">
-                        </div>
-                      </div>
-                      <!-- Remaining Fields -->
-                      <div class="mb-3">
-                        <label for="schoolName" class="form-label">School Name</label>
-                        <input type="text" class="form-control" id="schoolName" placeholder="School Name">
-                      </div>
-                      <div class="mb-3">
-                        <label for="hobbies" class="form-label">Hobbies</label>
-                        <input type="text" class="form-control" id="hobbies" placeholder="Hobbies (comma separated)">
-                      </div>
-                      <div>
-                        <a href="../../dashboard-2.html" class="btn btn-primary text-white me-2 mb-2 mb-md-0">Sign up</a>
-                      </div>
-                      <a href="login.html" class="d-block mt-3 text-secondary">Already a user? Sign in</a>
-                    </form>
+    <link rel="shortcut icon" href="{% static 'assets/images/favicon.png' %}">
+
+    <style>
+      .table-container {
+        padding: 20px;
+      }
+
+      .table th,
+      .table td {
+        text-align: center;
+      }
+
+      .table {
+        width: 100%;
+        margin-bottom: 1rem;
+        color: #212529;
+        border-collapse: collapse;
+      }
+
+      .table thead th {
+        vertical-align: bottom;
+        border-bottom: 2px solid #dee2e6;
+      }
+
+      .table tbody+tbody {
+        border-top: 2px solid #dee2e6;
+      }
+
+      .table .table {
+        background-color: #fff;
+      }
+
+      .table-bordered {
+        border: 1px solid #dee2e6;
+      }
+
+      .table-bordered th,
+      .table-bordered td {
+        border: 1px solid #dee2e6;
+      }
+
+    </style>
+  </head>
+
+  <body>
+<div class="main-wrapper">
+  <div class="page-wrapper full-page">
+    <div class="page-content d-flex align-items-center justify-content-center">
+      <div class="row w-100 mx-0 auth-page">
+        <div class="col-md-12 col-lg-10 mx-auto">
+          <div class="card">
+            <div class="auth-form-wrapper px-4 py-5">
+              <!-- Image at the top -->
+              <div class="image mb-4">
+                <img src="{% static 'images/childrens.png' %}" alt="Image" style="margin-left: 25%;">
+              </div>
+              <!-- Heading in the center -->
+              <h3 class="text-center">Register</h3>
+              <h5 class="text-secondary text-center fw-normal mb-4">Create a free account.</h5>
+              <!-- Registration form -->
+              <form class="forms-sample" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <!-- Row for Username and Email -->
+                <div class="row mb-3">
+                  <div class="col-md-6 mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Username"
+                      value="{{ form.username.value }}">
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email address"
+                      value="{{ form.email.value }}">
                   </div>
                 </div>
-              </div>
+                <!-- Row for Password and Confirm Password -->
+                <div class="row mb-3">
+                  <div class="col-md-6 mb-3">
+                    <label for="password1" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password1" name="password1"
+                      autocomplete="current-password" placeholder="Password">
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="password2" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" id="password2" name="password2"
+                      autocomplete="current-password" placeholder="Confirm Password">
+                  </div>
+                </div>
+                <!-- Row for Date of Birth and Standard -->
+                <div class="row mb-3">
+                  <div class="col-md-6 mb-3">
+                    <label for="date_of_birth" class="form-label">Date of Birth</label>
+                    <input type="date" class="form-control" id="date_of_birth" name="date_of_birth"
+                      value="{{ form.date_of_birth.value }}">
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="standard" class="form-label">Standard</label>
+                    <input type="text" class="form-control" id="standard" name="standard" placeholder="Standard"
+                      value="{{ form.standard.value }}">
+                  </div>
+                </div>
+                <!-- Row for Educational Board -->
+<div class="mb-3">
+    <label class="form-label">Educational Board</label>
+    {% for value, display in form.educational_board.field.choices %}
+        <div class="form-check">
+            <input type="radio" id="{{ value }}" name="educational_board" value="{{ value }}" class="form-check-input" {% if form.educational_board.value == value %}checked{% endif %}>
+            <label class="form-check-label" for="{{ value }}">{{ display }}</label>
+        </div>
+    {% endfor %}
+</div>
+                <!-- Row for Address -->
+                <div class="mb-3">
+                  <label for="address" class="form-label">Address</label>
+                  <textarea class="form-control" id="address" name="address" rows="2"
+                    placeholder="Address">{{ form.address.value }}</textarea>
+                </div>
+                <!-- Row for Parent/Guardian Name and Parent Email -->
+                <div class="row mb-3">
+                  <div class="col-md-6 mb-3">
+                    <label for="parent_name" class="form-label">Parent/Guardian Name</label>
+                    <input type="text" class="form-control" id="parent_name" name="parent_name"
+                      placeholder="Parent/Guardian Name" value="{{ form.parent_name.value }}">
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="parent_email" class="form-label">Parent/Guardian Email</label>
+                    <input type="email" class="form-control" id="parent_email" name="parent_email"
+                      placeholder="Parent/Guardian Email" value="{{ form.parent_email.value }}">
+                  </div>
+                </div>
+                <!-- Row for Contact Number and Profile Picture -->
+                <div class="row mb-3">
+                  <div class="col-md-6 mb-3">
+                    <label for="contact_number" class="form-label">Contact Number</label>
+                    <input type="tel" class="form-control" id="contact_number" name="contact_number"
+                      placeholder="Contact Number" value="{{ form.contact_number.value }}">
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="profile_image" class="form-label">Profile Picture</label>
+                    <input type="file" class="form-control" id="profile_image" name="profile_image">
+                  </div>
+                </div>
+                <!-- Remaining Fields -->
+                <div class="mb-3">
+                  <label for="school_name" class="form-label">School Name</label>
+                  <input type="text" class="form-control" id="school_name" name="school_name" placeholder="School Name"
+                    value="{{ form.school_name.value }}">
+                </div>
+                <div class="mb-3">
+                  <label for="interests" class="form-label">Hobbies</label>
+                  <input type="text" class="form-control" id="interests" name="interests"
+                    placeholder="Hobbies (comma separated)" value="{{ form.interests.value }}">
+                </div>
+                <div>
+                  <button type="submit" class="btn btn-primary text-white me-2 mb-2 mb-md-0">Sign up</button>
+                </div>
+                <a href="{% url 'login' %}" class="d-block mt-3 text-secondary">Already a user? Sign in</a>
+              </form>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
-  
+</div>
 
-	<!-- core:js -->
-	<!-- <script src="../../../assets/vendors/core/core.js"></script> -->
-	<!-- endinject -->
 
-	<!-- Plugin js for this page -->
-	<!-- End plugin js for this page -->
 
-	<!-- inject:js -->
-	<!-- <script src="../../../assets/vendors/feather-icons/feather.min.js"></script>
+    <!-- core:js -->
+    <!-- <script src="../../../assets/vendors/core/core.js"></script> -->
+    <!-- endinject -->
+
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+
+    <!-- inject:js -->
+    <!-- <script src="../../../assets/vendors/feather-icons/feather.min.js"></script>
 	<script src="../../../assets/js/app.js"></script> -->
-	<!-- endinject -->
+    <!-- endinject -->
 
-	<!-- Custom js for this page -->
-	<!-- End custom js for this page -->
+    <!-- Custom js for this page -->
+    <!-- End custom js for this page -->
 
-</body>
+  </body>
+
 </html>
