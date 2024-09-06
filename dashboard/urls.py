@@ -12,5 +12,6 @@ urlpatterns = [
     path('orbit/', views.orbit, name='orbit'),
     path('subject/', views.subject, name='subject'),
     path('topic/', views.topic, name='topic'),
+    path('track/', views.track, name='track'),
 # path('standard/', views.dashboard, name='dashboard'),
 ]

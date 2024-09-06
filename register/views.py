@@ -58,7 +58,7 @@ def register_view(request):
         )
         user.set_password(password)  # Ensure the password is hashed
         user.save()
-
+    return render(request, 'register.html')
 
 def login_view(request):
     if request.method == 'POST':

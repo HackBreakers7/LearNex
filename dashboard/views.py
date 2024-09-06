@@ -26,3 +26,5 @@ def subject(request):
     return render(request,'subjects.html')
 def topic(request):
     return render(request, 'topic.html')
+def track(request):
+    return render(request, 'track.html')
