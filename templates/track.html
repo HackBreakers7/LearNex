@@ -79,19 +79,38 @@ License: For each use you must have a valid license purchased only from above li
             }
 
             .mydiv {
-                width: 500px;
+                width: 400px;
                 margin: auto;
             }
 
-            p {
+            .mydiv p {
 
                 border-top: 2px dashed;
                 border-color: blue !important;
                 margin: 0;
-                padding: 30px;
+                padding: 3px;
+                font-size: 2em;
+                text-align: center;
+                padding-top: 20%;
             }
 
+            p .img3 {
+                width: 100%;
+                margin-left: 55%;
+                margin-bottom: -20%;
+            }
 
+            p .img1 {
+                width: 100%;
+                margin-left: -30% !important;
+                margin-bottom: -20%;
+            }
+
+            p .img2 {
+                width: 100%;
+                margin-left: 55%;
+                margin-bottom: 20%;
+            }
 
             p:nth-child(even) {
                 border-left: 2px dashed;
@@ -402,40 +421,13 @@ License: For each use you must have a valid license purchased only from above li
             <!-- partial -->
 
             <div class="page-content">
-                <h1 style=" margin-left: 50% !important; padding-top: 6%;">Subjects</h1><br>
+                <h1 style=" margin-left: 50% !important; padding-top: 6%;">Track</h1><br>
 
                 <div class="container">
                     <div class="mydiv">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, iste iusto quas eligendi
-                            corporis id eius
-                            corrupti temporibus velit? Molestias harum voluptatibus veritatis explicabo ut velit
-                            deserunt, saepe sit
-                            commodi?</p>
-                        <p class="mydiv p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, iste iusto
-                            quas eligendi
-                            corporis id eius
-                            corrupti temporibus velit? Molestias harum voluptatibus veritatis explicabo ut velit
-                            deserunt, saepe sit
-                            commodi?</p>
-                        <p class="mydiv p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, iste iusto
-                            quas eligendi
-                            corporis id eius
-                            corrupti temporibus velit? Molestias harum voluptatibus veritatis explicabo ut velit
-                            deserunt, saepe sit
-                            commodi?</p>
-                        <p class="mydiv p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, iste iusto
-                            quas eligendi
-                            corporis id eius
-                            corrupti temporibus velit? Molestias harum voluptatibus veritatis explicabo ut velit
-                            deserunt, saepe sit
-                            commodi?</p>
-                        <p class="mydiv p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, iste iusto
-                            quas eligendi
-                            corporis id eius
-                            corrupti temporibus velit? Molestias harum voluptatibus veritatis explicabo ut velit
-                            deserunt, saepe sit
-                            commodi?</p>
-
+                        <p>Watch Videos<a href="{% url 'video' %}"><img class="img3" src="{% static 'assets/images/play.gif' %}"></a></p>
+                        <p class="mydiv p">Read Books<a href="{% url 'books' %}"><img class="img1" src="{% static 'assets/images/books.gif' %}"></a></p>
+                        <p class="mydiv p">Give Quiz<a href="{% url 'quiz' %}"><img class="img2" src="{% static 'assets/images/play.gif' %}"></a></p>
                     </div>
                 </div>
             </div>

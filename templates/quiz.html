@@ -1,0 +1,895 @@
+{% load static %}
+<!DOCTYPE html>
+<!--
+Template Name: NobleUI - HTML Bootstrap 5 Admin Dashboard Template
+Author: NobleUI
+Website: https://www.nobleui.com
+Portfolio: https://themeforest.net/user/nobleui/portfolio
+Contact: nobleui123@gmail.com
+Purchase: https://1.envato.market/nobleui_admin
+License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
+-->
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="description" content="Responsive HTML Admin Dashboard Template based on Bootstrap 5">
+        <meta name="author" content="NobleUI">
+        <meta name="keywords"
+            content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+        <title>NobleUI - HTML Bootstrap 5 Admin Dashboard Template</title>
+
+        <!-- color-modes:js -->
+        <script src="{% static 'assets/js/color-modes.js' %}"></script>
+        <!-- endinject -->
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link href="../../../../../css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+        <!-- End fonts -->
+
+        <!-- core:css -->
+        <link rel="stylesheet" href="{% static 'assets/vendors/core/core.css' %}">
+        <!-- endinject -->
+
+        <!-- Plugin css for this page -->
+        <!-- End plugin css for this page -->
+
+        <!-- inject:css -->
+        <link rel="stylesheet" href="{% static 'assets/fonts/feather-font/css/iconfont.css' %}">
+        <!-- endinject -->
+
+        <!-- Layout styles -->
+        <link rel="stylesheet" href="{% static 'assets/css/demo1/style.css' %}">
+        <!-- End layout styles -->
+
+        <link rel="shortcut icon" href="{'% static assets/images/favicon.png' %}">
+        <style>
+            .quiz-container {
+                background-color: #ffffff;
+                padding: 50px;
+                top: 1px;
+                /* margin: 200px; */
+                height: 600px;
+                margin-left: 20%;
+                margin-bottom: 80px;
+                border-radius: 40px;
+                box-shadow: 0 15px 15px rgba(0, 0, 0, 0.1);
+                width: 100%;
+                max-width: 1000px;
+                text-align: center;
+                position: relative;
+                bottom: 150px;
+            }
+
+            h1 {
+                color: #4caf50;
+                font-size: 50px;
+            }
+
+            .question {
+                margin-bottom: 100px;
+                font-size: 28px;
+                text-align: left;
+            }
+
+            .question label {
+                display: block;
+                margin-bottom: 10px;
+                font-size: 37px;
+                cursor: pointer;
+            }
+
+            .question input {
+                margin-right: 16px;
+                transform: scale(1.5);
+            }
+
+            .submit-btn,
+            .next-btn,
+            .prev-btn {
+                background-color: #ff8c00;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 15px;
+                cursor: pointer;
+                width: 48%;
+                font-size: 18px;
+                transition: background-color 0.3s ease;
+                margin-top: 10px;
+            }
+
+            .submit-btn:hover,
+            .next-btn:hover,
+            .prev-btn:hover {
+                background-color: #ffa500;
+            }
+
+            .result {
+                margin-top: 20px;
+                padding: 10px;
+                border-radius: 5px;
+                font-size: 20px;
+                display: none;
+            }
+
+            /* Modify the container to allow stars to spread across the whole window */
+            /* Modify the container to allow stars to spread across the whole window */
+            .stars {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 150%;
+                height: 100%;
+                pointer-events: none;
+                /* Prevent any interaction */
+                display: none;
+                /* Initially hidden until quiz submission */
+            }
+
+            .star {
+                position: absolute;
+                top: -100px;
+                color: #ffd700;
+                font-size: 60px;
+                animation: twinkle 1.5s ease-in-out infinite, fall 2s linear forwards infinite;
+                opacity: 0;
+            }
+
+            /* Twinkle animation */
+            @keyframes twinkle {
+
+                0%,
+                100% {
+                    opacity: 1;
+                }
+
+                50% {
+                    opacity: 0.5;
+                }
+            }
+
+            /* Falling animation */
+            @keyframes fall {
+                0% {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+
+                100% {
+                    transform: translateY(900px);
+                    opacity: 0;
+                }
+            }
+
+
+            /* Twinkling effect */
+            @keyframes twinkle {
+                0% {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+
+                50% {
+                    transform: scale(1.2);
+                    opacity: 0.8;
+                }
+
+                100% {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+            }
+
+            /* Randomize positions and speeds */
+            .star:nth-child(1) {
+                left: 5%;
+                animation-duration: 1s, 1.5s;
+            }
+
+            .star:nth-child(2) {
+                left: 15%;
+                animation-duration: 1.5s, 1.2s;
+            }
+
+            .star:nth-child(3) {
+                left: 25%;
+                animation-duration: 1.2s, 1.8s;
+            }
+
+            .star:nth-child(4) {
+                left: 35%;
+                animation-duration: 2.8s, 1.4s;
+            }
+
+            .star:nth-child(5) {
+                left: 45%;
+                animation-duration: 2s, 1.7s;
+            }
+
+            .star:nth-child(6) {
+                left: 55%;
+                animation-duration: 1.6s, 1.3s;
+            }
+
+            .star:nth-child(7) {
+                left: 65%;
+                animation-duration: 1.4s, 1.6s;
+            }
+
+            .star:nth-child(8) {
+                left: 75%;
+                animation-duration: 1.9s, 1.5s;
+            }
+
+            .star:nth-child(9) {
+                left: 85%;
+                animation-duration: 1.1s, 1.7s;
+            }
+
+            .star:nth-child(10) {
+                left: 95%;
+                animation-duration: 1.7s, 1.9s;
+            }
+
+
+            .button-container {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            /* Floating Bulb Animation */
+            .bulb {
+                position: absolute;
+                top: -70px;
+                left: -90px;
+                width: 230px;
+                animation: float 3s ease-in-out infinite;
+            }
+
+            /* Thinking Boy Animation */
+            .thinking-boy {
+                position: absolute;
+                bottom: 20px;
+                left: 900px;
+                width: 370px;
+                animation: float 3s ease-in-out infinite;
+            }
+
+            @keyframes float {
+                0% {
+                    transform: translateY(0);
+                }
+
+                50% {
+                    transform: translateY(-20px);
+                }
+
+                100% {
+                    transform: translateY(0);
+                }
+            }
+
+            .question table {
+                width: 100%;
+                /* Ensures the table takes up the full container width */
+            }
+
+            .question table td {
+                padding: 20px;
+                /* Adds space around each option */
+                text-align: center;
+                /* Centers the content inside each cell */
+                vertical-align: middle;
+                /* Aligns content vertically in the middle */
+            }
+
+            .question table img {
+                margin: 0 auto;
+                /* Centers the image within the cell */
+            }
+
+            .question {
+                margin-bottom: 0px;
+                /* Reduces space between questions */
+                font-size: 28px;
+            }
+
+            .image {
+                width: 80px;
+                /* Set a fixed width */
+                height: auto;
+                /* Maintain aspect ratio */
+                margin: 10px 0;
+                /* Add spacing around images */
+                display: block;
+                /* Make images block-level elements */
+            }
+
+        </style>
+    </head>
+
+    <body class="sidebar-dark">
+        <div class="main-wrapper">
+
+            <!-- partial:../../partials/_sidebar.html -->
+            <nav class="sidebar">
+                <div class="sidebar-header">
+                    <a href="#" class="sidebar-brand">
+                        Learn<span>Nex</span>
+                    </a>
+                    <div class="sidebar-toggler">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="sidebar-body">
+                    <ul class="nav" id="sidebarNav">
+                        <!-- <li class="nav-item nav-category">main</li> -->
+                        <!-- <li class="nav-item">
+            <a href="../../dashboard-1.html" class="nav-link">
+              <i class="link-icon" data-feather="box"></i>
+              <span class="link-title">Dashboard</span>
+            </a>
+          </li> -->
+
+
+
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                                <i class="link-icon" data-feather="home" style="color: white;"></i>
+                                <span class="link-title"><b>HOME</b></span>
+                            </a>
+                        </li>
+
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                                <i class="link-icon" data-feather="book" style="color: white;"></i>
+                                <span class="link-title"><b>standard</b></span>
+                            </a>
+                        </li>
+
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" onclick="changeText(event)">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title" id="nav-link-text"><b>1 st</b></span>
+                            </a>
+                        </li>
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title"><b>2 nd</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title"><b>3 rd</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title"><b>4 th</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title"><b>5 th</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                                <i class="link-icon" data-feather="layers" style="color: white;"></i>
+                                <span class="link-title"><b>Beyond the syllabus</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'memorygame' %}" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>Memory card</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>Vedic maths</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>Art</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>Crafts</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>dance</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>singing</b></span>
+                            </a>
+                        </li>
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="volume-2"></i>
+                                <span class="link-title"><b>Learn Communication !!</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                                <i class="link-icon" data-feather="help-circle" style="color: white;"></i>
+                                <span class="link-title"><b>Doubts</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="alert-circle"></i>
+                                <span class="link-title"><b>Ask Your Doubts??</b></span>
+                            </a>
+                        </li>
+
+
+                        </li>
+                    </ul>
+                </div>
+
+
+
+        </div>
+        </nav>
+        <!-- partial -->
+
+        <div class="page-wrapper">
+
+            <!-- partial:../../partials/_navbar.html -->
+            <nav class="navbar">
+                <div class="navbar-content">
+
+                    <div class="logo-mini-wrapper">
+                        <img src="{% static 'assets/images/logo-mini-light.png' %}" class="logo-mini logo-mini-light"
+                            alt="logo">
+                        <img src="{% static 'assets/images/logo-mini-dark.png' %}" class="logo-mini logo-mini-dark"
+                            alt="logo">
+                    </div>
+
+                    <!-- <form class="search-form">
+						<div class="input-group">
+              <div class="input-group-text">
+                <i data-feather="search"></i>
+              </div>
+							<input type="text" class="form-control" id="navbarForm" placeholder="Search here...">
+						</div>
+					</form> -->
+
+                    <ul class="navbar-nav">
+                        <li class="theme-switcher-wrapper nav-item">
+                            <input type="checkbox" value="" id="theme-switcher">
+                            <label for="theme-switcher">
+                                <div class="box">
+                                    <div class="ball"></div>
+                                    <div class="icons">
+                                        <i class="feather icon-sun"></i>
+
+                                        <i class="feather icon-moon"></i>
+                                    </div>
+                                </div>
+                            </label>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="w-30px h-30px ms-1 rounded-circle"
+                                    src="{% static 'assets/images/faces/face1.jpg' %}" alt="profile">
+                            </a>
+                            <div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
+                                <div class="d-flex flex-column align-items-center border-bottom px-5 py-3">
+                                    <div class="mb-3">
+                                        <img class="w-80px h-80px rounded-circle"
+                                            src="{% static 'assets/images/faces/face1.jpg' %}" alt="">
+                                    </div>
+                                    <div class="text-center">
+                                        <p class="fs-16px fw-bolder">Amiah Burton</p>
+                                        <p class="fs-12px text-secondary">amiahburton@gmail.com</p>
+                                    </div>
+                                </div>
+                                <ul class="list-unstyled p-1">
+                                    <li class="dropdown-item py-2">
+                                        <a href="profile.html" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="user"></i>
+                                            <span>Profile</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="edit"></i>
+                                            <span>Edit Profile</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="repeat"></i>
+                                            <span>Switch User</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="log-out"></i>
+                                            <span>Log Out</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <a href="#" class="sidebar-toggler">
+                        <i data-feather="menu"></i>
+                    </a>
+
+                </div>
+            </nav>
+            <!-- partial -->
+
+            <div class="page-content">
+                <div style="padding-top:7% ;">
+                <div class="quiz-container">
+                    <h1>Quiz: General Knowledge</h1>
+
+                    <!-- Quiz Questions -->
+                    <form id="quizForm">
+
+                        <!-- Floating Elements -->
+                        <img src="{% static 'assets/images/bulb1.png' %}" alt="Bulb" class="bulb">
+                        <img src="{% static 'assets/images/kid1.png' %}" alt="Thinking Boy" class="thinking-boy">
+
+                        <div class="question" id="question1">
+                            <label>1. Which body part is used to see?</label><br>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <input type="radio" name="q1" value="a"> a) Nose<br>
+                                        <img src="{% static 'assets/images/Nose.png' %}" alt="Nose" class="image">
+                                    </td>
+                                    <td>
+                                        <input type="radio" name="q1" value="b"> b) Eyes<br>
+                                        <img src="{% static 'assets/images/eyes.png' %}" alt="Eyes" class="image">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="radio" name="q1" value="c"> c) Hands<br>
+                                        <img src="{% static 'assets/images/hands.png' %}" alt="Hands" class="image">
+                                    </td>
+                                    <td>
+                                        <input type="radio" name="q1" value="d"> d) Hear<br>
+                                        <img src="{% static 'assets/images/hear.png' %}" alt="Hear" class="image">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="question" id="question2" style="display: none;">
+                            <label>2. What should we wear on our feet?</label><br>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <input type="radio" name="q2" value="a"> a) Hat<br>
+                                        <img src="{% static 'assets/images/Hat.png' %}" alt="Hat" class="image">
+                                    </td>
+                                    <td>
+                                        <input type="radio" name="q2" value="b"> b) Shoes<br>
+                                        <img src="{% static 'assets/images/Shoes.png' %}" alt="Shoes" class="image">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="radio" name="q2" value="c"> c) Shirt<br>
+                                        <img src="{% static 'assets/images/Shirt.png' %}" alt="Shirt" class="image">
+                                    </td>
+                                    <td>
+                                        <input type="radio" name="q2" value="d"> d) Pants<br>
+                                        <img src="{% static 'assets/images/Pant.png' %}" alt="Pants" class="image">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="question" id="question3" style="display: none;">
+                            <label>3. Which is Mango</label><br>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <input type="radio" name="q3" value="a"> a) Apple<br>
+                                        <img src="{% static 'assets/iamges/Apple.png' %}" alt="Apple" class="image">
+                                    </td>
+                                    <td>
+                                        <input type="radio" name="q3" value="b"> b) Banana<br>
+                                        <img src="{% static 'assets/images/Banana.png' %}" alt="Banana" class="image">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="radio" name="q3" value="c"> c) Mango<br>
+                                        <img src="{% static 'assets/images/Mango.png' %}" alt="Mango" class="image">
+                                    </td>
+                                    <td>
+                                        <input type="radio" name="q3" value="d"> d) Orange<br>
+                                        <img src="{% static 'assets/images/Orange.png' %}" alt="Orange" class="image">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="question" id="question4" style="display: none;">
+                            <label>4. Which planet do we live on?</label><br>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <input type="radio" name="q4" value="a"> a) Mars<br>
+                                        <img src="{% static 'assets/images/Mars.png' %}" alt="Mars" class="image">
+                                    </td>
+                                    <td>
+                                        <input type="radio" name="q4" value="b"> b) Earth<br>
+                                        <img src="{% static 'assets/images/Earth.png' %}" alt="Earth" class="image">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="radio" name="q4" value="c"> c) Jupiter<br>
+                                        <img src="{% static 'assets/images/Jupiter.png' %}" alt="Jupiter" class="image">
+                                    </td>
+                                    <td>
+                                        <input type="radio" name="q4" value="d"> d) Moon<br>
+                                        <img src="{% static 'assets/images/Moon.png' %}" alt="Moon" class="image">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="question" id="question5" style="display: none;">
+                            <label>5. Predict the image of cricket ball?</label><br>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <input type="radio" name="q5" value="a"><br>
+                                        <img src="{% static 'assets/images/Bat.png' %}" alt="Bat" class="image">
+                                    </td>
+                                    <td>
+                                        <input type="radio" name="q5" value="b"> <br>
+                                        <img src="{% static 'assets/images/Ball.png' %}" alt="Ball" class="image">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="radio" name="q5" value="c"> <br>
+                                        <img src="{% static 'assets/images/Football.png' %}" alt="Football" class="image">
+                                    </td>
+                                    <td>
+                                        <input type="radio" name="q5" value="d"> <br>
+                                        <img src="{% static 'assets/images/Rubby.png' %}" alt="Rubby" class="image">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <!-- Navigation Buttons -->
+                        <div class="button-container">
+                            <button type="button" class="prev-btn" id="prevBtn" style="display: none;"
+                                onclick="showPrev()">Previous</button>
+                            <button type="button" class="next-btn" id="nextBtn" onclick="showNext()">Next</button>
+                            <button type="button" class="submit-btn" id="submitBtn" style="display: none;"
+                                onclick="checkAnswers()">Submit Quiz</button>
+                        </div>
+
+                        <!-- Result and stars -->
+                        <div id="result" class="result"></div>
+                        <div id="stars" class="stars">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                    </form>
+                </div>
+                <div id="stars" class="stars">
+                    <span class="star falling">★</span>
+                    <span class="star falling">★</span>
+                    <span class="star falling">★</span>
+                    <span class="star falling">★</span>
+                    <span class="star falling">★</span>
+                    <span class="star falling">★</span>
+                    <span class="star falling">★</span>
+                    <span class="star falling">★</span>
+                    <span class="star falling">★</span>
+                    <span class="star falling">★</span>
+                    <span class="star falling">★</span>
+                    <span class="star falling">★</span>
+                    <span class="star falling">★</span>
+                    <span class="star falling">★</span>
+                    <span class="star falling">★</span>
+                </div>
+
+            </div>
+
+            <!-- partial:../../partials/_footer.html -->
+            <footer
+                class="footer d-flex flex-row align-items-center justify-content-between px-4 py-3 border-top small">
+                <p class="text-secondary mb-1 mb-md-0">Copyright © 2024 <a href="https://www.nobleui.com"
+                        target="_blank">NobleUI</a>.</p>
+                <p class="text-secondary">Handcrafted With <i class="mb-1 text-primary ms-1 icon-sm"
+                        data-feather="heart"></i>
+                </p>
+            </footer>
+            <!-- partial -->
+
+        </div>
+        </div>
+<script>
+    let currentQuestion = 1;
+    const totalQuestions = 5;
+
+    function showNext() {
+        if (currentQuestion < totalQuestions) {
+            document.getElementById('question' + currentQuestion).style.display = 'none';
+            currentQuestion++;
+            document.getElementById('question' + currentQuestion).style.display = 'block';
+
+            document.getElementById('prevBtn').style.display = 'block';
+
+            if (currentQuestion === totalQuestions) {
+                document.getElementById('nextBtn').style.display = 'none';
+                document.getElementById('submitBtn').style.display = 'block';
+            }
+        }
+    }
+
+    function showPrev() {
+        if (currentQuestion > 1) {
+            document.getElementById('question' + currentQuestion).style.display = 'none';
+            currentQuestion--;
+            document.getElementById('question' + currentQuestion).style.display = 'block';
+
+            if (currentQuestion === 1) {
+                document.getElementById('prevBtn').style.display = 'none';
+            }
+
+            document.getElementById('nextBtn').style.display = 'block';
+            document.getElementById('submitBtn').style.display = 'none';
+        }
+    }
+
+    function checkAnswers() {
+        const answers = {
+            q1: 'b',
+            q2: 'b',
+            q3: 'c',
+            q4: 'b',
+            q5: 'b'
+        };
+
+        let score = 0;
+
+        // Loop through all questions to calculate the score
+        for (let i = 1; i <= totalQuestions; i++) {
+            const selected = document.querySelector(`input[name="q${i}"]:checked`);
+            if (selected && selected.value === answers[`q${i}`]) {
+                score++;
+            }
+        }
+
+        const resultDiv = document.getElementById('result');
+        const starsDiv = document.getElementById('stars');
+        resultDiv.style.display = 'block'; // Show result
+        starsDiv.style.display = 'none'; // Reset stars display initially
+
+        // Handle result display based on the score
+        if (score >= 4) {
+            resultDiv.innerHTML = `<span class="super-champ">Super Champ! You got ${score} out of ${totalQuestions} correct!</span>`;
+            // Trigger star animation
+            starsDiv.style.display = 'block';
+
+            // Apply random position and delay to each star for animation
+            const stars = document.querySelectorAll('.star');
+            stars.forEach((star, index) => {
+                star.style.left = `${Math.random() * 100}vw`;  // Random horizontal position across the screen
+                star.style.animationDelay = `${index * 0.5}s`; // Delay each star's fall animation
+                star.style.opacity = 1;  // Ensure opacity is set to visible
+            });
+        } else if (score >= 2) {
+            resultDiv.innerHTML = `<span class="best-champ">Best Champ! You got ${score} out of ${totalQuestions} correct!</span>`;
+        } else {
+            resultDiv.innerHTML = `<span class="try-again">Try Again Champ! You got ${score} out of ${totalQuestions} correct. You can do it!</span>`;
+        }
+
+        // Disable all radio inputs after the quiz is submitted
+        const inputs = document.querySelectorAll('input[type="radio"]');
+        inputs.forEach(input => {
+            input.disabled = true;
+        });
+
+        // Delay showing stars after 0.5s to smooth out the effect
+        setTimeout(() => {
+            starsDiv.style.display = 'block';
+        }, 500);
+    }
+
+</script>
+
+
+        <script src="{% static 'assets/vendors/core/core.js' %}"></script>
+        <!-- endinject -->
+
+        <!-- Plugin js for this page -->
+        <!-- End plugin js for this page -->
+
+        <!-- inject:js -->
+        <script src="{% static 'assets/vendors/feather-icons/feather.min.js' %}"></script>
+        <script src="{% static 'assets/js/app.js' %}"></script>
+        <!-- endinject -->
+
+        <!-- Custom js for this page -->
+        <!-- End custom js for this page -->
+    </body>
+
+</html>
