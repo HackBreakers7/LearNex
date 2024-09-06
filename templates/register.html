@@ -93,143 +93,307 @@ License: For each use you must have a valid license purchased only from above li
   </head>
 
   <body>
-<div class="main-wrapper">
-  <div class="page-wrapper full-page">
-    <div class="page-content d-flex align-items-center justify-content-center">
-      <div class="row w-100 mx-0 auth-page">
-        <div class="col-md-12 col-lg-10 mx-auto">
-          <div class="card">
-            <div class="auth-form-wrapper px-4 py-5">
-              <!-- Image at the top -->
-              <div class="image mb-4">
-                <img src="{% static 'images/childrens.png' %}" alt="Image" style="margin-left: 25%;">
-              </div>
-              <!-- Heading in the center -->
-              <h3 class="text-center">Register</h3>
-              <h5 class="text-secondary text-center fw-normal mb-4">Create a free account.</h5>
-              <!-- Registration form -->
-              <form class="forms-sample" method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                <!-- Row for Username and Email -->
-                <div class="row mb-3">
-                  <div class="col-md-6 mb-3">
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="username" name="username" placeholder="Username"
-                      value="{{ form.username.value }}">
-                  </div>
-                  <div class="col-md-6 mb-3">
-                    <label for="email" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Email address"
-                      value="{{ form.email.value }}">
-                  </div>
-                </div>
-                <!-- Row for Password and Confirm Password -->
-                <div class="row mb-3">
-                  <div class="col-md-6 mb-3">
-                    <label for="password1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password1" name="password1"
-                      autocomplete="current-password" placeholder="Password">
-                  </div>
-                  <div class="col-md-6 mb-3">
-                    <label for="password2" class="form-label">Confirm Password</label>
-                    <input type="password" class="form-control" id="password2" name="password2"
-                      autocomplete="current-password" placeholder="Confirm Password">
-                  </div>
-                </div>
-                <!-- Row for Date of Birth and Standard -->
-                <div class="row mb-3">
-                  <div class="col-md-6 mb-3">
-                    <label for="date_of_birth" class="form-label">Date of Birth</label>
-                    <input type="date" class="form-control" id="date_of_birth" name="date_of_birth"
-                      value="{{ form.date_of_birth.value }}">
-                  </div>
-                  <div class="col-md-6 mb-3">
-                    <label for="standard" class="form-label">Standard</label>
-                    <input type="text" class="form-control" id="standard" name="standard" placeholder="Standard"
-                      value="{{ form.standard.value }}">
-                  </div>
-                </div>
-                <!-- Row for Educational Board -->
-<div class="mb-3">
-    <label class="form-label">Educational Board</label>
-    {% for value, display in form.educational_board.field.choices %}
-        <div class="form-check">
-            <input type="radio" id="{{ value }}" name="educational_board" value="{{ value }}" class="form-check-input" {% if form.educational_board.value == value %}checked{% endif %}>
-            <label class="form-check-label" for="{{ value }}">{{ display }}</label>
-        </div>
-    {% endfor %}
+    <div class="main-wrapper">
+      <div class="page-wrapper full-page">
+        <div class="page-content d-flex align-items-center justify-content-center">
+          <div class="row w-100 mx-0 auth-page">
+            <div class="col-md-12 col-lg-10 mx-auto">
+              <div class="card">
+                <div class="auth-form-wrapper px-4 py-5">
+                  <!-- Image at the top -->
+
+                  <!-- Heading in the center -->
+                  <h3 class="text-center mb-4">Register</h3>
+                  <h5 class="text-secondary text-center fw-normal mb-4">Create a free account.</h5>
+                  <!-- Registration form -->
+<form class="forms-sample" method="POST" enctype="multipart/form-data" id="registrationForm">
+  {% csrf_token %}
+  <h4 class="mb-3">Parent/Guardian Details</h4>
+  <div class="row mb-3">
+    <div class="col-md-4 mb-3">
+      <label for="parent_first_name" class="form-label">First Name</label>
+      <input type="text" class="form-control" id="parent_first_name" name="parent_first_name" placeholder="First Name">
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="parent_middle_name" class="form-label">Middle Name</label>
+      <input type="text" class="form-control" id="parent_middle_name" name="parent_middle_name"
+        placeholder="Middle Name">
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="parent_last_name" class="form-label">Last Name</label>
+      <input type="text" class="form-control" id="parent_last_name" name="parent_last_name" placeholder="Last Name">
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-md-6 mb-3">
+      <label for="parent_dob" class="form-label">Date of Birth</label>
+      <input type="date" class="form-control" id="parent_dob" name="parent_dob">
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="parent_gender" class="form-label">Gender</label>
+      <select class="form-select" id="parent_gender" name="parent_gender">
+        <option value="" selected disabled>Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-md-6 mb-3">
+      <label for="parent_email" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="parent_email" name="parent_email" placeholder="Email address">
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="parent_contact_number" class="form-label">Contact Number</label>
+      <input type="tel" class="form-control" id="parent_contact_number" name="parent_contact_number"
+        placeholder="Contact Number">
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-md-4 mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="confirm_password" class="form-label">Confirm Password</label>
+      <input type="password" class="form-control" id="confirm_password" name="confirm_password"
+        placeholder="Confirm Password">
+    </div>
+  </div>
+  <!-- Child Details Section -->
+  <h4 class="mb-3">Child Details</h4>
+  <div class="row mb-3">
+    <div class="col-md-4 mb-3">
+      <label for="child_first_name" class="form-label">First Name</label>
+      <input type="text" class="form-control" id="child_first_name" name="child_first_name" placeholder="First Name">
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="child_middle_name" class="form-label">Middle Name</label>
+      <input type="text" class="form-control" id="child_middle_name" name="child_middle_name" placeholder="Middle Name">
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="child_last_name" class="form-label">Last Name</label>
+      <input type="text" class="form-control" id="child_last_name" name="child_last_name" placeholder="Last Name">
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-md-6 mb-3">
+      <label for="child_dob" class="form-label">Date of Birth</label>
+      <input type="date" class="form-control" id="child_dob" name="child_dob">
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="child_gender" class="form-label">Gender</label>
+      <select class="form-select" id="child_gender" name="child_gender">
+        <option value="" selected disabled>Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+  </div>
+  <!-- School Details -->
+  <h4 class="mb-3">School Details</h4>
+  <div class="row mb-3">
+    <div class="col-md-6 mb-3">
+      <label for="school_name" class="form-label">School Name</label>
+      <input type="text" class="form-control" id="school_name" name="school_name" placeholder="School Name">
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="school_medium" class="form-label">Medium of Education</label>
+      <select class="form-select" id="school_medium" name="school_medium">
+        <option value="" selected disabled>Select Medium</option>
+        <option value="english">English</option>
+        <option value="marathi">Marathi</option>
+        <option value="hindi">Hindi</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+  </div>
+  <!-- Additional Information -->
+  <h4 class="mb-3">Additional Information</h4>
+  <div class="mb-3">
+    <label for="hobbies" class="form-label">Hobbies</label>
+    <input type="text" class="form-control" id="hobbies" name="hobbies" placeholder="Hobbies (comma separated)">
+  </div>
+  <div class="mb-3">
+    <label for="address" class="form-label">Address</label>
+    <textarea class="form-control" id="address" name="address" rows="2" placeholder="Address"></textarea>
+  </div>
+  <!-- File Upload -->
+  <div class="mb-3">
+    <label for="document_upload" class="form-label">Upload Adhar Card Image</label>
+    <input type="file" class="form-control" id="document_upload" name="document_upload"
+      accept=".pdf, .doc, .docx, .jpg, .jpeg, .png">
+  </div>
+  <!-- Submit Button -->
+<div>
+  <button type="submit" id="submit_button" class="btn btn-primary text-white me-2 mb-2 mb-md-0">Sign
+    up</button>
 </div>
-                <!-- Row for Address -->
-                <div class="mb-3">
-                  <label for="address" class="form-label">Address</label>
-                  <textarea class="form-control" id="address" name="address" rows="2"
-                    placeholder="Address">{{ form.address.value }}</textarea>
+  <a href="login.html" class="d-block mt-3 text-secondary">Already a user? Sign in</a>
+</form>
+
+
+
                 </div>
-                <!-- Row for Parent/Guardian Name and Parent Email -->
-                <div class="row mb-3">
-                  <div class="col-md-6 mb-3">
-                    <label for="parent_name" class="form-label">Parent/Guardian Name</label>
-                    <input type="text" class="form-control" id="parent_name" name="parent_name"
-                      placeholder="Parent/Guardian Name" value="{{ form.parent_name.value }}">
-                  </div>
-                  <div class="col-md-6 mb-3">
-                    <label for="parent_email" class="form-label">Parent/Guardian Email</label>
-                    <input type="email" class="form-control" id="parent_email" name="parent_email"
-                      placeholder="Parent/Guardian Email" value="{{ form.parent_email.value }}">
-                  </div>
-                </div>
-                <!-- Row for Contact Number and Profile Picture -->
-                <div class="row mb-3">
-                  <div class="col-md-6 mb-3">
-                    <label for="contact_number" class="form-label">Contact Number</label>
-                    <input type="tel" class="form-control" id="contact_number" name="contact_number"
-                      placeholder="Contact Number" value="{{ form.contact_number.value }}">
-                  </div>
-                  <div class="col-md-6 mb-3">
-                    <label for="profile_image" class="form-label">Profile Picture</label>
-                    <input type="file" class="form-control" id="profile_image" name="profile_image">
-                  </div>
-                </div>
-                <!-- Remaining Fields -->
-                <div class="mb-3">
-                  <label for="school_name" class="form-label">School Name</label>
-                  <input type="text" class="form-control" id="school_name" name="school_name" placeholder="School Name"
-                    value="{{ form.school_name.value }}">
-                </div>
-                <div class="mb-3">
-                  <label for="interests" class="form-label">Hobbies</label>
-                  <input type="text" class="form-control" id="interests" name="interests"
-                    placeholder="Hobbies (comma separated)" value="{{ form.interests.value }}">
-                </div>
-                <div>
-                  <button type="submit" class="btn btn-primary text-white me-2 mb-2 mb-md-0">Sign up</button>
-                </div>
-                <a href="{% url 'login' %}" class="d-block mt-3 text-secondary">Already a user? Sign in</a>
-              </form>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const loginForm = document.getElementById('loginForm');
+    const dashboardUrl = "{% url 'dashboard' %}";  // Generate URL using Django template tag
 
+    loginForm.addEventListener('submit', function (event) {
+      const username = document.getElementById('userUsername').value.trim();
+      const password = document.getElementById('userPassword').value.trim();
 
+      if (!username || !password) {
+        alert('Both username and password are required.');
+        event.preventDefault();
+      }
+    });
+
+    // Handle the form submission manually to provide proper alerts
+    loginForm.addEventListener('submit', function (event) {
+      event.preventDefault();  // Prevent the default form submission
+
+      const formData = new FormData(loginForm);
+
+      fetch("{% url 'login' %}", {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest',  // Ensure Django's CSRF protection works
+        }
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            window.location.href = dashboardUrl;  // Redirect to dashboard
+          } else {
+            alert(data.message);  // Show the error message
+          }
+        })
+        .catch(error => {
+          alert('An error occurred: ' + error);
+        });
+    });
+  });
+</script>
 
     <!-- core:js -->
-    <!-- <script src="../../../assets/vendors/core/core.js"></script> -->
+    <script src="{% static 'assets/vendors/core/core.js' %}"></script>
     <!-- endinject -->
 
     <!-- Plugin js for this page -->
     <!-- End plugin js for this page -->
 
     <!-- inject:js -->
-    <!-- <script src="../../../assets/vendors/feather-icons/feather.min.js"></script>
-	<script src="../../../assets/js/app.js"></script> -->
+    <script src="{% static 'assets/vendors/feather-icons/feather.min.js' %}"></script>
+    <script src="{% static 'assets/js/app.js' %}"></script>
     <!-- endinject -->
 
     <!-- Custom js for this page -->
     <!-- End custom js for this page -->
+    <!-- <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('generate_otp').addEventListener('click', async function () {
+          const email = document.getElementById('parent_email').value;
+          const response = await fetch('/register-user/', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-CSRFToken': '{{ csrf_token }}'
+            },
+            body: JSON.stringify({ parent_email: email })
+          });
+
+          const data = await response.json();
+          if (data.status === 'success') {
+            alert('OTP sent to your email.');
+            document.getElementById('otp').disabled = false;
+          } else {
+            alert('Failed to send OTP.');
+          }
+        });
+
+        document.getElementById('verify_otp').addEventListener('click', async function () {
+          const email = document.getElementById('parent_email').value;
+          const otp = document.getElementById('otp').value;
+
+          const response = await fetch('/verify-otp/', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-CSRFToken': '{{ csrf_token }}'
+            },
+            body: JSON.stringify({ email, otp })
+          });
+
+          const data = await response.json();
+          if (data.status === 'success') {
+            alert('OTP verified successfully.');
+            document.querySelector('.forms-sample').querySelector('button[type="submit"]').disabled = false;
+          } else {
+            alert('Invalid OTP.');
+          }
+        });
+
+        document.querySelector('.forms-sample').addEventListener('submit', function (event) {
+          event.preventDefault();
+
+          const password = document.getElementById('password').value;
+          const confirmPassword = document.getElementById('confirm_password').value;
+          if (password !== confirmPassword) {
+            alert('Passwords do not match.');
+            return;
+          }
+
+          const parentDob = document.getElementById('parent_dob').value;
+          const childDob = document.getElementById('child_dob').value;
+
+          if (calculateAge(parentDob) < 20) {
+            alert('Parent/Guardian must be at least 20 years old.');
+            return;
+          }
+
+          if (calculateAge(childDob) < 0) {
+            alert('Invalid child date of birth.');
+            return;
+          }
+
+          event.target.submit();
+        });
+      });
+
+    </script> -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Form and button references
+    const registrationForm = document.getElementById('registrationForm');
+    const submitButton = document.getElementById('submit_button');
+
+    // Enable submit button only if all required fields are filled
+    registrationForm.addEventListener('input', function () {
+      const isValid = Array.from(registrationForm.elements).every(input => {
+        if (input.type !== 'file') {
+          return input.value.trim() !== '';
+        }
+        return true;
+      });
+      // submitButton.disabled = !isValid;
+    });
+  });
+</script>
 
   </body>
 

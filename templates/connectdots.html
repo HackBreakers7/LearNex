@@ -1,0 +1,994 @@
+{% load static %}
+<!DOCTYPE html>
+<!--
+Template Name: NobleUI - HTML Bootstrap 5 Admin Dashboard Template
+Author: NobleUI
+Website: https://www.nobleui.com
+Portfolio: https://themeforest.net/user/nobleui/portfolio
+Contact: nobleui123@gmail.com
+Purchase: https://1.envato.market/nobleui_admin
+License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
+-->
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="description" content="Responsive HTML Admin Dashboard Template based on Bootstrap 5">
+        <meta name="author" content="NobleUI">
+        <meta name="keywords"
+            content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+        <title>NobleUI - HTML Bootstrap 5 Admin Dashboard Template</title>
+
+        <!-- color-modes:js -->
+        <script src="{% static 'assets/js/color-modes.js' %}"></script>
+        <!-- endinject -->
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link href="../../../../../css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+        <!-- End fonts -->
+
+        <!-- core:css -->
+        <link rel="stylesheet" href="{% static 'assets/vendors/core/core.css' %}">
+        <!-- endinject -->
+
+        <!-- Plugin css for this page -->
+        <!-- End plugin css for this page -->
+
+        <!-- inject:css -->
+        <link rel="stylesheet" href="{% static 'assets/fonts/feather-font/css/iconfont.css' %}">
+        <!-- endinject -->
+
+        <!-- Layout styles -->
+        <link rel="stylesheet" href="{% static 'assets/css/demo1/style.css' %}">
+        <!-- End layout styles -->
+
+        <link rel="shortcut icon" href="{'% static assets/images/favicon.png' %}">
+        <style>
+            /* Container styling */
+            .container1 {
+                text-align: center;
+                background-color: #fefbd8;
+                /* Light yellow background for a cheerful feel */
+                padding: 30px;
+                max-width: 80%;
+                padding-top: 16%;
+                margin-left: 18%;
+                max-height: fit-content !important;
+                border-radius: 12px;
+                border: 5px solid #ff6f61;
+                /* Bright coral border */
+                box-shadow: 0 0 20px rgba(255, 105, 97, 0.5), 0 0 20px rgba(255, 223, 186, 0.7);
+                /* Coral and peach glow effects */
+                animation: lightRunning 2s infinite;
+            }
+
+            /* Keyframes for light running effect */
+            @keyframes lightRunning {
+                0% {
+                    box-shadow: 0 0 20px rgba(255, 105, 97, 0.5), 0 0 20px rgba(255, 223, 186, 0.7);
+                }
+
+                50% {
+                    box-shadow: 0 0 30px rgba(255, 105, 97, 0.7), 0 0 30px rgba(255, 223, 186, 0.8);
+                }
+
+                100% {
+                    box-shadow: 0 0 20px rgba(255, 105, 97, 0.5), 0 0 20px rgba(255, 223, 186, 0.7);
+                }
+            }
+
+            /* Canvas styling */
+            canvas {
+                border: 5px solid #ff8c00;
+                /* Bright orange border for the canvas */
+                margin-top: 20px;
+                margin-right: 20px;
+                background-color: #e0f7fa;
+                /* Light cyan background */
+                box-shadow: 0 0 15px rgba(255, 140, 0, 0.5);
+                /* Orange lighting effect */
+                transition: box-shadow 0.3s ease;
+                animation: lightRunning 2s infinite;
+            }
+
+            canvas:hover {
+                box-shadow: 0 0 30px rgba(255, 140, 0, 0.8);
+                /* Intensified orange lighting on hover */
+            }
+
+            /* Result section styling */
+            #result {
+                margin-top: 10px;
+                font-size: 20px;
+                color: #ff6f61;
+                /* Bright coral text for the result section */
+            }
+
+            /* Buttons styling */
+            .buttons {
+                margin: 20px;
+            }
+
+            button {
+                background-color: #ffeb3b;
+                /* Bright yellow background for buttons */
+                color: #000;
+                /* Black text */
+                border: none;
+                padding: 12px 24px;
+                margin: 5px;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                animation: lightRunning 2s infinite;
+            }
+
+            button:hover {
+                background-color: #fdd835;
+                /* Darker yellow on hover */
+            }
+
+            /* Clear button styling */
+            .clear-button {
+                margin-top: 20px;
+                padding: 12px 24px;
+                background-color: #e57373;
+                /* Light red background */
+                color: white;
+                border: none;
+                cursor: pointer;
+                animation: lightRunning 2s infinite;
+            }
+
+        </style>
+    </head>
+
+    <body class="sidebar-dark">
+        <div class="main-wrapper">
+
+            <!-- partial:../../partials/_sidebar.html -->
+            <nav class="sidebar">
+                <div class="sidebar-header">
+                    <a href="#" class="sidebar-brand">
+                        Learn<span>Nex</span>
+                    </a>
+                    <div class="sidebar-toggler">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="sidebar-body">
+                    <ul class="nav" id="sidebarNav">
+                        <!-- <li class="nav-item nav-category">main</li> -->
+                        <!-- <li class="nav-item">
+            <a href="../../dashboard-1.html" class="nav-link">
+              <i class="link-icon" data-feather="box"></i>
+              <span class="link-title">Dashboard</span>
+            </a>
+          </li> -->
+
+
+
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                                <i class="link-icon" data-feather="home" style="color: white;"></i>
+                                <span class="link-title"><b>HOME</b></span>
+                            </a>
+                        </li>
+
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                                <i class="link-icon" data-feather="book" style="color: white;"></i>
+                                <span class="link-title"><b>standard</b></span>
+                            </a>
+                        </li>
+
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" onclick="changeText(event)">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title" id="nav-link-text"><b>1 st</b></span>
+                            </a>
+                        </li>
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title"><b>2 nd</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title"><b>3 rd</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title"><b>4 th</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title"><b>5 th</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                                <i class="link-icon" data-feather="layers" style="color: white;"></i>
+                                <span class="link-title"><b>Beyond the syllabus</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'memorygame' %}" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>Memory card</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>Vedic maths</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>Art</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>Crafts</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>dance</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>singing</b></span>
+                            </a>
+                        </li>
+
+
+
+
+
+
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="volume-2"></i>
+                                <span class="link-title"><b>Learn Communication !!</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                                <i class="link-icon" data-feather="help-circle" style="color: white;"></i>
+                                <span class="link-title"><b>Doubts</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="alert-circle"></i>
+                                <span class="link-title"><b>Ask Your Doubts??</b></span>
+                            </a>
+                        </li>
+
+
+                        </li>
+                    </ul>
+                </div>
+
+
+
+        </div>
+        </nav>
+        <!-- partial -->
+
+        <div class="page-wrapper">
+
+            <!-- partial:../../partials/_navbar.html -->
+            <nav class="navbar">
+                <div class="navbar-content">
+
+                    <div class="logo-mini-wrapper">
+                        <img src="{% static 'assets/images/logo-mini-light.png' %}" class="logo-mini logo-mini-light"
+                            alt="logo">
+                        <img src="{% static 'assets/images/logo-mini-dark.png' %}" class="logo-mini logo-mini-dark"
+                            alt="logo">
+                    </div>
+
+                    <!-- <form class="search-form">
+						<div class="input-group">
+              <div class="input-group-text">
+                <i data-feather="search"></i>
+              </div>
+							<input type="text" class="form-control" id="navbarForm" placeholder="Search here...">
+						</div>
+					</form> -->
+
+                    <ul class="navbar-nav">
+                        <li class="theme-switcher-wrapper nav-item">
+                            <input type="checkbox" value="" id="theme-switcher">
+                            <label for="theme-switcher">
+                                <div class="box">
+                                    <div class="ball"></div>
+                                    <div class="icons">
+                                        <i class="feather icon-sun"></i>
+
+                                        <i class="feather icon-moon"></i>
+                                    </div>
+                                </div>
+                            </label>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="w-30px h-30px ms-1 rounded-circle"
+                                    src="{% static 'assets/images/faces/face1.jpg' %}" alt="profile">
+                            </a>
+                            <div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
+                                <div class="d-flex flex-column align-items-center border-bottom px-5 py-3">
+                                    <div class="mb-3">
+                                        <img class="w-80px h-80px rounded-circle"
+                                            src="{% static 'assets/images/faces/face1.jpg' %}" alt="">
+                                    </div>
+                                    <div class="text-center">
+                                        <p class="fs-16px fw-bolder">Amiah Burton</p>
+                                        <p class="fs-12px text-secondary">amiahburton@gmail.com</p>
+                                    </div>
+                                </div>
+                                <ul class="list-unstyled p-1">
+                                    <li class="dropdown-item py-2">
+                                        <a href="profile.html" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="user"></i>
+                                            <span>Profile</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="edit"></i>
+                                            <span>Edit Profile</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="repeat"></i>
+                                            <span>Switch User</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="log-out"></i>
+                                            <span>Log Out</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <a href="#" class="sidebar-toggler">
+                        <i data-feather="menu"></i>
+                    </a>
+
+                </div>
+            </nav>
+            <!-- partial -->
+
+            <div class="page-content">
+                <div style="padding-top: 7%;"></div>
+                <div class="container1" >
+                    <h1 style="margin-top: -20%;">Learn Letters by Connecting Dots</h1>
+                    <select id="letterSelect">
+                        <!-- Options for all letters from A to Z and numbers -->
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="E">E</option>
+                        <option value="F">F</option>
+                        <option value="G">G</option>
+                        <option value="H">H</option>
+                        <option value="I">I</option>
+                        <option value="J">J</option>
+                        <option value="K">K</option>
+                        <option value="L">L</option>
+                        <option value="M">M</option>
+                        <option value="N">N</option>
+                        <option value="O">O</option>
+                        <option value="P">P</option>
+                        <option value="Q">Q</option>
+                        <option value="R">R</option>
+                        <option value="S">S</option>
+                        <option value="T">T</option>
+                        <option value="U">U</option>
+                        <option value="V">V</option>
+                        <option value="W">W</option>
+                        <option value="X">X</option>
+                        <option value="Y">Y</option>
+                        <option value="Z">Z</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="apple">apple</option>
+                    </select>
+                    <canvas id="drawingCanvas" width="600" height="400"></canvas>
+                    <div id="result"></div>
+                </div>
+
+            </div>
+
+            <!-- partial:../../partials/_footer.html -->
+            <footer
+                class="footer d-flex flex-row align-items-center justify-content-between px-4 py-3 border-top small">
+                <p class="text-secondary mb-1 mb-md-0">Copyright © 2024 <a href="https://www.nobleui.com"
+                        target="_blank">NobleUI</a>.</p>
+                <p class="text-secondary">Handcrafted With <i class="mb-1 text-primary ms-1 icon-sm"
+                        data-feather="heart"></i>
+                </p>
+            </footer>
+            <!-- partial -->
+
+        </div>
+        </div>
+        <script>
+            const canvas = document.getElementById('drawingCanvas');
+            const ctx = canvas.getContext('2d');
+            const resultDiv = document.getElementById('result');
+            const letterSelect = document.getElementById('letterSelect');
+
+            // Define dot positions for each letter
+            const letters = {
+                'A': [
+                    { x: 150, y: 300 },
+                    { x: 250, y: 100 },
+                    { x: 350, y: 300 },
+                    { x: 200, y: 200 },
+                    { x: 300, y: 200 }
+                ],
+                'B': [
+                    { x: 150, y: 100 },
+                    { x: 150, y: 200 },
+                    { x: 150, y: 300 },
+                    { x: 200, y: 100 },
+                    { x: 250, y: 125 },
+                    { x: 250, y: 175 },
+                    { x: 200, y: 200 },
+                    { x: 250, y: 225 },
+                    { x: 250, y: 275 },
+                    { x: 200, y: 300 }
+                ],
+                'C': [
+                    { x: 300, y: 100 },
+                    { x: 250, y: 50 },
+                    { x: 200, y: 50 },
+                    { x: 150, y: 100 },
+                    { x: 150, y: 300 },
+                    { x: 200, y: 350 },
+                    { x: 250, y: 350 },
+                    { x: 300, y: 300 }
+                ],
+                'D': [
+                    { x: 150, y: 100 },
+                    { x: 150, y: 300 },
+                    { x: 200, y: 300 },
+                    { x: 250, y: 275 },
+                    { x: 275, y: 250 },
+                    { x: 300, y: 200 },
+                    { x: 275, y: 150 },
+                    { x: 250, y: 125 },
+                    { x: 200, y: 100 }
+                ],
+                'E': [
+                    { x: 150, y: 100 },
+                    { x: 150, y: 300 },
+                    { x: 250, y: 300 },
+                    { x: 150, y: 200 },
+                    { x: 250, y: 200 },
+                    { x: 150, y: 100 },
+                    { x: 250, y: 100 }
+                ],
+                'F': [
+                    { x: 150, y: 100 },  // Starting point at the top-left
+                    { x: 150, y: 300 },  // Vertical line going down
+                    { x: 150, y: 200 },  // Back to the middle for horizontal line
+                    { x: 250, y: 200 },  // Horizontal line to the right in the middle
+
+                    { x: 250, y: 100 }   // Top horizontal line to the right
+                ],
+
+                'G': [
+                    { x: 300, y: 100 },
+                    { x: 250, y: 50 },
+                    { x: 200, y: 50 },
+                    { x: 150, y: 100 },
+                    { x: 150, y: 300 },
+                    { x: 200, y: 350 },
+                    { x: 250, y: 350 },
+                    { x: 300, y: 300 },
+                    { x: 250, y: 250 },
+                    { x: 300, y: 250 }
+                ],
+                'H': [
+                    { x: 150, y: 100 },
+                    { x: 150, y: 300 },
+                    { x: 250, y: 100 },
+                    { x: 250, y: 300 },
+                    { x: 150, y: 200 },
+                    { x: 250, y: 200 }
+                ],
+                'I': [
+                    { x: 200, y: 100 },
+                    { x: 200, y: 300 },
+                    { x: 175, y: 100 },
+                    { x: 225, y: 100 },
+                    { x: 175, y: 300 },
+                    { x: 225, y: 300 }
+                ],
+                'J': [
+                    { x: 250, y: 100 },
+                    { x: 250, y: 250 },
+                    { x: 250, y: 300 },
+                    { x: 225, y: 330 },
+                    { x: 200, y: 350 },
+                    { x: 175, y: 330 },
+                    { x: 150, y: 300 }
+                ],
+
+                'K': [
+                    { x: 150, y: 100 },
+                    { x: 150, y: 300 },
+                    { x: 250, y: 200 },
+                    { x: 150, y: 200 },
+                    { x: 250, y: 100 },
+                    { x: 250, y: 300 }
+                ],
+                'L': [
+                    { x: 150, y: 100 },
+                    { x: 150, y: 300 },
+                    { x: 250, y: 300 }
+                ],
+                'M': [
+                    { x: 150, y: 300 },  // Left bottom corner
+                    { x: 150, y: 100 },  // Left top corner
+                    { x: 250, y: 200 },  // Middle peak (center of M)
+                    { x: 350, y: 100 },  // Right top corner
+                    { x: 350, y: 300 }   // Right bottom corner
+                ],
+
+
+                'N': [
+                    { x: 150, y: 100 },
+                    { x: 150, y: 300 },
+                    { x: 300, y: 100 },
+                    { x: 300, y: 300 }
+                ],
+                'O': [
+                    { x: 300, y: 100 },
+                    { x: 250, y: 50 },
+                    { x: 200, y: 50 },
+                    { x: 150, y: 100 },
+                    { x: 150, y: 300 },
+                    { x: 200, y: 350 },
+                    { x: 250, y: 350 },
+                    { x: 300, y: 300 }
+                ],
+                'P': [
+                    { x: 150, y: 100 },
+                    { x: 150, y: 300 },
+                    { x: 150, y: 200 },
+                    { x: 200, y: 100 },
+                    { x: 250, y: 125 },
+                    { x: 250, y: 175 },
+                    { x: 200, y: 200 }
+                ],
+                'Q': [
+                    { x: 300, y: 100 },
+                    { x: 250, y: 50 },
+                    { x: 200, y: 50 },
+                    { x: 150, y: 100 },
+                    { x: 150, y: 300 },
+                    { x: 200, y: 350 },
+                    { x: 250, y: 350 },
+                    { x: 300, y: 300 },
+                    { x: 275, y: 275 },
+                    { x: 350, y: 350 }
+                ],
+                'R': [
+                    { x: 150, y: 100 },
+                    { x: 150, y: 300 },
+                    { x: 150, y: 200 },
+                    { x: 200, y: 100 },
+                    { x: 250, y: 125 },
+                    { x: 250, y: 175 },
+                    { x: 200, y: 200 },
+                    { x: 250, y: 300 }
+                ],
+                'S': [
+                    // { x: 250, y: 100 },  // Top right start
+                    { x: 250, y: 75 },  // Top right start
+                    { x: 240, y: 60 },   // Slight inward curve on the upper right
+                    { x: 230, y: 50 },   // Slight inward curve on the upper right
+                    { x: 210, y: 45 },   // Slight inward curve on the upper right
+                    { x: 195, y: 50 },   // Slight inward curve on the upper right
+                    { x: 180, y: 60 },   // Slight inward curve on the upper right
+                    { x: 168, y: 75 },   // Top left curve peak
+                    { x: 160, y: 98 },   // Upper left curve inward
+                    { x: 170, y: 120 },  // Start of the transition from upper to middle curve
+                    { x: 190, y: 135 },  // Upper left inward transition
+                    { x: 210, y: 150 },  // Center of the "S"
+                    { x: 230, y: 170 },  // Middle right transition
+                    { x: 240, y: 200 },  // Middle right curve outward
+                    { x: 230, y: 230 },  // Lower middle transition
+                    { x: 210, y: 240 },  // Lower right curve inward
+                    { x: 190, y: 245 },  // Lower middle smooth transition
+                    { x: 173, y: 237 },  // Lower curve peak
+                    { x: 160, y: 225 },  // Bottom left curve peak
+                    // { x: 145, y: 210 }   // Bottom middle curve inward
+                ],
+
+
+
+                'T': [
+                    { x: 150, y: 100 },
+                    { x: 300, y: 100 },
+                    { x: 225, y: 100 },
+                    { x: 225, y: 300 }
+                ],
+                'U': [
+                    { x: 150, y: 100 },
+                    { x: 150, y: 250 },
+                    { x: 200, y: 300 },
+                    { x: 250, y: 300 },
+                    { x: 300, y: 250 },
+                    { x: 300, y: 100 }
+                ],
+                'V': [
+                    { x: 150, y: 100 },
+                    { x: 225, y: 300 },
+                    { x: 300, y: 100 }
+                ],
+                'W': [
+                    { x: 150, y: 100 },
+                    { x: 175, y: 300 },
+                    { x: 225, y: 200 },
+                    { x: 275, y: 300 },
+                    { x: 300, y: 100 }
+                ],
+                'X': [
+                    { x: 150, y: 100 },
+                    { x: 300, y: 300 },
+                    { x: 150, y: 300 },
+                    { x: 300, y: 100 }
+                ],
+                'Y': [
+                    { x: 150, y: 100 },  // Top left point of the Y
+                    { x: 200, y: 175 },  // Center junction of the Y (bottom of the upper V)
+                    { x: 250, y: 100 },  // Top right point of the Y
+                    { x: 200, y: 175 },  // Repeated to start from the junction again
+                    { x: 200, y: 300 }   // Bottom point of the Y
+                ],
+                'Z': [
+                    { x: 150, y: 100 },
+                    { x: 250, y: 100 },
+                    { x: 150, y: 300 },
+                    { x: 250, y: 300 },
+                    { x: 200, y: 200 }
+                ],
+                '0': [
+                    { x: 150, y: 100 },  // Top left
+                    { x: 250, y: 100 },  // Top right
+                    { x: 250, y: 300 },  // Bottom right
+                    { x: 150, y: 300 },  // Bottom left
+                    { x: 150, y: 100 }   // Back to top left to close the loop
+                ],
+                '1': [
+                    { x: 200, y: 100 },  // Top middle
+                    { x: 200, y: 300 }   // Bottom middle
+                ],
+                '2': [
+                    { x: 150, y: 100 },  // Top left
+                    { x: 250, y: 100 },  // Top right
+                    { x: 250, y: 200 },  // Middle right
+                    { x: 150, y: 200 },  // Middle left
+                    { x: 150, y: 300 },  // Bottom left
+                    { x: 250, y: 300 }   // Bottom right
+                ],
+                '3': [
+                    { x: 150, y: 100 },  // Top left
+                    { x: 250, y: 100 },  // Top right
+                    { x: 250, y: 200 },  // Middle right
+                    { x: 150, y: 200 },  // Middle
+                    { x: 250, y: 200 },  // Middle right again
+                    { x: 250, y: 300 },  // Bottom right
+                    { x: 150, y: 300 }   // Bottom left
+                ],
+                '4': [
+                    { x: 150, y: 100 },  // Top left
+                    { x: 150, y: 200 },  // Middle left
+                    { x: 250, y: 200 },  // Middle right
+                    { x: 250, y: 100 },  // Top right
+                    { x: 250, y: 300 }   // Bottom right
+                ],
+                '5': [
+                    { x: 250, y: 100 },  // Top right
+                    { x: 150, y: 100 },  // Top left
+                    { x: 150, y: 200 },  // Middle left
+                    { x: 250, y: 200 },  // Middle right
+                    { x: 250, y: 300 },  // Bottom right
+                    { x: 150, y: 300 }   // Bottom left
+                ],
+                '6': [
+                    { x: 250, y: 100 },  // Top right
+                    { x: 150, y: 100 },  // Top left
+                    { x: 150, y: 300 },  // Bottom left
+                    { x: 250, y: 300 },  // Bottom right
+                    { x: 250, y: 200 },  // Middle right
+                    { x: 150, y: 200 }   // Middle left
+                ],
+                '7': [
+                    { x: 150, y: 100 },  // Top left
+                    { x: 250, y: 100 },  // Top right
+                    { x: 200, y: 300 }   // Bottom right
+                ],
+                // '8': [
+                // // Upper hexagon
+                // { x: 170, y: 100 },  // 8Bottom center
+                // { x: 225, y: 100 },  // 5Back to top center to close the upper hexagon
+                // { x: 250, y: 150 },  // 1Top right
+                // { x: 225, y: 200 },  // 2Bottom right
+                // { x: 175, y: 200 },  // 3Bottom left
+                // { x: 150, y: 150 },  // 4Top left
+
+
+                // // Lower hexagon
+                // { x: 250, y: 250 },  // 6Top right
+                // { x: 225, y: 300 },  // 7Bottom right
+                // { x: 175, y: 300 },  // 9Bottom left
+                // { x: 150, y: 250 },  // 10Top left
+                // ],
+                '8': [
+                    // Upper circle
+                    { x: 200, y: 100 },  // Top center of the upper circle
+                    { x: 250, y: 125 },  // Top right curve of the upper circle
+                    { x: 250, y: 175 },  // Bottom right curve of the upper circle
+                    { x: 200, y: 200 },  // Bottom center of the upper circle
+                    { x: 150, y: 175 },  // Bottom left curve of the upper circle
+                    { x: 150, y: 125 },  // Top left curve of the upper circle
+                    // { x: 200, y: 100 },  // Back to top center of the upper circle to close the loop
+
+                    // Lower circle
+                    // { x: 200, y: 200 },  // Top center of the lower circle
+                    { x: 250, y: 225 },  // Top right curve of the lower circle
+                    { x: 250, y: 275 },  // Bottom right curve of the lower circle
+                    { x: 200, y: 300 },  // Bottom center of the lower circle
+                    { x: 150, y: 275 },  // Bottom left curve of the lower circle
+                    { x: 150, y: 225 },  // Top left curve of the lower circle
+                    // { x: 200, y: 200 }   // Back to top center of the lower circle to close the loop
+                ],
+
+                '9': [
+                    { x: 150, y: 300 },  // Bottom left
+                    { x: 250, y: 300 },  // Bottom right
+                    { x: 250, y: 100 },  // Top right
+                    { x: 150, y: 100 },  // Top left
+                    { x: 150, y: 200 },  // Middle left
+                    { x: 250, y: 200 }   // Middle right
+                ],
+
+                'apple': [
+                    { x: 200, y: 120 },  // Top middle dip
+                    { x: 220, y: 100 },  // Slight indent for stem
+                    { x: 240, y: 110 },  // Upper right curve
+                    { x: 260, y: 140 },  // Middle right curve
+                    { x: 250, y: 170 },  // Lower right curve
+                    { x: 220, y: 200 },  // Bottom middle curve
+                    { x: 180, y: 200 },  // Bottom middle curve
+                    { x: 150, y: 170 },  // Lower left curve
+                    { x: 140, y: 140 },  // Middle left curve
+                    { x: 160, y: 110 },  // Upper left curve
+                    { x: 180, y: 100 },  // Slight indent for stem
+                    { x: 200, y: 120 },   // Back to top middle dip
+                    { x: 200, y: 70 },   // Back to top middle dip
+                    { x: 175, y: 65 },   // Back to top middle dip
+                    { x: 225, y: 65 }   // Back to top middle dip
+                ],
+            };
+
+            let isDrawing = false;
+            let lastPoint = null;
+            let currentLetter = 'A';
+            let userPath = [];
+            let drawnLines = [];
+
+            function drawPoints() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas to redraw points and lines
+
+                // Draw points and letters
+                letters[currentLetter].forEach((point, index) => {
+                    ctx.beginPath();
+                    ctx.arc(point.x, point.y, 5, 0, Math.PI * 2);
+                    ctx.fillStyle = 'black';
+                    ctx.fill();
+                    ctx.font = '16px Arial';
+                    ctx.fillText(index + 1, point.x - 10, point.y - 10);
+                    ctx.closePath();
+                });
+
+                // Draw previously drawn lines
+                drawnLines.forEach(line => {
+                    drawLine(line.x1, line.y1, line.x2, line.y2);
+                });
+            }
+
+            canvas.addEventListener('mousedown', e => {
+                const mousePos = getMousePos(canvas, e);
+                letters[currentLetter].forEach(point => {
+                    if (isMouseOnPoint(mousePos, point)) {
+                        lastPoint = point;
+                        isDrawing = true;
+                        userPath = [point];
+                    }
+                });
+            });
+
+            canvas.addEventListener('mousemove', e => {
+                if (isDrawing) {
+                    const mousePos = getMousePos(canvas, e);
+                    drawPoints(); // Redraw points and previously drawn lines
+                    drawLine(lastPoint.x, lastPoint.y, mousePos.x, mousePos.y);
+                }
+            });
+
+            canvas.addEventListener('mouseup', e => {
+                if (isDrawing) {
+                    const mousePos = getMousePos(canvas, e);
+                    letters[currentLetter].forEach(point => {
+                        if (isMouseOnPoint(mousePos, point) && point !== lastPoint) {
+                            drawLine(lastPoint.x, lastPoint.y, point.x, point.y);
+                            drawnLines.push({ x1: lastPoint.x, y1: lastPoint.y, x2: point.x, y2: point.y }); // Save drawn line
+                            lastPoint = point;
+                            userPath.push(point);
+                        }
+                    });
+                    isDrawing = false;
+
+                    // Check if user completed the path
+                    if (userPath.length === letters[currentLetter].length) {
+                        setTimeout(() => {
+                            checkPath();
+                        }, 500);
+                    }
+                }
+            });
+
+            function checkPath() {
+                const correctPath = letters[currentLetter].map(p => `${p.x},${p.y}`);
+                const drawnPath = userPath.map(p => `${p.x},${p.y}`);
+
+                if (JSON.stringify(correctPath) === JSON.stringify(drawnPath)) {
+                    resultDiv.textContent = 'Best! You joined the dots correctly.';
+                    resultDiv.style.color = 'green';
+                } else {
+                    resultDiv.textContent = 'You joined the dots incorrectly. Try again.';
+                    resultDiv.style.color = 'red';
+                }
+            }
+
+            function getMousePos(canvas, evt) {
+                const rect = canvas.getBoundingClientRect();
+                return {
+                    x: evt.clientX - rect.left,
+                    y: evt.clientY - rect.top
+                };
+            }
+
+            function isMouseOnPoint(mousePos, point) {
+                const distance = Math.sqrt((mousePos.x - point.x) ** 2 + (mousePos.y - point.y) ** 2);
+                return distance < 10;
+            }
+
+            function drawLine(x1, y1, x2, y2) {
+                ctx.beginPath();
+                ctx.strokeStyle = '#000';
+                ctx.lineWidth = 2;
+                ctx.moveTo(x1, y1);
+                ctx.lineTo(x2, y2);
+                ctx.stroke();
+                ctx.closePath();
+            }
+
+            drawPoints();
+
+            letterSelect.addEventListener('change', e => {
+                currentLetter = e.target.value;
+                userPath = [];
+                drawnLines = []; // Reset drawn lines when changing letter
+                resultDiv.textContent = '';
+                drawPoints();
+            });
+
+        </script>
+        <!-- core:js -->
+        <script src="{% static 'assets/vendors/core/core.js' %}"></script>
+        <!-- endinject -->
+
+        <!-- Plugin js for this page -->
+        <!-- End plugin js for this page -->
+
+        <!-- inject:js -->
+        <script src="{% static 'assets/vendors/feather-icons/feather.min.js' %}"></script>
+        <script src="{% static 'assets/js/app.js' %}"></script>
+        <!-- endinject -->
+
+        <!-- Custom js for this page -->
+        <!-- End custom js for this page -->
+    </body>
+
+</html>

@@ -1,0 +1,512 @@
+{% load static %}
+<!DOCTYPE html>
+<!--
+Template Name: NobleUI - HTML Bootstrap 5 Admin Dashboard Template
+Author: NobleUI
+Website: https://www.nobleui.com
+Portfolio: https://themeforest.net/user/nobleui/portfolio
+Contact: nobleui123@gmail.com
+Purchase: https://1.envato.market/nobleui_admin
+License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
+-->
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="description" content="Responsive HTML Admin Dashboard Template based on Bootstrap 5">
+        <meta name="author" content="NobleUI">
+        <meta name="keywords"
+            content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+        <title>NobleUI - HTML Bootstrap 5 Admin Dashboard Template</title>
+
+        <!-- color-modes:js -->
+        <script src="{% static 'assets/js/color-modes.js' %}"></script>
+        <!-- endinject -->
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link href="../../../../../css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+        <!-- End fonts -->
+
+        <!-- core:css -->
+        <link rel="stylesheet" href="{% static 'assets/vendors/core/core.css' %}">
+        <!-- endinject -->
+
+        <!-- Plugin css for this page -->
+        <!-- End plugin css for this page -->
+
+        <!-- inject:css -->
+        <link rel="stylesheet" href="{% static 'assets/fonts/feather-font/css/iconfont.css' %}">
+        <!-- endinject -->
+
+        <!-- Layout styles -->
+        <link rel="stylesheet" href="{% static 'assets/css/demo1/style.css' %}">
+        <!-- End layout styles -->
+
+        <link rel="shortcut icon" href="{'% static assets/images/favicon.png' %}">
+        <style>
+            /* Container styling for the grid */
+            .container {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                /* 3 columns */
+                gap: 35px;
+                padding-top: 60px !important;
+                /* Gap between cards */
+                padding: 20px;
+                max-width: 900px;
+                margin: 0 auto;
+                margin-left: 25%;
+            }
+
+            /* Responsive design for smaller screens */
+            @media (max-width: 768px) {
+                .container {
+                    grid-template-columns: repeat(2, 1fr);
+                    /* 2 columns on smaller screens */
+                }
+            }
+
+            @media (max-width: 480px) {
+                .container {
+                    grid-template-columns: 1fr;
+                    /* 1 column on very small screens */
+                }
+            }
+
+            /* From Uiverse.io by Mohammedswisse */
+            .card {
+                position: relative;
+                width: 290px;
+                height: 254px;
+                background-color: #000;
+                display: flex;
+                flex-direction: column;
+                justify-content: end;
+                padding: 12px;
+                gap: 20px;
+                border-radius: 8px;
+                justify-content: center;
+                cursor: pointer;
+                text-align: center;
+                color: #fff;
+            }
+
+            .card::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                left: -5px;
+                margin: auto;
+                width: 300px;
+                height: 264px;
+                border-radius: 10px;
+                background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100%);
+                z-index: -10;
+                pointer-events: none;
+                transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            }
+
+            .card::after {
+                content: "";
+                z-index: -1;
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100%);
+                transform: translate3d(0, 0, 0) scale(0.515);
+                filter: blur(20px);
+            }
+
+            .card .heading {
+                font-size: 20px;
+                text-transform: capitalize;
+                font-weight: 700;
+                z-index: 100 !important;
+            }
+
+            .card p:not(.heading) {
+                font-size: 14px;
+                z-index: 100 !important;
+            }
+
+            .card p:last-child {
+                color: #e81cff;
+                font-weight: 600;
+            }
+
+            .card:hover::after {
+                filter: blur(30px);
+            }
+
+            .card:hover::before {
+                transform: rotate(-90deg) scaleX(1.3) scaleY(1.1);
+            }
+
+            .heading {
+                font-size: 20px;
+                text-transform: capitalize;
+                font-weight: 700;
+            }
+
+            .card p:not(.heading) {
+                font-size: 14px;
+            }
+
+            .card p:last-child {
+                color: #e81cff;
+                font-weight: 600;
+            }
+
+        </style>
+    </head>
+
+    <body class="sidebar-dark">
+        <div class="main-wrapper">
+
+            <!-- partial:../../partials/_sidebar.html -->
+            <nav class="sidebar">
+                <div class="sidebar-header">
+                    <a href="#" class="sidebar-brand">
+                        Learn<span>Nex</span>
+                    </a>
+                    <div class="sidebar-toggler">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="sidebar-body">
+                    <ul class="nav" id="sidebarNav">
+                        <!-- <li class="nav-item nav-category">main</li> -->
+                        <!-- <li class="nav-item">
+            <a href="../../dashboard-1.html" class="nav-link">
+              <i class="link-icon" data-feather="box"></i>
+              <span class="link-title">Dashboard</span>
+            </a>
+          </li> -->
+
+
+
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                                <i class="link-icon" data-feather="home" style="color: white;"></i>
+                                <span class="link-title"><b>HOME</b></span>
+                            </a>
+                        </li>
+
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                                <i class="link-icon" data-feather="book" style="color: white;"></i>
+                                <span class="link-title"><b>standard</b></span>
+                            </a>
+                        </li>
+
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" onclick="changeText(event)">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title" id="nav-link-text"><b>1 st</b></span>
+                            </a>
+                        </li>
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title"><b>2 nd</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title"><b>3 rd</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title"><b>4 th</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title"><b>5 th</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                                <i class="link-icon" data-feather="layers" style="color: white;"></i>
+                                <span class="link-title"><b>Beyond the syllabus</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'memorygame' %}" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>Memory card</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>Vedic maths</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>Art</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>Crafts</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>dance</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>singing</b></span>
+                            </a>
+                        </li>
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="volume-2"></i>
+                                <span class="link-title"><b>Learn Communication !!</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                                <i class="link-icon" data-feather="help-circle" style="color: white;"></i>
+                                <span class="link-title"><b>Doubts</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="alert-circle"></i>
+                                <span class="link-title"><b>Ask Your Doubts??</b></span>
+                            </a>
+                        </li>
+
+
+                        </li>
+                    </ul>
+                </div>
+
+
+
+        </div>
+        </nav>
+        <!-- partial -->
+
+        <div class="page-wrapper">
+
+            <!-- partial:../../partials/_navbar.html -->
+            <nav class="navbar">
+                <div class="navbar-content">
+
+                    <div class="logo-mini-wrapper">
+                        <img src="{% static 'assets/images/logo-mini-light.png' %}" class="logo-mini logo-mini-light"
+                            alt="logo">
+                        <img src="{% static 'assets/images/logo-mini-dark.png' %}" class="logo-mini logo-mini-dark"
+                            alt="logo">
+                    </div>
+
+                    <!-- <form class="search-form">
+						<div class="input-group">
+              <div class="input-group-text">
+                <i data-feather="search"></i>
+              </div>
+							<input type="text" class="form-control" id="navbarForm" placeholder="Search here...">
+						</div>
+					</form> -->
+
+                    <ul class="navbar-nav">
+                        <li class="theme-switcher-wrapper nav-item">
+                            <input type="checkbox" value="" id="theme-switcher">
+                            <label for="theme-switcher">
+                                <div class="box">
+                                    <div class="ball"></div>
+                                    <div class="icons">
+                                        <i class="feather icon-sun"></i>
+
+                                        <i class="feather icon-moon"></i>
+                                    </div>
+                                </div>
+                            </label>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="w-30px h-30px ms-1 rounded-circle"
+                                    src="{% static 'assets/images/faces/face1.jpg' %}" alt="profile">
+                            </a>
+                            <div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
+                                <div class="d-flex flex-column align-items-center border-bottom px-5 py-3">
+                                    <div class="mb-3">
+                                        <img class="w-80px h-80px rounded-circle"
+                                            src="{% static 'assets/images/faces/face1.jpg' %}" alt="">
+                                    </div>
+                                    <div class="text-center">
+                                        <p class="fs-16px fw-bolder">Amiah Burton</p>
+                                        <p class="fs-12px text-secondary">amiahburton@gmail.com</p>
+                                    </div>
+                                </div>
+                                <ul class="list-unstyled p-1">
+                                    <li class="dropdown-item py-2">
+                                        <a href="profile.html" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="user"></i>
+                                            <span>Profile</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="edit"></i>
+                                            <span>Edit Profile</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="repeat"></i>
+                                            <span>Switch User</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="log-out"></i>
+                                            <span>Log Out</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <a href="#" class="sidebar-toggler">
+                        <i data-feather="menu"></i>
+                    </a>
+
+                </div>
+            </nav>
+            <!-- partial -->
+
+            <div class="page-content">
+                <h1>Subjects</h1>
+
+                <div class="container">
+                    <div class="card">
+                        <p class="heading">Mathematics</p>
+                        <p>Explore numbers, equations, and algorithms in this foundational subject.</p>
+                        <p>12 Lessons</p>
+                    </div>
+                    <div class="card">
+                        <p class="heading">Science</p>
+                        <p>Dive into the natural world and understand the laws that govern it.</p>
+                        <p>15 Lessons</p>
+                    </div>
+                    <div class="card">
+                        <p class="heading">History</p>
+                        <p>Discover the events and stories that have shaped human civilization.</p>
+                        <p>10 Lessons</p>
+                    </div>
+                    <div class="card">
+                        <p class="heading">Geography</p>
+                        <p>Learn about the Earth's landscapes, environments, and the people who live in them.</p>
+                        <p>8 Lessons</p>
+                    </div>
+                    <div class="card">
+                        <p class="heading">Literature</p>
+                        <p>Immerse yourself in the world of stories, poems, and dramatic works.</p>
+                        <p>14 Lessons</p>
+                    </div>
+                    <div class="card">
+                        <p class="heading">Art</p>
+                        <p>Explore creativity through various forms of visual and performing arts.</p>
+                        <p>9 Lessons</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- partial:../../partials/_footer.html -->
+            <footer
+                class="footer d-flex flex-row align-items-center justify-content-between px-4 py-3 border-top small">
+                <p class="text-secondary mb-1 mb-md-0">Copyright © 2024 <a href="https://www.nobleui.com"
+                        target="_blank">NobleUI</a>.</p>
+                <p class="text-secondary">Handcrafted With <i class="mb-1 text-primary ms-1 icon-sm"
+                        data-feather="heart"></i>
+                </p>
+            </footer>
+            <!-- partial -->
+
+        </div>
+        </div>
+
+
+        <script src="{% static 'assets/vendors/core/core.js' %}"></script>
+        <!-- endinject -->
+
+        <!-- Plugin js for this page -->
+        <!-- End plugin js for this page -->
+
+        <!-- inject:js -->
+        <script src="{% static 'assets/vendors/feather-icons/feather.min.js' %}"></script>
+        <script src="{% static 'assets/js/app.js' %}"></script>
+        <!-- endinject -->
+
+        <!-- Custom js for this page -->
+        <!-- End custom js for this page -->
+    </body>
+
+</html>

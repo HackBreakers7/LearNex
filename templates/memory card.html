@@ -1,0 +1,694 @@
+{% load static %}
+<!DOCTYPE html>
+<!--
+Template Name: NobleUI - HTML Bootstrap 5 Admin Dashboard Template
+Author: NobleUI
+Website: https://www.nobleui.com
+Portfolio: https://themeforest.net/user/nobleui/portfolio
+Contact: nobleui123@gmail.com
+Purchase: https://1.envato.market/nobleui_admin
+License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
+-->
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="description" content="Responsive HTML Admin Dashboard Template based on Bootstrap 5">
+        <meta name="author" content="NobleUI">
+        <meta name="keywords"
+            content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+        <title>NobleUI - HTML Bootstrap 5 Admin Dashboard Template</title>
+
+        <!-- color-modes:js -->
+        <script src="{% static 'assets/js/color-modes.js' %}"></script>
+        <!-- endinject -->
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link href="../../../../../css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+        <!-- End fonts -->
+
+        <!-- core:css -->
+        <link rel="stylesheet" href="{% static 'assets/vendors/core/core.css' %}">
+        <!-- endinject -->
+
+        <!-- Plugin css for this page -->
+        <!-- End plugin css for this page -->
+
+        <!-- inject:css -->
+        <link rel="stylesheet" href="{% static 'assets/fonts/feather-font/css/iconfont.css' %}">
+        <!-- endinject -->
+
+        <!-- Layout styles -->
+        <link rel="stylesheet" href="{% static 'assets/css/demo1/style.css' %}">
+        <!-- End layout styles -->
+
+        <link rel="shortcut icon" href="{'% static assets/images/favicon.png' %}">
+        <style>
+            .container1 {
+                display: flex;
+                align-items: flex-start;
+                width: 130% !important;
+                max-width: 1200px !important;
+                height: 90vh;
+                padding-top: 100px;
+                justify-content: center;
+            }
+
+            .image-section {
+                flex: 1;
+                padding: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .image {
+                max-width: 100% !important;
+                max-height: 100%;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            }
+
+            .game-section {
+                flex: 2;
+                padding: 10px;
+                /* background-color: white;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+                width: 160% !important;
+            }
+
+            #game-board {
+                padding: 20px;
+                display: grid;
+                grid-template-columns: repeat(4, 100px);
+                gap: 100px;
+                margin-bottom: 20px;
+            }
+
+            .card {
+                width: 160px;
+                height: 160px;
+                background-color: #ccc;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+                color: transparent;
+                cursor: pointer;
+                border-radius: 5px;
+                transition: background-color 0.3s, color 0.3s;
+            }
+
+            .card.flipped {
+                background-color: white;
+                color: black;
+            }
+
+            button {
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                margin: 5px;
+            }
+
+            button:hover {
+                background-color: #45a049;
+            }
+
+            #confetti-canvas {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 10;
+                /* Make sure confetti is on top */
+                pointer-events: none;
+            }
+
+            .hidden {
+                display: none;
+            }
+
+            #win-message {
+                font-size: 24px;
+                font-weight: bold;
+                color: #4CAF50;
+                text-align: center;
+                margin-top: 20px;
+                opacity: 0;
+                transition: opacity 0.5s;
+            }
+
+            #win-message.visible {
+                opacity: 1;
+            }
+
+        </style>
+    </head>
+
+    <body class="sidebar-dark">
+        <div class="main-wrapper">
+
+            <!-- partial:../../partials/_sidebar.html -->
+            <nav class="sidebar">
+                <div class="sidebar-header">
+                    <a href="#" class="sidebar-brand">
+                        Learn<span>Nex</span>
+                    </a>
+                    <div class="sidebar-toggler">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="sidebar-body">
+                    <ul class="nav" id="sidebarNav">
+                        <!-- <li class="nav-item nav-category">main</li> -->
+                        <!-- <li class="nav-item">
+            <a href="../../dashboard-1.html" class="nav-link">
+              <i class="link-icon" data-feather="box"></i>
+              <span class="link-title">Dashboard</span>
+            </a>
+          </li> -->
+
+
+
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                                <i class="link-icon" data-feather="home" style="color: white;"></i>
+                                <span class="link-title"><b>HOME</b></span>
+                            </a>
+                        </li>
+
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                                <i class="link-icon" data-feather="book" style="color: white;"></i>
+                                <span class="link-title"><b>standard</b></span>
+                            </a>
+                        </li>
+
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" onclick="changeText(event)">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title" id="nav-link-text"><b>1 st</b></span>
+                            </a>
+                        </li>
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title"><b>2 nd</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title"><b>3 rd</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title"><b>4 th</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title"><b>5 th</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                                <i class="link-icon" data-feather="layers" style="color: white;"></i>
+                                <span class="link-title"><b>Beyond the syllabus</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'memorygame' %}" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>Memory card</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>Vedic maths</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>Art</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>Crafts</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>dance</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>singing</b></span>
+                            </a>
+                        </li>
+
+
+
+
+
+
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="volume-2"></i>
+                                <span class="link-title"><b>Learn Communication !!</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                                <i class="link-icon" data-feather="help-circle" style="color: white;"></i>
+                                <span class="link-title"><b>Doubts</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="alert-circle"></i>
+                                <span class="link-title"><b>Ask Your Doubts??</b></span>
+                            </a>
+                        </li>
+
+
+                        </li>
+                    </ul>
+                </div>
+
+
+
+        </div>
+        </nav>
+        <!-- partial -->
+
+        <div class="page-wrapper">
+
+            <!-- partial:../../partials/_navbar.html -->
+            <nav class="navbar">
+                <div class="navbar-content">
+
+                    <div class="logo-mini-wrapper">
+                        <img src="{% static 'assets/images/logo-mini-light.png' %}" class="logo-mini logo-mini-light"
+                            alt="logo">
+                        <img src="{% static 'assets/images/logo-mini-dark.png' %}" class="logo-mini logo-mini-dark"
+                            alt="logo">
+                    </div>
+
+                    <!-- <form class="search-form">
+						<div class="input-group">
+              <div class="input-group-text">
+                <i data-feather="search"></i>
+              </div>
+							<input type="text" class="form-control" id="navbarForm" placeholder="Search here...">
+						</div>
+					</form> -->
+
+                    <ul class="navbar-nav">
+                        <li class="theme-switcher-wrapper nav-item">
+                            <input type="checkbox" value="" id="theme-switcher">
+                            <label for="theme-switcher">
+                                <div class="box">
+                                    <div class="ball"></div>
+                                    <div class="icons">
+                                        <i class="feather icon-sun"></i>
+
+                                        <i class="feather icon-moon"></i>
+                                    </div>
+                                </div>
+                            </label>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="w-30px h-30px ms-1 rounded-circle"
+                                    src="{% static 'assets/images/faces/face1.jpg' %}" alt="profile">
+                            </a>
+                            <div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
+                                <div class="d-flex flex-column align-items-center border-bottom px-5 py-3">
+                                    <div class="mb-3">
+                                        <img class="w-80px h-80px rounded-circle"
+                                            src="{% static 'assets/images/faces/face1.jpg' %}" alt="">
+                                    </div>
+                                    <div class="text-center">
+                                        <p class="fs-16px fw-bolder">Amiah Burton</p>
+                                        <p class="fs-12px text-secondary">amiahburton@gmail.com</p>
+                                    </div>
+                                </div>
+                                <ul class="list-unstyled p-1">
+                                    <li class="dropdown-item py-2">
+                                        <a href="profile.html" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="user"></i>
+                                            <span>Profile</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="edit"></i>
+                                            <span>Edit Profile</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="repeat"></i>
+                                            <span>Switch User</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="log-out"></i>
+                                            <span>Log Out</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <a href="#" class="sidebar-toggler">
+                        <i data-feather="menu"></i>
+                    </a>
+
+                </div>
+            </nav>
+            <!-- partial -->
+
+            <div class="page-content">
+                <div class="container1">
+                    <div class="image-section">
+                        <img src="c:\Users\SKN\Downloads\cartoon-like-kid-playing-with-cubes-indoors_23-2150898599-removebg-preview.png"
+                            alt="Decorative Image" class="image">
+                    </div>
+                    <div class="game-section">
+                        <h1>Memory Card Game</h1>
+                        <div id="game-board"></div>
+                        <button id="next-level-button" class="hidden">Next Level</button>
+                        <button id="restart-button" class="hidden">Restart Game</button>
+                        <div id="win-message" class="hidden">YOU WIN!</div>
+                        <canvas id="confetti-canvas"></canvas>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- partial:../../partials/_footer.html -->
+            <footer
+                class="footer d-flex flex-row align-items-center justify-content-between px-4 py-3 border-top small">
+                <p class="text-secondary mb-1 mb-md-0">Copyright © 2024 <a href="https://www.nobleui.com"
+                        target="_blank">NobleUI</a>.</p>
+                <p class="text-secondary">Handcrafted With <i class="mb-1 text-primary ms-1 icon-sm"
+                        data-feather="heart"></i>
+                </p>
+            </footer>
+            <!-- partial -->
+
+        </div>
+        </div>
+        <script>document.addEventListener('DOMContentLoaded', () => {
+                const board = document.getElementById('game-board');
+                const nextLevelButton = document.getElementById('next-level-button');
+                const restartButton = document.getElementById('restart-button');
+                const winMessage = document.getElementById('win-message');
+                const confettiCanvas = document.getElementById('confetti-canvas');
+                const ctx = confettiCanvas.getContext('2d');
+
+                // Base card values for level 1
+                const baseCardValues = ['A', 'B', 'C', 'D', 'A', 'B', 'C', 'D'];
+                // Additional cards for level 2
+                const additionalCardValues = ['E', 'F', 'G', 'H', 'E', 'F', 'G', 'H'];
+
+                let cardValues = [...baseCardValues];
+                let firstCard, secondCard;
+                let lockBoard = false;
+                let matches = 0;
+                let confetti = [];
+                let confettiActive = false;
+                let level = 1;
+
+                function resizeCanvas() {
+                    confettiCanvas.width = window.innerWidth;
+                    confettiCanvas.height = window.innerHeight;
+                }
+
+                window.addEventListener('resize', resizeCanvas);
+
+                class ConfettiParticle {
+                    constructor(x, y) {
+                        this.x = x;
+                        this.y = y;
+                        this.size = Math.random() * 7 + 3;
+                        this.speedX = (Math.random() - 0.5) * 10;
+                        this.speedY = (Math.random() - 0.5) * 10;
+                        this.gravity = 0.3;
+                        this.color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                        this.life = 150;
+                        this.opacity = 1;
+                    }
+
+                    update() {
+                        this.x += this.speedX;
+                        this.y += this.speedY;
+                        this.speedY += this.gravity;
+                        this.life -= 1;
+                        this.opacity = this.life / 150;
+                    }
+
+                    draw() {
+                        ctx.save();
+                        ctx.globalAlpha = this.opacity;
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                        ctx.fillStyle = this.color;
+                        ctx.fill();
+                        ctx.restore();
+                    }
+                }
+
+                function createConfettiBurst() {
+                    for (let i = 0; i < 400; i++) {
+                        const randomX = Math.random() * confettiCanvas.width;
+                        const randomY = Math.random() * confettiCanvas.height;
+                        confetti.push(new ConfettiParticle(randomX, randomY));
+                    }
+                }
+
+                function animateConfetti() {
+                    if (!confettiActive) return;
+                    ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+                    confetti.forEach((particle, index) => {
+                        particle.update();
+                        particle.draw();
+                        if (particle.life <= 0) {
+                            confetti.splice(index, 1);
+                        }
+                    });
+                    if (confetti.length > 0) {
+                        requestAnimationFrame(animateConfetti);
+                    }
+                }
+
+                function shuffle(array) {
+                    let currentIndex = array.length, randomIndex;
+                    while (currentIndex !== 0) {
+                        randomIndex = Math.floor(Math.random() * currentIndex);
+                        currentIndex--;
+                        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+                    }
+                    return array;
+                }
+
+                function createBoard() {
+                    // Clear the existing cards on the board
+                    board.innerHTML = '';
+                    const shuffledValues = shuffle(cardValues);
+                    board.style.gridTemplateColumns = 'repeat(4, 100px)';
+                    shuffledValues.forEach(value => {
+                        const card = document.createElement('div');
+                        card.classList.add('card');
+                        card.dataset.value = value;
+                        card.addEventListener('click', flipCard);
+                        board.appendChild(card);
+                    });
+                }
+
+                function flipCard() {
+                    if (lockBoard) return;
+                    if (this === firstCard) return;
+
+                    this.classList.add('flipped');
+                    this.textContent = this.dataset.value;
+
+                    if (!firstCard) {
+                        firstCard = this;
+                        return;
+                    }
+
+                    secondCard = this;
+                    checkForMatch();
+                }
+
+                function checkForMatch() {
+                    if (firstCard.dataset.value === secondCard.dataset.value) {
+                        matches++;
+                        resetBoard();
+                        if (matches === cardValues.length / 2) {
+                            setTimeout(() => {
+                                showWinEffect();
+                            }, 500);
+                        }
+                    } else {
+                        lockBoard = true;
+                        setTimeout(() => {
+                            firstCard.classList.remove('flipped');
+                            secondCard.classList.remove('flipped');
+                            firstCard.textContent = '';
+                            secondCard.textContent = '';
+                            resetBoard();
+                        }, 1000);
+                    }
+                }
+
+                function showWinEffect() {
+                    confettiActive = true;
+                    resizeCanvas();
+                    createConfettiBurst();
+                    animateConfetti();
+
+                    winMessage.classList.add('visible');
+                    if (level === 1) {
+                        nextLevelButton.classList.remove('hidden');
+                        restartButton.classList.add('hidden');
+                    } else if (level === 2) {
+                        nextLevelButton.classList.add('hidden');
+                        restartButton.classList.remove('hidden');
+                    }
+                }
+
+                function resetBoard() {
+                    [firstCard, secondCard, lockBoard] = [null, null, false];
+                }
+
+                nextLevelButton.addEventListener('click', () => {
+                    level = 2;
+                    cardValues = [...additionalCardValues];
+                    matches = 0;  // Reset matches for the new level
+                    createBoard();
+                    nextLevelButton.classList.add('hidden');
+                    restartButton.classList.remove('hidden');
+                    winMessage.classList.remove('visible');  // Hide win message when moving to the next level
+                    confettiActive = false;  // Stop confetti effect
+                    ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);  // Clear canvas
+                });
+
+                restartButton.addEventListener('click', () => {
+                    level = 1;
+                    cardValues = [...baseCardValues];
+                    matches = 0;  // Reset matches for the restart
+                    createBoard();
+                    winMessage.classList.remove('visible');  // Hide win message when restarting
+                    confettiActive = false;  // Stop confetti effect
+                    ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);  // Clear canvas
+                    nextLevelButton.classList.add('hidden');
+                    restartButton.classList.add('hidden');
+                });
+
+                createBoard();
+                resizeCanvas();
+            });
+
+        </script>
+        <!-- core:js -->
+        <script src="{% static 'assets/vendors/core/core.js' %}"></script>
+        <!-- endinject -->
+
+        <!-- Plugin js for this page -->
+        <!-- End plugin js for this page -->
+
+        <!-- inject:js -->
+        <script src="{% static 'assets/vendors/feather-icons/feather.min.js' %}"></script>
+        <script src="{% static 'assets/js/app.js' %}"></script>
+        <!-- endinject -->
+
+        <!-- Custom js for this page -->
+        <!-- End custom js for this page -->
+    </body>
+
+</html>
+
+
+
+</body>
+
+</html>

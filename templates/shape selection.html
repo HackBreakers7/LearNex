@@ -1,0 +1,485 @@
+{% load static %}
+<!DOCTYPE html>
+<!--
+Template Name: NobleUI - HTML Bootstrap 5 Admin Dashboard Template
+Author: NobleUI
+Website: https://www.nobleui.com
+Portfolio: https://themeforest.net/user/nobleui/portfolio
+Contact: nobleui123@gmail.com
+Purchase: https://1.envato.market/nobleui_admin
+License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
+-->
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="description" content="Responsive HTML Admin Dashboard Template based on Bootstrap 5">
+        <meta name="author" content="NobleUI">
+        <meta name="keywords"
+            content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+        <title>NobleUI - HTML Bootstrap 5 Admin Dashboard Template</title>
+
+        <!-- color-modes:js -->
+        <script src="{% static 'assets/js/color-modes.js' %}"></script>
+        <!-- endinject -->
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link href="../../../../../css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+        <!-- End fonts -->
+
+        <!-- core:css -->
+        <link rel="stylesheet" href="{% static 'assets/vendors/core/core.css' %}">
+        <!-- endinject -->
+
+        <!-- Plugin css for this page -->
+        <!-- End plugin css for this page -->
+
+        <!-- inject:css -->
+        <link rel="stylesheet" href="{% static 'assets/fonts/feather-font/css/iconfont.css' %}">
+        <!-- endinject -->
+
+        <!-- Layout styles -->
+        <link rel="stylesheet" href="{% static 'assets/css/demo1/style.css' %}">
+        <!-- End layout styles -->
+
+        <link rel="shortcut icon" href="{'% static assets/images/favicon.png' %}">
+        <style>
+            .container1 {
+                justify-content: center;
+                margin-left: 15%;
+                padding-top: 5%;
+                text-align: center;
+            }
+
+            .game-container {
+                margin-top: 50px;
+            }
+
+            .shapes {
+                display: flex;
+                justify-content: center;
+                margin: 20px 0;
+            }
+
+            .shape {
+                width: 100px;
+                height: 100px;
+                margin: 10px;
+                cursor: pointer;
+                border: 2px solid #333;
+            }
+
+            .circle {
+                border-radius: 50%;
+                background-color: #f54242;
+            }
+
+            .square {
+                background-color: #42f5d7;
+            }
+
+            .triangle {
+                width: 0;
+                height: 0;
+                border-left: 50px solid transparent;
+                border-right: 50px solid transparent;
+                border-bottom: 100px solid #f5a442;
+            }
+
+            .rectangle {
+                background-color: #42a5f5;
+                width: 150px;
+            }
+
+            #feedback {
+                font-size: 1.5em;
+                margin-top: 20px;
+            }
+
+        </style>
+    </head>
+
+    <body class="sidebar-dark">
+        <div class="main-wrapper">
+
+            <!-- partial:../../partials/_sidebar.html -->
+            <nav class="sidebar">
+                <div class="sidebar-header">
+                    <a href="#" class="sidebar-brand">
+                        Learn<span>Nex</span>
+                    </a>
+                    <div class="sidebar-toggler">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="sidebar-body">
+                    <ul class="nav" id="sidebarNav">
+                        <!-- <li class="nav-item nav-category">main</li> -->
+                        <!-- <li class="nav-item">
+            <a href="../../dashboard-1.html" class="nav-link">
+              <i class="link-icon" data-feather="box"></i>
+              <span class="link-title">Dashboard</span>
+            </a>
+          </li> -->
+
+
+
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                                <i class="link-icon" data-feather="home" style="color: white;"></i>
+                                <span class="link-title"><b>HOME</b></span>
+                            </a>
+                        </li>
+
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                                <i class="link-icon" data-feather="book" style="color: white;"></i>
+                                <span class="link-title"><b>standard</b></span>
+                            </a>
+                        </li>
+
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" onclick="changeText(event)">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title" id="nav-link-text"><b>1 st</b></span>
+                            </a>
+                        </li>
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title"><b>2 nd</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title"><b>3 rd</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title"><b>4 th</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title"><b>5 th</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                                <i class="link-icon" data-feather="layers" style="color: white;"></i>
+                                <span class="link-title"><b>Beyond the syllabus</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'memorygame' %}" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>Memory card</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>Vedic maths</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>Art</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>Crafts</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>dance</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>singing</b></span>
+                            </a>
+                        </li>
+
+
+
+
+
+
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="volume-2"></i>
+                                <span class="link-title"><b>Learn Communication !!</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                                <i class="link-icon" data-feather="help-circle" style="color: white;"></i>
+                                <span class="link-title"><b>Doubts</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="alert-circle"></i>
+                                <span class="link-title"><b>Ask Your Doubts??</b></span>
+                            </a>
+                        </li>
+
+
+                        </li>
+                    </ul>
+                </div>
+
+
+
+        </div>
+        </nav>
+        <!-- partial -->
+
+        <div class="page-wrapper">
+
+            <!-- partial:../../partials/_navbar.html -->
+            <nav class="navbar">
+                <div class="navbar-content">
+
+                    <div class="logo-mini-wrapper">
+                        <img src="{% static 'assets/images/logo-mini-light.png' %}" class="logo-mini logo-mini-light"
+                            alt="logo">
+                        <img src="{% static 'assets/images/logo-mini-dark.png' %}" class="logo-mini logo-mini-dark"
+                            alt="logo">
+                    </div>
+
+                    <!-- <form class="search-form">
+						<div class="input-group">
+              <div class="input-group-text">
+                <i data-feather="search"></i>
+              </div>
+							<input type="text" class="form-control" id="navbarForm" placeholder="Search here...">
+						</div>
+					</form> -->
+
+                    <ul class="navbar-nav">
+                        <li class="theme-switcher-wrapper nav-item">
+                            <input type="checkbox" value="" id="theme-switcher">
+                            <label for="theme-switcher">
+                                <div class="box">
+                                    <div class="ball"></div>
+                                    <div class="icons">
+                                        <i class="feather icon-sun"></i>
+
+                                        <i class="feather icon-moon"></i>
+                                    </div>
+                                </div>
+                            </label>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="w-30px h-30px ms-1 rounded-circle"
+                                    src="{% static 'assets/images/faces/face1.jpg' %}" alt="profile">
+                            </a>
+                            <div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
+                                <div class="d-flex flex-column align-items-center border-bottom px-5 py-3">
+                                    <div class="mb-3">
+                                        <img class="w-80px h-80px rounded-circle"
+                                            src="{% static 'assets/images/faces/face1.jpg' %}" alt="">
+                                    </div>
+                                    <div class="text-center">
+                                        <p class="fs-16px fw-bolder">Amiah Burton</p>
+                                        <p class="fs-12px text-secondary">amiahburton@gmail.com</p>
+                                    </div>
+                                </div>
+                                <ul class="list-unstyled p-1">
+                                    <li class="dropdown-item py-2">
+                                        <a href="profile.html" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="user"></i>
+                                            <span>Profile</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="edit"></i>
+                                            <span>Edit Profile</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="repeat"></i>
+                                            <span>Switch User</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="log-out"></i>
+                                            <span>Log Out</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <a href="#" class="sidebar-toggler">
+                        <i data-feather="menu"></i>
+                    </a>
+
+                </div>
+            </nav>
+            <!-- partial -->
+
+            <div class="page-content">
+                <div class="container1">
+                    <div class="game-container">
+                        <h1>Shape Selection Game</h1>
+                        <p id="question"></p>
+                        <div class="shapes">
+                            <div class="shape circle" onclick="checkAnswer('circle')"></div>
+                            <div class="shape square" onclick="checkAnswer('square')"></div>
+                            <div class="shape triangle" onclick="checkAnswer('triangle')"></div>
+                            <div class="shape rectangle" onclick="checkAnswer('rectangle')"></div>
+                        </div>
+                        <p id="feedback"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- partial:../../partials/_footer.html -->
+            <footer
+                class="footer d-flex flex-row align-items-center justify-content-between px-4 py-3 border-top small">
+                <p class="text-secondary mb-1 mb-md-0">Copyright © 2024 <a href="https://www.nobleui.com"
+                        target="_blank">NobleUI</a>.</p>
+                <p class="text-secondary">Handcrafted With <i class="mb-1 text-primary ms-1 icon-sm"
+                        data-feather="heart"></i>
+                </p>
+            </footer>
+            <!-- partial -->
+
+        </div>
+        </div>
+        <script>
+
+            const shapes = ['circle', 'square', 'triangle', 'rectangle'];
+            let correctShape;
+
+            // Function to start the game
+            function startGame() {
+                const randomIndex = Math.floor(Math.random() * shapes.length);
+                correctShape = shapes[randomIndex];
+                const questionText = `Select the ${correctShape}`;
+
+                // Display the question on the screen
+                document.getElementById('question').textContent = questionText;
+
+                // Speak the question using Web Speech API
+                speakText(questionText);
+
+                document.getElementById('feedback').textContent = '';
+            }
+
+            // Function to check the answer
+            function checkAnswer(selectedShape) {
+                if (selectedShape === correctShape) {
+                    document.getElementById('feedback').textContent = 'Correct! Well done!';
+                    speakText('Correct! Well done!');
+                } else {
+                    document.getElementById('feedback').textContent = `Wrong! The correct answer was ${correctShape}.`;
+                    speakText(`Wrong! The correct answer was ${correctShape}.`);
+                }
+                setTimeout(startGame, 3000); // Restart game after 3 seconds
+            }
+
+            // Function to speak text using Web Speech API
+            function speakText(text) {
+                const speech = new SpeechSynthesisUtterance();
+                speech.text = text;
+                speech.volume = 1; // Volume (0 to 1)
+                speech.rate = 1; // Speed of speech
+                speech.pitch = 1; // Pitch of speech
+                window.speechSynthesis.speak(speech);
+            }
+
+            // Start the game when the page loads
+            window.onload = startGame;
+
+
+        </script>
+        <!-- core:js -->
+        <script src="{% static 'assets/vendors/core/core.js' %}"></script>
+        <!-- endinject -->
+
+        <!-- Plugin js for this page -->
+        <!-- End plugin js for this page -->
+
+        <!-- inject:js -->
+        <script src="{% static 'assets/vendors/feather-icons/feather.min.js' %}"></script>
+        <script src="{% static 'assets/js/app.js' %}"></script>
+        <!-- endinject -->
+
+        <!-- Custom js for this page -->
+        <!-- End custom js for this page -->
+    </body>
+
+</html>

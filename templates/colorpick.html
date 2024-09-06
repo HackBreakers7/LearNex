@@ -1,0 +1,643 @@
+{% load static %}
+<!DOCTYPE html>
+<!--
+Template Name: NobleUI - HTML Bootstrap 5 Admin Dashboard Template
+Author: NobleUI
+Website: https://www.nobleui.com
+Portfolio: https://themeforest.net/user/nobleui/portfolio
+Contact: nobleui123@gmail.com
+Purchase: https://1.envato.market/nobleui_admin
+License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
+-->
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="description" content="Responsive HTML Admin Dashboard Template based on Bootstrap 5">
+        <meta name="author" content="NobleUI">
+        <meta name="keywords"
+            content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+        <title>NobleUI - HTML Bootstrap 5 Admin Dashboard Template</title>
+
+        <!-- color-modes:js -->
+        <script src="{% static 'assets/js/color-modes.js' %}"></script>
+        <!-- endinject -->
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link href="../../../../../css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+        <!-- End fonts -->
+
+        <!-- core:css -->
+        <link rel="stylesheet" href="{% static 'assets/vendors/core/core.css' %}">
+        <!-- endinject -->
+
+        <!-- Plugin css for this page -->
+        <!-- End plugin css for this page -->
+
+        <!-- inject:css -->
+        <link rel="stylesheet" href="{% static 'assets/fonts/feather-font/css/iconfont.css' %}">
+        <!-- endinject -->
+
+        <!-- Layout styles -->
+        <link rel="stylesheet" href="{% static 'assets/css/demo1/style.css' %}">
+        <!-- End layout styles -->
+
+        <link rel="shortcut icon" href="{'% static assets/images/favicon.png' %}">
+        <style>
+           .container1{
+           margin-left: 25%;
+           padding-top: 10%;
+           justify-content: center;
+           text-align: center;
+           }
+
+            #game-title {
+                color: #00796b;
+                margin-top: 20px;
+                font-size: 36px;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            }
+
+            #timer {
+                margin-top: 20px;
+                font-size: 24px;
+                color: #d32f2f;
+                font-weight: bold;
+            }
+
+            .color-box {
+                width: 120px;
+                height: 120px;
+                margin: 10px;
+                display: inline-block;
+                cursor: pointer;
+                border: 4px solid #ffffff;
+                border-radius: 12px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                transition: transform 0.3s, box-shadow 0.3s;
+                position: relative;
+            }
+
+            .color-box:hover {
+                transform: scale(1.1);
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            }
+
+            .color-box::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 12px;
+                box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.2);
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+
+            .color-box:hover::after {
+                opacity: 0.4;
+            }
+
+            #feedback {
+                margin-top: 20px;
+                font-size: 24px;
+                font-weight: bold;
+                color: #333;
+            }
+
+            #next-button,
+            #start-button {
+                margin-top: 20px;
+                padding: 10px 20px;
+                background-color: #00796b;
+                color: white;
+                font-size: 18px;
+                cursor: pointer;
+                border: none;
+                border-radius: 8px;
+                transition: background-color 0.3s, transform 0.3s;
+            }
+
+            #start-button {
+                background-color: #0288d1;
+            }
+
+            #start-button:hover {
+                background-color: #0277bd;
+            }
+
+            #next-button:hover {
+                background-color: #004d40;
+            }
+
+            #celebration {
+                display: none;
+                margin-top: 20px;
+            }
+
+            #star {
+                width: 100px;
+                height: 100px;
+                background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Gold_Star.svg/768px-Gold_Star.svg.png');
+                background-size: cover;
+                display: inline-block;
+                animation: sparkle 1s infinite;
+                margin: 0 10px;
+            }
+
+            @keyframes sparkle {
+                0% {
+                    transform: scale(1);
+                }
+
+                50% {
+                    transform: scale(1.3);
+                }
+
+                100% {
+                    transform: scale(1);
+                }
+            }
+
+            #result {
+                font-size: 28px;
+                font-weight: bold;
+                color: #00796b;
+            }
+
+            #color-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 10px;
+                justify-content: center;
+                margin-top: 20px;
+            }
+
+        </style>
+    </head>
+
+    <body class="sidebar-dark">
+        <div class="main-wrapper">
+
+            <!-- partial:../../partials/_sidebar.html -->
+            <nav class="sidebar">
+                <div class="sidebar-header">
+                    <a href="#" class="sidebar-brand">
+                        Learn<span>Nex</span>
+                    </a>
+                    <div class="sidebar-toggler">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="sidebar-body">
+                    <ul class="nav" id="sidebarNav">
+                        <!-- <li class="nav-item nav-category">main</li> -->
+                        <!-- <li class="nav-item">
+            <a href="../../dashboard-1.html" class="nav-link">
+              <i class="link-icon" data-feather="box"></i>
+              <span class="link-title">Dashboard</span>
+            </a>
+          </li> -->
+
+
+
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                                <i class="link-icon" data-feather="home" style="color: white;"></i>
+                                <span class="link-title"><b>HOME</b></span>
+                            </a>
+                        </li>
+
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                                <i class="link-icon" data-feather="book" style="color: white;"></i>
+                                <span class="link-title"><b>standard</b></span>
+                            </a>
+                        </li>
+
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" onclick="changeText(event)">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title" id="nav-link-text"><b>1 st</b></span>
+                            </a>
+                        </li>
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title"><b>2 nd</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title"><b>3 rd</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title"><b>4 th</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title"><b>5 th</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                                <i class="link-icon" data-feather="layers" style="color: white;"></i>
+                                <span class="link-title"><b>Beyond the syllabus</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'memorygame' %}" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>Memory card</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>Vedic maths</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>Art</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>Crafts</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>dance</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>singing</b></span>
+                            </a>
+                        </li>
+
+
+
+
+
+
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="volume-2"></i>
+                                <span class="link-title"><b>Learn Communication !!</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                                <i class="link-icon" data-feather="help-circle" style="color: white;"></i>
+                                <span class="link-title"><b>Doubts</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="alert-circle"></i>
+                                <span class="link-title"><b>Ask Your Doubts??</b></span>
+                            </a>
+                        </li>
+
+
+                        </li>
+                    </ul>
+                </div>
+
+
+
+        </div>
+        </nav>
+        <!-- partial -->
+
+        <div class="page-wrapper">
+
+            <!-- partial:../../partials/_navbar.html -->
+            <nav class="navbar">
+                <div class="navbar-content">
+
+                    <div class="logo-mini-wrapper">
+                        <img src="{% static 'assets/images/logo-mini-light.png' %}" class="logo-mini logo-mini-light"
+                            alt="logo">
+                        <img src="{% static 'assets/images/logo-mini-dark.png' %}" class="logo-mini logo-mini-dark"
+                            alt="logo">
+                    </div>
+
+                    <!-- <form class="search-form">
+						<div class="input-group">
+              <div class="input-group-text">
+                <i data-feather="search"></i>
+              </div>
+							<input type="text" class="form-control" id="navbarForm" placeholder="Search here...">
+						</div>
+					</form> -->
+
+                    <ul class="navbar-nav">
+                        <li class="theme-switcher-wrapper nav-item">
+                            <input type="checkbox" value="" id="theme-switcher">
+                            <label for="theme-switcher">
+                                <div class="box">
+                                    <div class="ball"></div>
+                                    <div class="icons">
+                                        <i class="feather icon-sun"></i>
+
+                                        <i class="feather icon-moon"></i>
+                                    </div>
+                                </div>
+                            </label>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="w-30px h-30px ms-1 rounded-circle"
+                                    src="{% static 'assets/images/faces/face1.jpg' %}" alt="profile">
+                            </a>
+                            <div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
+                                <div class="d-flex flex-column align-items-center border-bottom px-5 py-3">
+                                    <div class="mb-3">
+                                        <img class="w-80px h-80px rounded-circle"
+                                            src="{% static 'assets/images/faces/face1.jpg' %}" alt="">
+                                    </div>
+                                    <div class="text-center">
+                                        <p class="fs-16px fw-bolder">Amiah Burton</p>
+                                        <p class="fs-12px text-secondary">amiahburton@gmail.com</p>
+                                    </div>
+                                </div>
+                                <ul class="list-unstyled p-1">
+                                    <li class="dropdown-item py-2">
+                                        <a href="profile.html" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="user"></i>
+                                            <span>Profile</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="edit"></i>
+                                            <span>Edit Profile</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="repeat"></i>
+                                            <span>Switch User</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="log-out"></i>
+                                            <span>Log Out</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <a href="#" class="sidebar-toggler">
+                        <i data-feather="menu"></i>
+                    </a>
+
+                </div>
+            </nav>
+            <!-- partial -->
+
+            <div class="page-content">
+                <div class="container1">
+                    <h1 id="game-title">Pick the Correct Color</h1>
+                    <div id="timer">Time Left: <span id="timer-count">10</span> seconds</div>
+                    <div id="question"></div>
+                    <div id="color-container"></div>
+                    <div id="feedback"></div>
+                    <button id="next-button" onclick="nextQuestion()">Next Question</button>
+                    <button id="start-button" onclick="startGame()">Start Game</button>
+
+                    <div id="celebration">
+                        <div id="star"></div>
+                        <div id="star"></div>
+                        <div id="star"></div>
+                        <h2 id="result"></h2>
+                    </div>
+                </div>
+            </div>
+
+            <!-- partial:../../partials/_footer.html -->
+            <footer
+                class="footer d-flex flex-row align-items-center justify-content-between px-4 py-3 border-top small">
+                <p class="text-secondary mb-1 mb-md-0">Copyright © 2024 <a href="https://www.nobleui.com"
+                        target="_blank">NobleUI</a>.</p>
+                <p class="text-secondary">Handcrafted With <i class="mb-1 text-primary ms-1 icon-sm"
+                        data-feather="heart"></i>
+                </p>
+            </footer>
+            <!-- partial -->
+
+        </div>
+        </div>
+        <script>
+            let colors = {
+                'Red': 'red',
+                'Blue': 'blue',
+                'Green': 'green',
+                'Yellow': 'yellow',
+                'DarkBlue': '#0033cc',
+                'Orange': 'orange',
+                'Purple': 'purple',
+                'Pink': 'pink',
+                'Cyan': 'cyan',
+                'Lime': 'lime'
+            };
+
+            let questions = [];
+            let currentQuestion = 0;
+            let score = 0;
+            let timer;
+            let timeLeft = 10;
+
+            function generateRandomQuestion() {
+                let colorNames = Object.keys(colors);
+                let correctColor = colorNames[Math.floor(Math.random() * colorNames.length)];
+                let questionText = `Pick the ${correctColor} color`;
+                return { question: questionText, answer: correctColor };
+            }
+
+            function displayQuestion() {
+                questions = [];
+                for (let i = 0; i < 4; i++) {
+                    questions.push(generateRandomQuestion());
+                }
+
+                document.getElementById('game-title').style.display = 'block';
+                document.getElementById('question').style.display = 'block';
+                document.getElementById('color-container').style.display = 'grid';
+                document.getElementById('feedback').innerText = '';
+                document.getElementById('next-button').style.display = 'none';
+                document.getElementById('start-button').style.display = 'none';
+                document.getElementById('timer').style.display = 'block';
+                timeLeft = 10;
+                document.getElementById('timer-count').innerText = timeLeft;
+                startTimer();
+
+                let question = questions[currentQuestion];
+                document.getElementById('question').innerText = question.question;
+
+                let container = document.getElementById('color-container');
+                container.innerHTML = '';
+                for (let color of Object.keys(colors)) {
+                    let colorDiv = document.createElement('div');
+                    colorDiv.className = 'color-box';
+                    colorDiv.style.backgroundColor = colors[color];
+                    colorDiv.onclick = () => checkAnswer(color);
+                    container.appendChild(colorDiv);
+                }
+            }
+
+            function startTimer() {
+                timer = setInterval(() => {
+                    timeLeft--;
+                    document.getElementById('timer-count').innerText = timeLeft;
+                    if (timeLeft <= 0) {
+                        clearInterval(timer);
+                        document.getElementById('feedback').innerText = 'Time\'s up! 🙁';
+                        document.getElementById('next-button').style.display = 'block';
+                    }
+                }, 1000);
+            }
+
+            function checkAnswer(selected) {
+                clearInterval(timer);
+                let correctAnswer = questions[currentQuestion].answer;
+                if (selected === correctAnswer) {
+                    score++;
+                    document.getElementById('feedback').innerText = 'Correct! 🎉';
+                    playAudio('https://www.soundjay.com/human/female-voice-wow.mp3');
+                } else {
+                    document.getElementById('feedback').innerText = 'Try Again! 🙁';
+                    playAudio('https://www.soundjay.com/human/female-voice-oh-no.mp3');
+                }
+                document.getElementById('next-button').style.display = 'block';
+            }
+
+            function nextQuestion() {
+                currentQuestion++;
+                if (currentQuestion < questions.length) {
+                    displayQuestion();
+                } else {
+                    showCelebration();
+                }
+            }
+
+            function showCelebration() {
+                document.getElementById('game-title').style.display = 'none';
+                document.getElementById('question').style.display = 'none';
+                document.getElementById('color-container').style.display = 'none';
+                document.getElementById('feedback').innerText = '';
+                document.getElementById('next-button').style.display = 'none';
+                document.getElementById('timer').style.display = 'none';
+                document.getElementById('celebration').style.display = 'block';
+                document.getElementById('result').innerText = `You scored ${score} out of ${questions.length}!`;
+                playAudio('https://www.soundjay.com/human/female-voice-good-job.mp3');
+                setTimeout(() => {
+                    document.getElementById('celebration').style.display = 'none';
+                    startGame();
+                }, 3000);
+            }
+
+            function startGame() {
+                document.getElementById('start-button').style.display = 'none';
+                currentQuestion = 0;
+                score = 0;
+                displayQuestion();
+            }
+
+            function playAudio(url) {
+                let audio = new Audio(url);
+                audio.play();
+            }
+
+            // Start the game with a button click
+            document.getElementById('start-button').style.display = 'block';
+        </script> <!-- core:js -->
+        <script src="{% static 'assets/vendors/core/core.js' %}"></script>
+        <!-- endinject -->
+
+        <!-- Plugin js for this page -->
+        <!-- End plugin js for this page -->
+
+        <!-- inject:js -->
+        <script src="{% static 'assets/vendors/feather-icons/feather.min.js' %}"></script>
+        <script src="{% static 'assets/js/app.js' %}"></script>
+        <!-- endinject -->
+
+        <!-- Custom js for this page -->
+        <!-- End custom js for this page -->
+    </body>
+
+</html>
