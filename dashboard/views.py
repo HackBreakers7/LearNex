@@ -10,6 +10,15 @@ def memmory_Card(request):
 def canvas(request):
     return render(request,'canvas.html')
 
+def rhymgame(request):
+    return render(request,'rhymgame.html')
+
+def animalmatch(request):
+    return render(request,'Animalmatch.html')
+
+def mathadventure(request):
+    return render(request,'mathadventure.html')
+
 def connectdots(request):
     return render(request,'connectdots.html')
 
@@ -42,6 +51,9 @@ def video(request):
 def animalgame(request):
     return render(request, 'animalgame.html')
 
+def main_dash(request):
+    return render(request, 'main_dash.html')
+
 
 from django.conf import settings
 from django.http import FileResponse
@@ -62,3 +74,6 @@ def download_history(request):
 def download_geography(request):
     file_path = os.path.join(settings.STATICFILES_DIRS[0], 'assets/geography.pdf')
     return FileResponse(open(file_path, 'rb'), as_attachment=True, filename='geography.pdf')
+
+def chatbot(request):
+    return render(request, 'chatbot.html')

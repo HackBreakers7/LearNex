@@ -1,0 +1,999 @@
+{% load static %}
+<!DOCTYPE html>
+<!--
+Template Name: NobleUI - HTML Bootstrap 5 Admin Dashboard Template
+Author: NobleUI
+Website: https://www.nobleui.com
+Portfolio: https://themeforest.net/user/nobleui/portfolio
+Contact: nobleui123@gmail.com
+Purchase: https://1.envato.market/nobleui_admin
+License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
+-->
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="description" content="Responsive HTML Admin Dashboard Template based on Bootstrap 5">
+        <meta name="author" content="NobleUI">
+        <meta name="keywords"
+            content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+        <title>NobleUI - HTML Bootstrap 5 Admin Dashboard Template</title>
+
+        <!-- color-modes:js -->
+        <script src="{% static 'assets/js/color-modes.js' %}"></script>
+        <!-- endinject -->
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link href="../../../../../css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+        <!-- End fonts -->
+
+        <!-- core:css -->
+        <link rel="stylesheet" href="{% static 'assets/vendors/core/core.css' %}">
+        <!-- endinject -->
+
+        <!-- Plugin css for this page -->
+        <!-- End plugin css for this page -->
+
+        <!-- inject:css -->
+        <link rel="stylesheet" href="{% static 'assets/fonts/feather-font/css/iconfont.css' %}">
+        <!-- endinject -->
+
+        <!-- Layout styles -->
+        <link rel="stylesheet" href="{% static 'assets/css/demo1/style.css' %}">
+        <!-- End layout styles -->
+
+        <link rel="shortcut icon" href="{'% static assets/images/favicon.png' %}">
+        <style>
+
+       
+		     /* Thinking Boy Animation */
+     .thinking-boy {
+        position: absolute;
+        bottom: 30px;
+        left: 1200px;
+        width: 300px;
+        animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+        0% { transform: translateY(10); }
+        50% { transform: translateY(-20px); }
+        100% { transform: translateY(0); }
+    }
+    .Mother {
+        position: absolute;
+        left:200px;
+        top: 480px;
+        right: 10px;
+        width: 250px;
+        animation: float 3s ease-in-out infinite;
+    }
+    .Pencil {
+        padding:20px;
+        position: absolute;
+        top: 40px;
+        left: 210px;
+        width: 130px;
+        animation: float 3s ease-in-out infinite;
+    }
+    
+    .Pencil1 {
+        position: absolute;
+        top: 50px;
+        left: 1200px;
+        width: 90px;
+        animation: float 3s ease-in-out infinite;
+    }
+	#race-track {
+		width: 200%;
+		left:150px;
+		top:80px;
+		background-image: url("{% static 'images/road.png' %}"); /* Add your racing image */
+		background-size: cover; /* Ensures the image covers the entire div */
+		background-repeat: no-repeat; /* Prevents image from repeating */
+		background-position: center; /* Centers the image */
+		margin-bottom: 10px;
+		position: relative;
+		overflow: hidden;
+	}
+	
+	/* Edit here */
+	#game-container {
+		text-align: center;
+		
+		border-radius: 30px;
+		padding: 20px;
+		width: 100%;
+		height: 100vh;
+		
+	} 
+	
+	
+	
+	
+	
+	h1 {
+		color: #ff5722;
+	}
+	
+	#race-track {
+		width: 108%;
+
+		
+		height: 200px;
+	  <!--  background-color: #d3d3d3; -->
+		margin-bottom: 20px;
+		position: relative;
+		overflow: hidden;
+    margin-left:-190px;
+	}
+	
+	#car {
+		position: absolute;
+		bottom: 60px;
+		left: 30px;;
+		transition: left 0.5s;
+	}
+	
+	#car-img {
+		width: 260px; /* Adjust size according to your image */
+		height: auto; /* Keeps aspect ratio */
+        
+	}
+	.FlagL {
+		position: absolute; /* Added to allow top and left positioning */
+		top: 90px;
+		left: 1310px;
+		width: 90px; /* Adjust size according to your image */
+	/*	animation: float 5s ease-in-out infinite; */
+		
+	}
+	
+	.FlagR {
+		position: absolute; /* Added to allow top and left positioning */
+		top: 90px;
+		left: 1340px;
+		width: 120px; /* Adjust size according to your image */
+	/*	animation: float 5s ease-in-out infinite; */
+		
+	}
+	.FlagL1 {
+		position: absolute; /* Added to allow top and left positioning */
+		top: 250px;
+		left: 1310px;
+		width: 90px; /* Adjust size according to your image */
+	/*	animation: float 5s ease-in-out infinite; */
+	}
+	
+	.FlagR1 {
+		position: absolute; /* Added to allow top and left positioning */
+		top: 250px;
+		left: 1340px;
+		width: 120px; /* Adjust size according to your image */
+	/*	animation: float 5s ease-in-out infinite; */
+		
+	}
+	@keyframes float {
+		0% { transform: translateY(10); }
+		50% { transform: translateY(-20px); }
+		100% { transform: translateY(0); }
+	}
+	
+	
+	#math-problem-area {
+		margin-top:100px;
+		font-size:40px;
+        left:150px;
+	
+		
+	}
+	
+	
+	#answer-input {
+		padding: 8px;
+		width: 100px;
+		font-size: 18px;
+		margin-right: 10px;
+	}
+	
+	button {
+		padding: 12px 20px;
+		background-color: #ff5722;
+		color: white;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+	
+	button:hover {
+		background-color: #e64a19;
+	}
+	
+	#race-status {
+		margin-top: 40px;
+	}
+	
+	.hidden {
+		display: none;
+	}
+            .container1 {
+                display: flex;
+                align-items: flex-start;
+                width: 130% !important;
+                max-width: 1200px !important;
+                height: 100vh;
+                padding-top: 100px;
+                justify-content: center;
+            }
+
+            .image-section {
+                flex: 1;
+                
+                padding: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .image {
+                max-width: 100% !important;
+                max-height: 100%;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            }
+
+            .game-section {
+                flex: 2;
+                padding: 10px;
+                /* background-color: white;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+                width: 160% !important;
+            }
+
+            #game-board {
+                padding: 20px;
+                display: grid;
+                grid-template-columns: repeat(4, 100px);
+                gap: 100px;
+                margin-bottom: 20px;
+            }
+
+            .card {
+                width: 160px;
+                height: 160px;
+                background-color: #ccc;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+                color: transparent;
+                cursor: pointer;
+                border-radius: 5px;
+                transition: background-color 0.3s, color 0.3s;
+            }
+
+            .card.flipped {
+                background-color: white;
+                color: black;
+            }
+
+            button {
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                margin: 5px;
+            }
+
+            button:hover {
+                background-color: #45a049;
+            }
+
+            #confetti-canvas {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 10;
+                /* Make sure confetti is on top */
+                pointer-events: none;
+            }
+
+            .hidden {
+                display: none;
+            }
+
+            #win-message {
+                font-size: 24px;
+                font-weight: bold;
+                color: #4CAF50;
+                text-align: center;
+                margin-top: 20px;
+                opacity: 0;
+                transition: opacity 0.5s;
+            }
+
+            #win-message.visible {
+                opacity: 1;
+            }
+
+            /* chatbot section start css */
+    .draggableIcon {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        cursor: pointer;
+      }
+      .whatsapp-icon {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background: url('https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg') no-repeat center center;
+        background-size: contain;
+      }
+      .modelViewPort {
+        perspective: 1000px;
+        width: 5rem;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        background: transparent;
+      }
+      .eva {
+        --EVA-ROTATION-DURATION: 4s;
+        transform-style: preserve-3d;
+        animation: rotateRight var(--EVA-ROTATION-DURATION) linear infinite alternate;
+      }
+      .head {
+        position: relative;
+        width: 2.5rem;
+        height: 1.6rem;
+        border-radius: 48% 53% 45% 55% / 79% 79% 20% 22%;
+        background: linear-gradient(to right, white 45%, gray);
+      }
+      .eyeChamber {
+        width: 1.8rem;
+        height: 1.1rem;
+        position: relative;
+        left: 50%;
+        top: 55%;
+        border-radius: 45% 53% 45% 48% / 62% 59% 35% 34%;
+        background-color: #0c203c;
+        box-shadow: 0px 0px 2px 2px white, inset 0px 0px 0px 2px black;
+        transform: translate(-50%, -50%);
+        animation: moveRight var(--EVA-ROTATION-DURATION) linear infinite alternate;
+      }
+      .eye {
+        width: 0.6rem;
+        height: 0.75rem;
+        position: absolute;
+        border-radius: 50%;
+      }
+      .eye:first-child {
+        left: 6px;
+        top: 50%;
+        background: repeating-linear-gradient(65deg, #9bdaeb 0px, #9bdaeb 1px, white 2px);
+        box-shadow: inset 0px 0px 5px #04b8d5, 0px 0px 15px 1px #0bdaeb;
+        transform: translate(0, -50%) rotate(-65deg);
+      }
+      .eye:nth-child(2) {
+        right: 6px;
+        top: 50%;
+        background: repeating-linear-gradient(-65deg, #9bdaeb 0px, #9bdaeb 1px, white 2px);
+        box-shadow: inset 0px 0px 5px #04b8d5, 0px 0px 15px 1px #0bdaeb;
+        transform: translate(0, -50%) rotate(65deg);
+      }
+      .bodys {
+        width: 2.5rem;
+        height: 3.2rem;
+        position: relative;
+        margin-block-start: 0.1rem;
+        border-radius: 47% 53% 45% 55% / 12% 9% 90% 88%;
+        background: linear-gradient(to right, white 35%, gray);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .hand {
+        position: absolute;
+        left: -0.75rem;
+        top: 0.35rem;
+        width: 1rem;
+        height: 2.75rem;
+        border-radius: 40%;
+        background: linear-gradient(to left, white 15%, gray);
+        box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.25);
+        transform: rotateY(55deg) rotateZ(10deg);
+      }
+      .hand:first-child {
+        animation: compensateRotation var(--EVA-ROTATION-DURATION) linear infinite alternate;
+      }
+      .hand:nth-child(2) {
+        left: 92%;
+        background: linear-gradient(to right, white 15%, gray);
+        transform: rotateY(55deg) rotateZ(-10deg);
+        animation: compensateRotationRight var(--EVA-ROTATION-DURATION) linear infinite alternate;
+      }
+      .scannerThing {
+        width: 0;
+        height: 0;
+        position: absolute;
+        left: 60%;
+        top: 10%;
+        border-top: 60px solid #9bdaeb;
+        border-left: 80px solid transparent;
+        border-right: 80px solid transparent;
+        transform-origin: top left;
+        mask: linear-gradient(to right, white, transparent 35%);
+        animation: glow 2s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+      }
+      .scannerOrigin {
+        position: absolute;
+        width: 4px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        left: 60%;
+        top: 10%;
+        background: #9bdaeb;
+        box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.5);
+        animation: moveRight var(--EVA-ROTATION-DURATION) linear infinite;
+      }
+      .chestText {
+        position: absolute;
+        font-size: 0.5rem;
+        color: #fff;
+        text-shadow: 1px 1px 2px #000;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        text-align: center;
+      }
+      @keyframes rotateRight {
+        from {
+          transform: rotateY(0deg);
+        }
+        to {
+          transform: rotateY(25deg);
+        }
+      }
+      @keyframes moveRight {
+        from {
+          transform: translate(-50%, -50%);
+        }
+        to {
+          transform: translate(-40%, -50%);
+        }
+      }
+      @keyframes compensateRotation {
+        from {
+          transform: rotateY(55deg) rotateZ(10deg);
+        }
+        to {
+          transform: rotateY(30deg) rotateZ(10deg);
+        }
+      }
+      @keyframes compensateRotationRight {
+        from {
+          transform: rotateY(55deg) rotateZ(-10deg);
+        }
+        to {
+          transform: rotateY(70deg) rotateZ(-10deg);
+        }
+      }
+      @keyframes glow {
+        from {
+          opacity: 0;
+        }
+        20% {
+          opacity: 1;
+        }
+        45% {
+          transform: rotate(-25deg);
+        }
+        75% {
+          transform: rotate(5deg);
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      /* chatbot section end css */
+
+        </style>
+    </head>
+
+    <body class="sidebar-dark">
+        <div class="main-wrapper">
+
+            <!-- partial:../../partials/_sidebar.html -->
+            <nav class="sidebar">
+                <div class="sidebar-header">
+                    <a href="#" class="sidebar-brand">
+                        Learn<span>Nex</span>
+                    </a>
+                    <div class="sidebar-toggler">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="sidebar-body">
+                    <ul class="nav" id="sidebarNav">
+                        <!-- <li class="nav-item nav-category">main</li> -->
+                        <!-- <li class="nav-item">
+            <a href="../../dashboard-1.html" class="nav-link">
+              <i class="link-icon" data-feather="box"></i>
+              <span class="link-title">Dashboard</span>
+            </a>
+          </li> -->
+
+
+
+
+
+
+
+
+
+          <li class="nav-item">
+            <a href="{% url 'main_dash' %}" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                <i class="link-icon" data-feather="home" style="color: white;"></i>
+                <span class="link-title"><b>HOME</b></span>
+            </a>
+         </li>
+
+
+
+
+
+
+
+            <li class="nav-item">
+                <a href="{% url 'subject' %}" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                    <i class="link-icon" data-feather="book" style="color: white;"></i>
+                    <span class="link-title"><b>Subject</b></span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'topic' %}" class="nav-link" onclick="changeText(event)">
+                    <i class="link-icon" data-feather="book-open"></i>
+                    <span class="link-title" id="nav-link-text"><b>Maths</b></span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="link-icon" data-feather="book-open"></i>
+                    <span class="link-title"><b>Science</b></span>
+                </a>
+            </li>
+
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="link-icon" data-feather="book-open"></i>
+                    <span class="link-title"><b>History</b></span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="link-icon" data-feather="book-open"></i>
+                    <span class="link-title"><b> Geography</b></span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="link-icon" data-feather="book-open"></i>
+                    <span class="link-title"><b>Literature</b></span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="link-icon" data-feather="book-open"></i>
+                    <span class="link-title"><b>Art</b></span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                 <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                    <i class="link-icon" data-feather="layers" style="color: white;"></i>
+                    <span class="link-title"><b>Learn And Play</b></span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{% url 'memorygame' %}" class="nav-link">
+                    <i class="link-icon" data-feather="box"></i>
+                    <span class="link-title"><b>Memory card</b></span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'shapeselect' %}" class="nav-link">
+                    <i class="link-icon" data-feather="box"></i>
+                    <span class="link-title"><b>shapeselect</b></span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'animalmatch' %}" class="nav-link">
+                    <i class="link-icon" data-feather="box"></i>
+                    <span class="link-title"><b>animalmatch</b></span>
+                </a>
+            </li>
+        <li class="nav-item">
+          <a href="{% url 'colorpick' %}" class="nav-link">
+            <i class="link-icon" data-feather="box"></i>
+            <span class="link-title"><b>colorpick</b></span>
+          </a>
+        </li>
+        
+        <li class="nav-item">
+          <a href="{% url 'mathadventure' %}" class="nav-link">
+             <i class="link-icon" data-feather="box"></i>
+             <span class="link-title"><b>mathadventure</b></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'rhymgame' %}" class="nav-link">
+             <i class="link-icon" data-feather="box"></i>
+             <span class="link-title"><b>rhymgame</b></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'math' %}" class="nav-link">
+             <i class="link-icon" data-feather="box"></i>
+             <span class="link-title"><b>fun with maths</b></span>
+          </a>
+        </li>
+        
+
+        <li class="nav-item">
+          <a href="{% url 'canvas' %}" class="nav-link">
+            <i class="link-icon" data-feather="box"></i>
+            <span class="link-title"><b>Fun with canvas</b></span>
+          </a>
+        </li>
+
+
+        <li class="nav-item">
+          <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+            <i class="link-icon" data-feather="layers" style="color: white;"></i>
+            <span class="link-title"><b>Learn Something More</b></span>
+          </a>
+        </li>
+
+
+
+        </div>
+        </nav>
+        <!-- partial -->
+
+        <div class="page-wrapper">
+
+            <!-- partial:../../partials/_navbar.html -->
+            <nav class="navbar">
+                <div class="navbar-content">
+
+                    <div class="logo-mini-wrapper">
+                        <img src="{% static 'assets/images/logo-mini-light.png' %}" class="logo-mini logo-mini-light"
+                            alt="logo">
+                        <img src="{% static 'assets/images/logo-mini-dark.png' %}" class="logo-mini logo-mini-dark"
+                            alt="logo">
+                    </div>
+
+                    <!-- <form class="search-form">
+						<div class="input-group">
+              <div class="input-group-text">
+                <i data-feather="search"></i>
+              </div>
+							<input type="text" class="form-control" id="navbarForm" placeholder="Search here...">
+						</div>
+					</form> -->
+
+                    <ul class="navbar-nav">
+                        <li class="theme-switcher-wrapper nav-item">
+                            <input type="checkbox" value="" id="theme-switcher">
+                            <label for="theme-switcher">
+                                <div class="box">
+                                    <div class="ball"></div>
+                                    <div class="icons">
+                                        <i class="feather icon-sun"></i>
+
+                                        <i class="feather icon-moon"></i>
+                                    </div>
+                                </div>
+                            </label>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="w-30px h-30px ms-1 rounded-circle"
+                                    src="{% static 'assets/images/faces/face1.jpg' %}" alt="profile">
+                            </a>
+                            <div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
+                                <div class="d-flex flex-column align-items-center border-bottom px-5 py-3">
+                                    <div class="mb-3">
+                                        <img class="w-80px h-80px rounded-circle"
+                                            src="{% static 'assets/images/faces/face1.jpg' %}" alt="">
+                                    </div>
+                                    <div class="text-center">
+                                        <p class="fs-16px fw-bolder">Amiah Burton</p>
+                                        <p class="fs-12px text-secondary">amiahburton@gmail.com</p>
+                                    </div>
+                                </div>
+                                <ul class="list-unstyled p-1">
+                                    <li class="dropdown-item py-2">
+                                        <a href="profile.html" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="user"></i>
+                                            <span>Profile</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="edit"></i>
+                                            <span>Edit Profile</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="repeat"></i>
+                                            <span>Switch User</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="log-out"></i>
+                                            <span>Log Out</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <a href="#" class="sidebar-toggler">
+                        <i data-feather="menu"></i>
+                    </a>
+
+                </div>
+            </nav>
+            <!-- partial -->
+
+            <div class="page-content">
+			<div id="game-container">
+			<h1>Math Adventure Race</h1>
+	
+			<!-- Race Track with Players Car -->
+			<div id="race-track">
+				<div id="car">
+					<img src="{% static 'C:\Hackathon\hackathon\static\images\car1.png' %}" alt="Car" id="car-img"> <!-- New car image added here -->
+				</div>
+			</div>
+			<div id="boy">
+			<img src="{% static 'C:\Hackathon\hackathon\static\images\boy1.png' %}" alt="Boy" class="thinking-boy"> <!-- boy image added here -->
+		</div>
+			<div id="mother">
+				<img src="{% static 'C:\Hackathon\hackathon\static\images\Boy2.png' %}" alt="mother" class="Mother"> <!-- cat image added here -->
+		</div>
+		<div id="Flag1">
+			<img src="{% static 'C:\Hackathon\hackathon\static\images\FlagL.png' %}" alt="flag" class="FlagL"> <!-- FlagL image added here -->
+		</div>
+		<div id="Flag2">
+			<img src="{% static 'C:\Hackathon\hackathon\static\images\FlagR.png' %}" alt="flag" class="FlagR"> <!-- FlagR image added here -->
+		</div>
+	<div id="Flag1">
+	<img src="{% static 'C:\Hackathon\hackathon\static\images\FlagL.png' %}" alt="flag" class="FlagL1"> <!-- FlagL image added here -->
+	</div>
+	<div id="Flag2">
+	<img src="{% static 'C:\Hackathon\hackathon\static\images\FlagR.png' %}" alt="flag" class="FlagR1"> <!-- FlagR image added here -->
+	</div>
+	<div id="pencil">
+	<img src="{% static 'C:\Hackathon\hackathon\static\images\pencil.png' %}" alt="pencil" class="Pencil"> <!-- FlagR image added here -->
+	</div>
+	<div id="pencil">
+	<img src="{% static 'C:\Hackathon\hackathon\static\images\pencil.png' %}" alt="pencil" class="Pencil1"> <!-- FlagR image added here -->
+	</div>
+	
+	
+	
+	
+	
+			<!-- Math Problem Area -->
+			<div id="math-problem-area">
+			 <!--  <p id="problem-text">Solve the math problem to speed up:</p>-->
+			 <p >Solve the math problem to speed up:</p>
+				<p id="math-problem">6 + 3 = ?</p>
+				<input type="number" id="answer-input" placeholder="Your answer here">
+				<button onclick="checkAnswer()">Submit Answer</button>
+			</div>
+	
+			<!-- Race Status -->
+			<div id="race-status">
+				<p>Time Left: <span id="time-left">30</span> seconds</p>
+				<p>Coins Collected: <span id="coins">0</span> 🪙</p>
+			</div>
+	
+			<!-- Game Over Message -->
+			<div id="game-over" class="hidden">
+				<h2>Game Over!</h2>
+				<p>Your final score: <span id="final-coins">0</span> coins!</p>
+				<button onclick="restartGame()">Restart Game</button>
+			</div>
+		</div>
+            </div>
+
+            <!-- partial:../../partials/_footer.html -->
+            <footer
+                class="footer d-flex flex-row align-items-center justify-content-between px-4 py-3 border-top small">
+                <p class="text-secondary mb-1 mb-md-0">Copyright © 2024 <a href="https://www.nobleui.com"
+                        target="_blank">LearNex</a>.</p>
+               <!-- <p class="text-secondary"> <i class="mb-1 text-primary ms-1 icon-sm"
+                        data-feather="heart"></i> 
+                </p>-->
+            </footer>
+            <!-- partial -->
+
+        </div>
+        </div>
+
+        <!-- chatbot section start html-->
+            <div class="draggableIcon" id="icon1" style="bottom: 20px; right: 120px;">
+                <div class="modelViewPort">
+                  <div class="eva">
+                    <div class="head"></div>
+                    <div class="eyeChamber">
+                      <div class="eye"></div>
+                      <div class="eye"></div>
+                    </div>
+                    <div class="bodys">
+                      <div class="scannerThing"></div>
+                      <div class="scannerOrigin"></div>
+                      <div class="hand"></div>
+                      <div class="hand"></div>
+                      <div class="chestText">LearNex.ai</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="draggableIcon" id="icon2" style="bottom: 10px; right: 10px;">
+                <div class="whatsapp-icon"></div>
+              </div>
+                <!-- chatbot section end -->
+        <script>let coins = 0;
+        let timeLeft = 50;
+        let carPosition = 0;
+        let gameOver = false;
+        
+        // Example of a math problem
+        let currentProblem = {
+         problem: "6 + 3",
+         answer: 9
+        };
+        
+        // Start game timer
+        const gameTimer = setInterval(() => {
+         if (!gameOver) {
+             timeLeft--;
+             document.getElementById('time-left').textContent = timeLeft;
+             if (timeLeft === 0) {
+                 endGame();
+             }
+         }
+        }, 1000);
+        
+        function checkAnswer() {
+         const userAnswer = document.getElementById('answer-input').value;
+         if (parseInt(userAnswer) === currentProblem.answer) {
+             // Move car forward and collect a coin
+             carPosition += 100;
+             document.getElementById('car').style.left = carPosition + 'px';
+             coins++;
+             document.getElementById('coins').textContent = coins;
+        
+             // Generate a new math problem
+             nextProblem();
+         } else {
+             alert('Wrong answer! Try again.');
+         }
+        }
+        
+        function nextProblem() {
+         // For simplicity, here’s a random addition problem generator
+         const num1 = Math.floor(Math.random() * 10) + 1;
+         const num2 = Math.floor(Math.random() * 10) + 1;
+         currentProblem.problem = `${num1} + ${num2}`;
+         currentProblem.answer = num1 + num2;
+        
+         document.getElementById('math-problem').textContent = currentProblem.problem + " = ?";
+         document.getElementById('answer-input').value = '';
+        }
+        
+        function endGame() {
+         gameOver = true;
+         clearInterval(gameTimer);
+        
+         document.getElementById('game-over').classList.remove('hidden');
+         document.getElementById('final-coins').textContent = coins;
+        }
+        
+        function restartGame() {
+         location.reload();
+        }
+
+
+        //  start chatbot section js 
+        function initDraggable(iconId) {
+            const icon = document.getElementById(iconId);
+            let offsetX, offsetY, startX, startY, dragStarted = false;
+      
+            icon.onmousedown = function (e) {
+              e.preventDefault();
+              startX = e.clientX;
+              startY = e.clientY;
+              offsetX = e.offsetX;
+              offsetY = e.offsetY;
+              dragStarted = false;
+      
+              document.onmousemove = function (e) {
+                dragStarted = true;
+                icon.style.left = e.clientX - offsetX + 'px';
+                icon.style.top = e.clientY - offsetY + 'px';
+              };
+      
+              document.onmouseup = function (e) {
+                document.onmousemove = document.onmouseup = null;
+                if (!dragStarted) {
+                  // Handle click event
+                  if (iconId === 'icon1') {
+                    // Navigate to 3D model page on the same window
+                    window.location.href = "{% url 'chatbot' %}";
+                  } else if (iconId === 'icon2') {
+                    // Navigate to WhatsApp chat on the same window
+                    window.location.href = 'https://wa.me/+919740094236';
+                  }
+                }
+              };
+            };
+          }
+      
+          initDraggable('icon1');
+          initDraggable('icon2');
+        //    end chatbot section js
+        </script>
+        <!-- core:js -->
+        <script src="{% static 'assets/vendors/core/core.js' %}"></script>
+        <!-- endinject -->
+
+        <!-- Plugin js for this page -->
+        <!-- End plugin js for this page -->
+
+        <!-- inject:js -->
+        <script src="{% static 'assets/vendors/feather-icons/feather.min.js' %}"></script>
+        <script src="{% static 'assets/js/app.js' %}"></script>
+        <!-- endinject -->
+
+        <!-- Custom js for this page -->
+        <!-- End custom js for this page -->
+    </body>
+
+</html>
+
+
+
+</body>
+
+</html>

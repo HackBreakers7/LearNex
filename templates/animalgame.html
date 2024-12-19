@@ -1,275 +1,559 @@
+{% load static %}
 <!DOCTYPE html>
+<!--
+Template Name: NobleUI - HTML Bootstrap 5 Admin Dashboard Template
+Author: NobleUI
+Website: https://www.nobleui.com
+Portfolio: https://themeforest.net/user/nobleui/portfolio
+Contact: nobleui123@gmail.com
+Purchase: https://1.envato.market/nobleui_admin
+License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
+-->
 <html lang="en">
 
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Animal Puzzle Game with Trophy Emoji</title>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="description" content="Responsive HTML Admin Dashboard Template based on Bootstrap 5">
+        <meta name="author" content="NobleUI">
+        <meta name="keywords"
+            content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+        <title>NobleUI - HTML Bootstrap 5 Admin Dashboard Template</title>
+
+        <!-- color-modes:js -->
+        <script src="{% static 'assets/js/color-modes.js' %}"></script>
+        <!-- endinject -->
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link href="../../../../../css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+        <!-- End fonts -->
+
+        <!-- core:css -->
+        <link rel="stylesheet" href="{% static 'assets/vendors/core/core.css' %}">
+        <!-- endinject -->
+
+        <!-- Plugin css for this page -->
+        <!-- End plugin css for this page -->
+
+        <!-- inject:css -->
+        <link rel="stylesheet" href="{% static 'assets/fonts/feather-font/css/iconfont.css' %}">
+        <!-- endinject -->
+
+        <!-- Layout styles -->
+        <link rel="stylesheet" href="{% static 'assets/css/demo1/style.css' %}">
+        <!-- End layout styles -->
+
+        <link rel="shortcut icon" href="{'% static assets/images/favicon.png' %}">
         <style>
-            body {
-                font-family: 'Comic Sans MS', cursive, sans-serif;
-                text-align: center;
-                background-color: transparent;
-                margin: 0;
-                padding: 0;
-            }
-
-            #dark-mode-btn {
-                position: absolute;
-                top: 20px;
-                right: 20px;
-                background-color: rgba(51, 51, 51, 0.8);
-                color: white;
-                border: none;
-                padding: 10px 15px;
-                cursor: pointer;
-                border-radius: 5px;
-                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            }
-
-            #dark-mode-btn:hover {
-                background-color: rgba(51, 51, 51, 1);
-            }
-
-            h1 {
-                color: #2e7d32;
-                margin-top: 20px;
-                font-size: 2.5rem;
-                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-            }
-
-            #image {
-                width: 300px;
-                height: 300px;
-                border-radius: 15px;
-                border: 5px solid #ff6f61;
-                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            }
-
-            .options {
-                margin-top: 20px;
-            }
-
-            button {
-                padding: 15px 30px;
-                font-size: 18px;
-                margin: 10px;
-                cursor: pointer;
-                background-color: rgba(255, 111, 97, 0.9);
-                color: white;
-                border: none;
-                border-radius: 10px;
-                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-                transition: background-color 0.3s, transform 0.2s;
-            }
-
-            button:hover {
-                background-color: rgba(255, 90, 79, 0.9);
-                transform: scale(1.05);
-            }
-
-            #celebration-screen {
-                display: none;
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100vh;
-                background: linear-gradient(to bottom, rgba(115, 0, 255, 0.9), rgba(111, 39, 246, 0.9), rgba(82, 34, 255, 0.9));
-                z-index: 1000;
-                text-align: center;
-                padding-top: 20vh;
-                color: white;
-                font-size: 2rem;
-            }
-
-            #celebration-text {
-                font-size: 3rem;
-                margin-bottom: 20px;
-                font-weight: bold;
-            }
-
-            #trophy {
-                font-size: 7rem;
-                margin-top: 20px;
-                animation: scale-up-down 1.5s infinite ease-in-out;
-            }
-
-            @keyframes scale-up-down {
-                0% {
-                    transform: scale(1);
-                }
-
-                50% {
-                    transform: scale(1.2);
-                }
-
-                100% {
-                    transform: scale(1);
-                }
-            }
-
-            .confetti {
-                width: 50px;
-                height: 50px;
-                background-color: rgba(255, 111, 97, 0.9);
-                position: absolute;
-                animation: fall 2s infinite;
-            }
-
-            @keyframes fall {
-                0% {
-                    transform: translateY(-100vh) rotate(0deg);
-                }
-
-                100% {
-                    transform: translateY(100vh) rotate(360deg);
-                }
-            }
-
-            .stars {
-                font-size: 48px;
-                color: gold;
-                animation: bounce 1.5s ease;
-            }
-
-            @keyframes bounce {
-                0% {
-                    transform: translateY(0);
-                }
-
-                50% {
-                    transform: translateY(-20px);
-                }
-
-                100% {
-                    transform: translateY(0);
-                }
-            }
-
-            #next-btn {
-                display: none;
-                padding: 10px 20px;
-                font-size: 18px;
-                margin-top: 20px;
-                background-color: rgba(76, 175, 80, 0.9);
-                color: white;
-                border: none;
-                border-radius: 5px;
-                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-                transition: background-color 0.3s, transform 0.2s;
-            }
-
-            #next-btn:hover {
-                background-color: rgba(67, 160, 71, 0.9);
-                transform: scale(1.05);
-            }
-
-            body.dark-mode {
-                background-color: rgba(51, 51, 51, 0.9);
-                color: white;
-            }
-
-            body.dark-mode button {
-                background-color: rgba(102, 102, 102, 0.9);
-                color: white;
-            }
-
-        </style>
+        body {
+            
+            text-align: center;
+            background-color: transparent; /* Make background fully transparent */
+            margin: 0;
+            padding: 0;
+        }
+        #dark-mode-btn {
+            margin-top:80px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(51, 51, 51, 0.8); /* Slightly transparent dark mode button */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        #dark-mode-btn:hover {
+            background-color: rgba(51, 51, 51, 1);
+        }
+        h1 {
+            margin-top:300px;
+            color: #2e7d32;
+            margin-top: 20px;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        #image {
+          margin-left:200px;
+            margin-top:100px;
+            width: 300px;
+            height: 300px;
+            border-radius: 15px;
+            border: 5px solid #ff6f61;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .options {
+            margin-left:200px;
+            margin-top: 20px;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+            background-color: rgba(255, 111, 97, 0.9); /* Slightly transparent button */
+            color: white;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background-color: rgba(255, 90, 79, 0.9);
+            transform: scale(1.05);
+        }
+        #celebration-screen {
+            display: none;
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(to bottom, rgba(115, 0, 255, 0.9), rgba(111, 39, 246, 0.9), rgba(82, 34, 255, 0.9)); /* Transparent gradient */
+            z-index: 1000;
+            text-align: center;
+            padding-top: 20vh;
+            color: white;
+            font-size: 2rem;
+        }
+        #celebration-text {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        #trophy {
+            font-size: 7rem;
+            margin-top: 20px;
+            animation: scale-up-down 1.5s infinite ease-in-out;
+        }
+        @keyframes scale-up-down {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        .confetti {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 111, 97, 0.9);
+            position: absolute;
+            animation: fall 2s infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100vh) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+        .stars {
+            font-size: 48px;
+            color: gold;
+            animation: bounce 1.5s ease;
+        }
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+        #next-btn {
+            display: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            margin-top: 20px;
+            background-color: rgba(76, 175, 80, 0.9); /* Slightly transparent next button */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        #next-btn:hover {
+            background-color: rgba(67, 160, 71, 0.9);
+            transform: scale(1.05);
+        }
+        body.dark-mode {
+            background-color: rgba(51, 51, 51, 0.9);
+            color: white;
+        }
+        body.dark-mode button {
+            background-color: rgba(102, 102, 102, 0.9);
+            color: white;
+        }
+    </style>
     </head>
 
-    <body>
-        <button id="dark-mode-btn" onclick="toggleDarkMode()">Dark Mode</button>
+    <body class="sidebar-dark">
+        <div class="main-wrapper">
 
-        <h1>Guess the Animal!</h1>
-        <img id="image" src="https://images.unsplash.com/photo-1543786316-b25d3c4d99c5" alt="Animal Image">
-        <!-- Default animal image -->
-        <div class="options">
-            <button onclick="checkAnswer('wrong')">Lion</button>
-            <button onclick="checkAnswer('correct')">Cat</button>
-            <button onclick="checkAnswer('wrong')">Dog</button>
+            <!-- partial:../../partials/_sidebar.html -->
+            <nav class="sidebar">
+                <div class="sidebar-header">
+                    <a href="#" class="sidebar-brand">
+                        Learn<span>Nex</span>
+                    </a>
+                    <div class="sidebar-toggler">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="sidebar-body">
+                    <ul class="nav" id="sidebarNav">
+                        <!-- <li class="nav-item nav-category">main</li> -->
+                        <!-- <li class="nav-item">
+            <a href="../../dashboard-1.html" class="nav-link">
+              <i class="link-icon" data-feather="box"></i>
+              <span class="link-title">Dashboard</span>
+            </a>
+          </li> -->
+
+
+
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                                <i class="link-icon" data-feather="home" style="color: white;"></i>
+                                <span class="link-title"><b>HOME</b></span>
+                            </a>
+                        </li>
+
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                                <i class="link-icon" data-feather="book" style="color: white;"></i>
+                                <span class="link-title"><b>standard</b></span>
+                            </a>
+                        </li>
+
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" onclick="changeText(event)">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title" id="nav-link-text"><b>1 st</b></span>
+                            </a>
+                        </li>
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title"><b>2 nd</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title"><b>3 rd</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title"><b>4 th</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title"><b>5 th</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                                <i class="link-icon" data-feather="layers" style="color: white;"></i>
+                                <span class="link-title"><b>Beyond the syllabus</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'memorygame' %}" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>Memory card</b></span>
+                            </a>
+                        </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="volume-2"></i>
+                                <span class="link-title"><b>Learn Communication !!</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                                <i class="link-icon" data-feather="help-circle" style="color: white;"></i>
+                                <span class="link-title"><b>Doubts</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="alert-circle"></i>
+                                <span class="link-title"><b>Ask Your Doubts??</b></span>
+                            </a>
+                        </li>
+
+
+                        </li>
+                    </ul>
+                </div>
+
+
+
         </div>
+        </nav>
+        <!-- partial -->
 
-        <div id="celebration-screen">
-            <div id="celebration-text">🎉 Correct! Great Job! 🎉</div>
-            <div id="trophy">🏆</div>
-            <div class="confetti" style="top: 10%; left: 10%;"></div>
-            <div class="confetti" style="top: 20%; left: 80%;"></div>
-            <div class="confetti" style="top: 50%; left: 50%;"></div>
-            <div class="confetti" style="top: 70%; left: 30%;"></div>
-            <div class="confetti" style="top: 85%; left: 90%;"></div>
+        <div class="page-wrapper">
+
+            <!-- partial:../../partials/_navbar.html -->
+            <nav class="navbar">
+                <div class="navbar-content">
+
+                    <div class="logo-mini-wrapper">
+                        <img src="{% static 'assets/images/logo-mini-light.png' %}" class="logo-mini logo-mini-light"
+                            alt="logo">
+                        <img src="{% static 'assets/images/logo-mini-dark.png' %}" class="logo-mini logo-mini-dark"
+                            alt="logo">
+                    </div>
+
+                    <!-- <form class="search-form">
+						<div class="input-group">
+              <div class="input-group-text">
+                <i data-feather="search"></i>
+              </div>
+							<input type="text" class="form-control" id="navbarForm" placeholder="Search here...">
+						</div>
+					</form> -->
+
+                    <ul class="navbar-nav">
+                        <li class="theme-switcher-wrapper nav-item">
+                            <input type="checkbox" value="" id="theme-switcher">
+                            <label for="theme-switcher">
+                                <div class="box">
+                                    <div class="ball"></div>
+                                    <div class="icons">
+                                        <i class="feather icon-sun"></i>
+
+                                        <i class="feather icon-moon"></i>
+                                    </div>
+                                </div>
+                            </label>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="w-30px h-30px ms-1 rounded-circle"
+                                    src="{% static 'assets/images/faces/face1.jpg' %}" alt="profile">
+                            </a>
+                            <div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
+                                <div class="d-flex flex-column align-items-center border-bottom px-5 py-3">
+                                    <div class="mb-3">
+                                        <img class="w-80px h-80px rounded-circle"
+                                            src="{% static 'assets/images/faces/face1.jpg' %}" alt="">
+                                    </div>
+                                    <div class="text-center">
+                                        <p class="fs-16px fw-bolder">Amiah Burton</p>
+                                        <p class="fs-12px text-secondary">amiahburton@gmail.com</p>
+                                    </div>
+                                </div>
+                                <ul class="list-unstyled p-1">
+                                    <li class="dropdown-item py-2">
+                                        <a href="profile.html" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="user"></i>
+                                            <span>Profile</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="edit"></i>
+                                            <span>Edit Profile</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="repeat"></i>
+                                            <span>Switch User</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="log-out"></i>
+                                            <span>Log Out</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <a href="#" class="sidebar-toggler">
+                        <i data-feather="menu"></i>
+                    </a>
+
+                </div>
+            </nav>
+            <!-- partial -->
+
+            <div class="page-content">
+                
+    <button id="dark-mode-btn" onclick="toggleDarkMode()">Dark Mode</button>
+
+    <h1>Guess the Animal!</h1>
+    <img id="image" src="https://via.placeholder.com/300" alt="Animal Image">
+    <div class="options">
+        <button onclick="checkAnswer('wrong')">Lion</button>
+        <button onclick="checkAnswer('correct')">Cat</button>
+        <button onclick="checkAnswer('wrong')">Dog</button>
+    </div>
+
+    <div id="celebration-screen">
+        <div id="celebration-text">🎉 Correct! Great Job! 🎉</div>
+        <div id="trophy">🏆</div>
+        <div class="confetti" style="top: 10%; left: 10%;"></div>
+        <div class="confetti" style="top: 20%; left: 80%;"></div>
+        <div class="confetti" style="top: 50%; left: 50%;"></div>
+        <div class="confetti" style="top: 70%; left: 30%;"></div>
+        <div class="confetti" style="top: 85%; left: 90%;"></div>
+    </div>
+
+    <button id="next-btn" onclick="nextQuestion()">Next Question</button>
+
+    <audio id="correctSound">
+        <source src="https://www.soundjay.com/button/sounds/button-29.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="wrongSound">
+        <source src="https://www.soundjay.com/button/sounds/button-10.mp3" type="audio/mpeg">
+    </audio>
+
+
+            <!-- partial:../../partials/_footer.html -->
+            <footer
+                class="footer d-flex flex-row align-items-center justify-content-between px-4 py-3 border-top small">
+                <p class="text-secondary mb-1 mb-md-0">Copyright © 2024 <a href="https://www.nobleui.com"
+                        target="_blank">NobleUI</a>.</p>
+                <p class="text-secondary">Handcrafted With <i class="mb-1 text-primary ms-1 icon-sm"
+                        data-feather="heart"></i>
+                </p>
+            </footer>
+            <!-- partial -->
+
         </div>
-
-        <button id="next-btn" onclick="nextQuestion()">Next Question</button>
-
-        <audio id="correctSound">
-            <source src="https://www.soundjay.com/button/sounds/button-29.mp3" type="audio/mpeg">
-        </audio>
-        <audio id="wrongSound">
-            <source src="https://www.soundjay.com/button/sounds/button-10.mp3" type="audio/mpeg">
-        </audio>
-
+        </div>
         <script>
-            const questions = [
-                { image: 'https://images.unsplash.com/photo-1543786316-b25d3c4d99c5', answer: 'Cat', options: ['Lion', 'Cat', 'Dog'] },
-                { image: 'https://images.unsplash.com/photo-1532071213805-6e1dc43d87f6', answer: 'Elephant', options: ['Elephant', 'Tiger', 'Horse'] },
-                { image: 'https://images.unsplash.com/photo-1585677611031-964978e6242b', answer: 'Tiger', options: ['Elephant', 'Tiger', 'Horse'] }
-            ];
-
-            let currentQuestionIndex = 0;
-
-            function loadQuestion() {
-                const question = questions[currentQuestionIndex];
-                document.getElementById('image').src = question.image;
-                const buttons = document.querySelectorAll('.options button');
-                buttons.forEach((button, index) => {
-                    button.innerText = question.options[index];
-                    button.setAttribute('onclick', `checkAnswer('${question.options[index]}')`);
-                });
-                document.getElementById('celebration-screen').style.display = 'none';
-                document.getElementById('next-btn').style.display = 'none';
+        function checkAnswer(answer) {
+            if (answer === 'correct') {
+                showCelebration();
+                document.getElementById("correctSound").play();
+                document.getElementById("next-btn").style.display = 'inline-block';
+                speakMessage("Great job! You got it right!");
+            } else {
+                document.getElementById("wrongSound").play();
+                speakMessage("Oops! That's the wrong animal. Try again!");
+                alert("Oops! That's the wrong animal. Try again!");
             }
+        }
 
-            function checkAnswer(selected) {
-                const question = questions[currentQuestionIndex];
-                if (selected === question.answer) {
-                    document.getElementById('correctSound').play();
-                    showCelebration();
-                    speakMessage("Great job! You got it right!");
-                    document.getElementById('next-btn').style.display = 'inline-block';
-                } else {
-                    document.getElementById('wrongSound').play();
-                    speakMessage("Oops! That's the wrong animal. Try again!");
-                    alert("Oops! That's the wrong animal. Try again!");
-                }
+        function showCelebration() {
+            var celebrationScreen = document.getElementById('celebration-screen');
+            celebrationScreen.style.display = 'block';
+            celebrationScreen.style.animation = 'slide-down 2s forwards';
+            setTimeout(() => {
+                celebrationScreen.style.display = 'none';
+            }, 4000); // Hide the celebration after 4 seconds
+        }
+
+        document.styleSheets[0].insertRule(`
+            @keyframes slide-down {
+                0% { top: -100%; }
+                100% { top: 0; }
             }
+        `);
 
-            function showCelebration() {
-                const celebrationScreen = document.getElementById('celebration-screen');
-                celebrationScreen.style.display = 'block';
-                celebrationScreen.style.animation = 'slide-down 2s forwards';
-                setTimeout(() => {
-                    celebrationScreen.style.display = 'none';
-                }, 4000); // Hide the celebration after 4 seconds
-            }
+        function speakMessage(message) {
+            var speech = new SpeechSynthesisUtterance(message);
+            speech.lang = 'en-US';
+            window.speechSynthesis.speak(speech);
+        }
 
-            function speakMessage(message) {
-                const speech = new SpeechSynthesisUtterance(message);
-                speech.lang = 'en-US';
-                window.speechSynthesis.speak(speech);
-            }
+        function nextQuestion() {
+            document.getElementById("next-btn").style.display = 'none';
+            document.getElementById("image").src = "https://via.placeholder.com/300?text=New+Animal";
+            var buttons = document.querySelectorAll(".options button");
+            buttons[0].innerText = "Elephant";
+            buttons[0].setAttribute("onclick", "checkAnswer('wrong')");
+            buttons[1].innerText = "Tiger";
+            buttons[1].setAttribute("onclick", "checkAnswer('correct')");
+            buttons[2].innerText = "Horse";
+            buttons[2].setAttribute("onclick", "checkAnswer('wrong')");
+        }
 
-            function nextQuestion() {
-                currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
-                loadQuestion();
-            }
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
+        <!-- core:js -->
+        <script src="{% static 'assets/vendors/core/core.js' %}"></script>
+        <!-- endinject -->
 
-            function toggleDarkMode() {
-                document.body.classList.toggle('dark-mode');
-            }
+        <!-- Plugin js for this page -->
+        <!-- End plugin js for this page -->
 
-            document.addEventListener('DOMContentLoaded', loadQuestion);
-        </script>
+        <!-- inject:js -->
+        <script src="{% static 'assets/vendors/feather-icons/feather.min.js' %}"></script>
+        <script src="{% static 'assets/js/app.js' %}"></script>
+        <!-- endinject -->
+
+        <!-- Custom js for this page -->
+        <!-- End custom js for this page -->
     </body>
+
+</html>
+
+
+
+</body>
 
 </html>

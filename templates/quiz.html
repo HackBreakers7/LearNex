@@ -311,6 +311,190 @@ License: For each use you must have a valid license purchased only from above li
                 /* Make images block-level elements */
             }
 
+
+            /* chatbot section start css */
+    .draggableIcon {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        cursor: pointer;
+      }
+      .whatsapp-icon {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background: url('https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg') no-repeat center center;
+        background-size: contain;
+      }
+      .modelViewPort {
+        perspective: 1000px;
+        width: 5rem;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        background: transparent;
+      }
+      .eva {
+        --EVA-ROTATION-DURATION: 4s;
+        transform-style: preserve-3d;
+        animation: rotateRight var(--EVA-ROTATION-DURATION) linear infinite alternate;
+      }
+      .head {
+        position: relative;
+        width: 2.5rem;
+        height: 1.6rem;
+        border-radius: 48% 53% 45% 55% / 79% 79% 20% 22%;
+        background: linear-gradient(to right, white 45%, gray);
+      }
+      .eyeChamber {
+        width: 1.8rem;
+        height: 1.1rem;
+        position: relative;
+        left: 50%;
+        top: 55%;
+        border-radius: 45% 53% 45% 48% / 62% 59% 35% 34%;
+        background-color: #0c203c;
+        box-shadow: 0px 0px 2px 2px white, inset 0px 0px 0px 2px black;
+        transform: translate(-50%, -50%);
+        animation: moveRight var(--EVA-ROTATION-DURATION) linear infinite alternate;
+      }
+      .eye {
+        width: 0.6rem;
+        height: 0.75rem;
+        position: absolute;
+        border-radius: 50%;
+      }
+      .eye:first-child {
+        left: 6px;
+        top: 50%;
+        background: repeating-linear-gradient(65deg, #9bdaeb 0px, #9bdaeb 1px, white 2px);
+        box-shadow: inset 0px 0px 5px #04b8d5, 0px 0px 15px 1px #0bdaeb;
+        transform: translate(0, -50%) rotate(-65deg);
+      }
+      .eye:nth-child(2) {
+        right: 6px;
+        top: 50%;
+        background: repeating-linear-gradient(-65deg, #9bdaeb 0px, #9bdaeb 1px, white 2px);
+        box-shadow: inset 0px 0px 5px #04b8d5, 0px 0px 15px 1px #0bdaeb;
+        transform: translate(0, -50%) rotate(65deg);
+      }
+      .bodys {
+        width: 2.5rem;
+        height: 3.2rem;
+        position: relative;
+        margin-block-start: 0.1rem;
+        border-radius: 47% 53% 45% 55% / 12% 9% 90% 88%;
+        background: linear-gradient(to right, white 35%, gray);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .hand {
+        position: absolute;
+        left: -0.75rem;
+        top: 0.35rem;
+        width: 1rem;
+        height: 2.75rem;
+        border-radius: 40%;
+        background: linear-gradient(to left, white 15%, gray);
+        box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.25);
+        transform: rotateY(55deg) rotateZ(10deg);
+      }
+      .hand:first-child {
+        animation: compensateRotation var(--EVA-ROTATION-DURATION) linear infinite alternate;
+      }
+      .hand:nth-child(2) {
+        left: 92%;
+        background: linear-gradient(to right, white 15%, gray);
+        transform: rotateY(55deg) rotateZ(-10deg);
+        animation: compensateRotationRight var(--EVA-ROTATION-DURATION) linear infinite alternate;
+      }
+      .scannerThing {
+        width: 0;
+        height: 0;
+        position: absolute;
+        left: 60%;
+        top: 10%;
+        border-top: 60px solid #9bdaeb;
+        border-left: 80px solid transparent;
+        border-right: 80px solid transparent;
+        transform-origin: top left;
+        mask: linear-gradient(to right, white, transparent 35%);
+        animation: glow 2s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+      }
+      .scannerOrigin {
+        position: absolute;
+        width: 4px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        left: 60%;
+        top: 10%;
+        background: #9bdaeb;
+        box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.5);
+        animation: moveRight var(--EVA-ROTATION-DURATION) linear infinite;
+      }
+      .chestText {
+        position: absolute;
+        font-size: 0.5rem;
+        color: #fff;
+        text-shadow: 1px 1px 2px #000;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        text-align: center;
+      }
+      @keyframes rotateRight {
+        from {
+          transform: rotateY(0deg);
+        }
+        to {
+          transform: rotateY(25deg);
+        }
+      }
+      @keyframes moveRight {
+        from {
+          transform: translate(-50%, -50%);
+        }
+        to {
+          transform: translate(-40%, -50%);
+        }
+      }
+      @keyframes compensateRotation {
+        from {
+          transform: rotateY(55deg) rotateZ(10deg);
+        }
+        to {
+          transform: rotateY(30deg) rotateZ(10deg);
+        }
+      }
+      @keyframes compensateRotationRight {
+        from {
+          transform: rotateY(55deg) rotateZ(-10deg);
+        }
+        to {
+          transform: rotateY(70deg) rotateZ(-10deg);
+        }
+      }
+      @keyframes glow {
+        from {
+          opacity: 0;
+        }
+        20% {
+          opacity: 1;
+        }
+        45% {
+          transform: rotate(-25deg);
+        }
+        75% {
+          transform: rotate(5deg);
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      /* chatbot section end css */
         </style>
     </head>
 
@@ -347,12 +531,12 @@ License: For each use you must have a valid license purchased only from above li
 
 
 
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
-                                <i class="link-icon" data-feather="home" style="color: white;"></i>
-                                <span class="link-title"><b>HOME</b></span>
-                            </a>
-                        </li>
+          <li class="nav-item">
+          <a href="{% url 'main_dash' %}" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+              <i class="link-icon" data-feather="home" style="color: white;"></i>
+              <span class="link-title"><b>HOME</b></span>
+          </a>
+       </li>
 
 
 
@@ -360,140 +544,120 @@ License: For each use you must have a valid license purchased only from above li
 
 
 
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
-                                <i class="link-icon" data-feather="book" style="color: white;"></i>
-                                <span class="link-title"><b>standard</b></span>
-                            </a>
-                        </li>
+          <li class="nav-item">
+              <a href="{% url 'subject' %}" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                  <i class="link-icon" data-feather="book" style="color: white;"></i>
+                  <span class="link-title"><b>Subject</b></span>
+              </a>
+          </li>
+          <li class="nav-item">
+              <a href="{% url 'topic' %}" class="nav-link" onclick="changeText(event)">
+                  <i class="link-icon" data-feather="book-open"></i>
+                  <span class="link-title" id="nav-link-text"><b>Maths</b></span>
+              </a>
+          </li>
+          <li class="nav-item">
+              <a href="#" class="nav-link">
+                  <i class="link-icon" data-feather="book-open"></i>
+                  <span class="link-title"><b>Science</b></span>
+              </a>
+          </li>
 
 
+          <li class="nav-item">
+              <a href="#" class="nav-link">
+                  <i class="link-icon" data-feather="book-open"></i>
+                  <span class="link-title"><b>History</b></span>
+              </a>
+          </li>
+
+          <li class="nav-item">
+              <a href="#" class="nav-link">
+                  <i class="link-icon" data-feather="book-open"></i>
+                  <span class="link-title"><b> Geography</b></span>
+              </a>
+          </li>
+
+          <li class="nav-item">
+              <a href="#" class="nav-link">
+                  <i class="link-icon" data-feather="book-open"></i>
+                  <span class="link-title"><b>Literature</b></span>
+              </a>
+          </li>
+
+          <li class="nav-item">
+              <a href="#" class="nav-link">
+                  <i class="link-icon" data-feather="book-open"></i>
+                  <span class="link-title"><b>Art</b></span>
+              </a>
+          </li>
+
+          <li class="nav-item">
+               <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                  <i class="link-icon" data-feather="layers" style="color: white;"></i>
+                  <span class="link-title"><b>Learn And Play</b></span>
+              </a>
+          </li>
+
+          <li class="nav-item">
+              <a href="{% url 'memorygame' %}" class="nav-link">
+                  <i class="link-icon" data-feather="box"></i>
+                  <span class="link-title"><b>Memory card</b></span>
+              </a>
+          </li>
+          <li class="nav-item">
+              <a href="{% url 'shapeselect' %}" class="nav-link">
+                  <i class="link-icon" data-feather="box"></i>
+                  <span class="link-title"><b>shapeselect</b></span>
+              </a>
+          </li>
+          <li class="nav-item">
+              <a href="{% url 'animalmatch' %}" class="nav-link">
+                  <i class="link-icon" data-feather="box"></i>
+                  <span class="link-title"><b>animalmatch</b></span>
+              </a>
+          </li>
+      <li class="nav-item">
+        <a href="{% url 'colorpick' %}" class="nav-link">
+          <i class="link-icon" data-feather="box"></i>
+          <span class="link-title"><b>colorpick</b></span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a href="{% url 'mathadventure' %}" class="nav-link">
+           <i class="link-icon" data-feather="box"></i>
+           <span class="link-title"><b>mathadventure</b></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{% url 'rhymgame' %}" class="nav-link">
+           <i class="link-icon" data-feather="box"></i>
+           <span class="link-title"><b>rhymgame</b></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{% url 'math' %}" class="nav-link">
+           <i class="link-icon" data-feather="box"></i>
+           <span class="link-title"><b>fun with maths</b></span>
+        </a>
+      </li>
+      
+
+      <li class="nav-item">
+        <a href="{% url 'canvas' %}" class="nav-link">
+          <i class="link-icon" data-feather="box"></i>
+          <span class="link-title"><b>Fun with canvas</b></span>
+        </a>
+      </li>
 
 
-
-
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" onclick="changeText(event)">
-                                <i class="link-icon" data-feather="book-open"></i>
-                                <span class="link-title" id="nav-link-text"><b>1 st</b></span>
-                            </a>
-                        </li>
-
-
-
-
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="link-icon" data-feather="book-open"></i>
-                                <span class="link-title"><b>2 nd</b></span>
-                            </a>
-                        </li>
-
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="link-icon" data-feather="book-open"></i>
-                                <span class="link-title"><b>3 rd</b></span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="link-icon" data-feather="book-open"></i>
-                                <span class="link-title"><b>4 th</b></span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="link-icon" data-feather="book-open"></i>
-                                <span class="link-title"><b>5 th</b></span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
-                                <i class="link-icon" data-feather="layers" style="color: white;"></i>
-                                <span class="link-title"><b>Beyond the syllabus</b></span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="{% url 'memorygame' %}" class="nav-link">
-                                <i class="link-icon" data-feather="box"></i>
-                                <span class="link-title"><b>Memory card</b></span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="link-icon" data-feather="box"></i>
-                                <span class="link-title"><b>Vedic maths</b></span>
-                            </a>
-                        </li>
-
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="link-icon" data-feather="box"></i>
-                                <span class="link-title"><b>Art</b></span>
-                            </a>
-                        </li>
-
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="link-icon" data-feather="box"></i>
-                                <span class="link-title"><b>Crafts</b></span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="link-icon" data-feather="box"></i>
-                                <span class="link-title"><b>dance</b></span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="link-icon" data-feather="box"></i>
-                                <span class="link-title"><b>singing</b></span>
-                            </a>
-                        </li>
-
-
-
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="link-icon" data-feather="volume-2"></i>
-                                <span class="link-title"><b>Learn Communication !!</b></span>
-                            </a>
-                        </li>
-
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
-                                <i class="link-icon" data-feather="help-circle" style="color: white;"></i>
-                                <span class="link-title"><b>Doubts</b></span>
-                            </a>
-                        </li>
-
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="link-icon" data-feather="alert-circle"></i>
-                                <span class="link-title"><b>Ask Your Doubts??</b></span>
-                            </a>
-                        </li>
-
-
-                        </li>
-                    </ul>
-                </div>
+      <li class="nav-item">
+        <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+          <i class="link-icon" data-feather="layers" style="color: white;"></i>
+          <span class="link-title"><b>Learn Something More</b></span>
+        </a>
+      </li>
 
 
 
@@ -785,6 +949,32 @@ License: For each use you must have a valid license purchased only from above li
 
         </div>
         </div>
+
+
+        <!-- chatbot section start html-->
+        <div class="draggableIcon" id="icon1" style="bottom: 20px; right: 120px;">
+            <div class="modelViewPort">
+              <div class="eva">
+                <div class="head"></div>
+                <div class="eyeChamber">
+                  <div class="eye"></div>
+                  <div class="eye"></div>
+                </div>
+                <div class="bodys">
+                  <div class="scannerThing"></div>
+                  <div class="scannerOrigin"></div>
+                  <div class="hand"></div>
+                  <div class="hand"></div>
+                  <div class="chestText">LearNex.ai</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="draggableIcon" id="icon2" style="bottom: 10px; right: 10px;">
+            <div class="whatsapp-icon"></div>
+          </div>
+            <!-- chatbot section end -->
+
 <script>
     let currentQuestion = 1;
     const totalQuestions = 5;
@@ -873,6 +1063,45 @@ License: For each use you must have a valid license purchased only from above li
             starsDiv.style.display = 'block';
         }, 500);
     }
+
+//  start chatbot section js 
+function initDraggable(iconId) {
+    const icon = document.getElementById(iconId);
+    let offsetX, offsetY, startX, startY, dragStarted = false;
+
+    icon.onmousedown = function (e) {
+      e.preventDefault();
+      startX = e.clientX;
+      startY = e.clientY;
+      offsetX = e.offsetX;
+      offsetY = e.offsetY;
+      dragStarted = false;
+
+      document.onmousemove = function (e) {
+        dragStarted = true;
+        icon.style.left = e.clientX - offsetX + 'px';
+        icon.style.top = e.clientY - offsetY + 'px';
+      };
+
+      document.onmouseup = function (e) {
+        document.onmousemove = document.onmouseup = null;
+        if (!dragStarted) {
+          // Handle click event
+          if (iconId === 'icon1') {
+            // Navigate to 3D model page on the same window
+            window.location.href = "{% url 'chatbot' %}";
+          } else if (iconId === 'icon2') {
+            // Navigate to WhatsApp chat on the same window
+            window.location.href = 'https://wa.me/+919740094236';
+          }
+        }
+      };
+    };
+  }
+
+  initDraggable('icon1');
+  initDraggable('icon2');
+//    end chatbot section js
 
 </script>
 

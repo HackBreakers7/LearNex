@@ -19,7 +19,7 @@ License: For each use you must have a valid license purchased only from above li
 	<meta name="author" content="NobleUI">
 	<meta name="keywords" content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, laravel, angular, react, reactjs, vue, vuejs, jquery, theme, front-end, ui kit, web, nobleuihtml, nobleuilaravel, nobleuiangular, nobleuivuejs, nobleuireactjs">
 
-  <title>NobleUI - HTML Bootstrap 5 Admin Dashboard Template</title>
+  <title>LearNex</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -62,8 +62,9 @@ License: For each use you must have a valid license purchased only from above li
       <div class="container">
         <a class="navbar-brand" href="#">
           <!-- Noble<span>N</span> -->
-          <img src="{% static 'images/logo-light.png' %}" class="logo-light" alt="nobleui-logo">
-          <img src="{% static 'images/logo-dark.png' %}" class="logo-dark" alt="nobleui-logo">
+          <img src="{% static 'images/chatbot
+          .jpeg' %}" class="logo-light" alt="LearNex">
+          <img src="{% static 'images/chatbot.jpeg' %}" class="logo-dark" alt="nobleui-logo">
         </a>
         <button class="navbar-toggler btn" id="navbarToggler" type="button">
           <span class="navbar-toggler-icon"></span>
@@ -84,11 +85,11 @@ License: For each use you must have a valid license purchased only from above li
               </label>
             </div>
 
-            <a class="nav-item nav-link" href="documentation/docs.html" target="_blank">About us</a>
-            <a class="nav-item nav-link" href="https://themeforest.net/item/nobleui-admin-dashboard-template/24606935/support" target="_blank">features</a>
-            <a class="nav-item nav-link" href="https://themeforest.net/user/nobleui/portfolio" target="_blank">Gallery</a>
-            <a class="nav-item nav-link" href="https://themeforest.net/user/nobleui/portfolio" target="_blank">FAQ</a>
-            <a class="nav-item nav-link" href="https://themeforest.net/user/nobleui/portfolio" target="_blank">contact us</a>
+            <a class="nav-item nav-link" href="#about-us-section">About us</a>
+            <a class="nav-item nav-link" href="#features-section">features</a>
+            <a class="nav-item nav-link" href="#gallery-section">Gallery</a>
+            <a class="nav-item nav-link" href="#faq-section">FAQ</a>
+            <a class="nav-item nav-link" href="#contact-section" target="_blank">contact us</a>
             <a class="btn btn-outline-primary rounded-pill btn-sm px-3 mt-2 mt-md-0" href="{% url 'register' %}"></span>register</a>
               <a class="btn btn-outline-primary rounded-pill btn-sm px-3 mt-2 mt-md-0" href="{% url 'login' %}"></span>  login</a>
           </div>
@@ -97,20 +98,21 @@ License: For each use you must have a valid license purchased only from above li
     </nav>
 
     <section class="landing-header">
-      <div class="container h-100">
-        <div class="row h-100 justify-content-center align-items-center">
-          <div class="col-lg-7 text-center">
-            <div class="dashboard-video">
-              <iframe width="100%" height="315" 
-                      src="images/video" 
-                      title="YouTube video player" frameborder="0" 
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                      allowfullscreen></iframe>
-            </div>
-          </div>
+      <div class="w3-content w3-display-container">
+        <img class="mySlides" src="{% static 'images/slide1.jpg' %}">
+        <img class="mySlides" src="img_snowtops.jpg">
+        <img class="mySlides" src="img_mountains.jpg">
+        <div class="w3-center w3-display-bottommiddle" style="width:100%">
+          <div class="w3-left" onclick="plusDivs(-1)">&#10094;</div>
+          <div class="w3-right" onclick="plusDivs(1)">&#10095;</div>
+          <span class="w3-badge demo w3-border" onclick="currentDiv(1)"></span>
+          <span class="w3-badge demo w3-border" onclick="currentDiv(2)"></span>
+          <span class="w3-badge demo w3-border" onclick="currentDiv(3)"></span>
         </div>
       </div>
     </section>
+    
+    
     
     
       <div class="animation-effect-1">
@@ -136,14 +138,15 @@ License: For each use you must have a valid license purchased only from above li
       </div>
 
     </section>
-    <section class="landing-header">
+    <a class="nav-item nav-link" href="#about-us-section"></a>
+    <section class="landing-header" id="about-us-section">
       <!-- <img src="images/header-bg2.png" class="landing-header-bg d-none d-md-block" alt="header-bg"> -->
       <div class="container h-100">
           <div class="row h-100 align-items-center">
               <div class="col-lg-7">
                   <div class="dashboard-img">
-                    <img src="{% static 'images/Untitled design.png' %}"  height="600px" width="" style="margin-left: -100px !important;">
-                      <!-- <img src="{% static 'images/dashboard.png' %}" class="img-fluid landing-header-bg d-none d-lg-block" alt="header-bg"> -->
+                  <!--  <img src="{% static 'images/friends.jpg' %}"  height="600px" width="" style="margin-left: -100px !important;"> -->
+                       <img src="{% static 'images/friends.jpg' %}" class="img-fluid landing-header-bg d-none d-lg-block" alt="header-bg" style="margin-top:100px">
                   </div>
               </div>
               <div class="col-lg-5">
@@ -204,9 +207,10 @@ License: For each use you must have a valid license purchased only from above li
     <!-- <div class="bg-curve-shape inverse">
       <img src="images/blue-bg-curve-inverse.png" alt="bg" class="w-100">
     </div> -->
-
+    
+    <a class="nav-item nav-link" href="#features-section">features</a>
     <section class="why">
-      <div class="container">
+      <div class="container" id="features-section">
         <header class="section-header">
           <!-- <small>works</small> -->
           <h2>Why Choose<span class="fw-light text-primary"><b> Learn</b></span><span class="fw-light text-primary"><b>Nex</b></span></h2>
@@ -324,8 +328,8 @@ License: For each use you must have a valid license purchased only from above li
         <img src="{% static 'images/pensile.png' %}" class="effect-icon" alt="pensile-icon">
       </div>
     </section>
-
-    <section class="demos" id="demos">
+    <a class="nav-item nav-link" href="#gallery-section">Gallery</a>
+    <section class="demos" id="gallery-section">
       <div class="container">
         <header class="section-header">
           <!-- <small>options</small> -->
@@ -335,63 +339,63 @@ License: For each use you must have a valid license purchased only from above li
         </header>
         <div class="row">
           <div class="col-md-6 col-lg-4 grid-margin">
-            <h4 class="mb-3 mt-4 text-center fw-normal">Vertical Menu - Light</h4>
+            <h4 class="mb-3 mt-4 text-center fw-normal"></h4>
             <div class="d-flex justify-content-center mb-4">
-              <a href="template/demo1/dashboard.html?theme=light" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
-              <a href="template/demo1-rtl/dashboard.html?theme=light" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
+              <!-- <a href="template/demo1/dashboard.html?theme=light" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
+              <a href="template/demo1-rtl/dashboard.html?theme=light" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a> -->
             </div>
             <a href="template/demo1/dashboard.html?theme=light" target="_blank" class="item">
-              <img src="{% static 'images/front.png' %}" alt="" height="300px" width="350px">
+              <img src="{% static 'images/dash.png' %}" alt="" height="200px" width="200px">
             </a>
           </div>
           <div class="col-md-6 col-lg-4 grid-margin">
-            <h4 class="mb-3 mt-4 text-center fw-normal">Vertical Menu - Dark Sidebar</h4>
+            <h4 class="mb-3 mt-4 text-center fw-normal"></h4>
             <div class="d-flex justify-content-center mb-4">
-              <a href="template/demo1-ds/dashboard.html?theme=light" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
-              <a href="template/demo1-ds-rtl/dashboard.html?theme=light" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
+              <!-- <a href="template/demo1-ds/dashboard.html?theme=light" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
+              <a href="template/demo1-ds-rtl/dashboard.html?theme=light" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a> -->
             </div>
             <a href="template/demo1-ds/dashboard.html?theme=light" target="_blank" class="item">
-              <img src="{% static 'images/download.png' %}" alt="" height="300px" width="350px">
+              <img src="{% static 'images/cards.png' %}" alt="" height="200px" width="200px">
             </a>
           </div>
           <div class="col-md-6 col-lg-4 grid-margin">
-            <h4 class="mb-3 mt-4 text-center fw-normal">Vertical Menu - Dark</h4>
+            <h4 class="mb-3 mt-4 text-center fw-normal"></h4>
             <div class="d-flex justify-content-center mb-4">
               <!-- <a href="template/demo1/dashboard-1.html?theme=dark" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2"></a>
               <a href="template/demo1-rtl/dashboard-1.html?theme=dark" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a> -->
             </div>
             <a href="template/demo1/dashboard-1.html?theme=dark" target="_blank" class="item">
-              <img src="{% static 'images/new3.1.png' %}" alt="" height="300px" width="350px">
+              <img src="{% static 'images/track.png' %}" alt="" height="200px" width="200px">
             </a>
           </div>
           <div class="col-md-6 col-lg-4 grid-margin">
-            <h4 class="mb-3 mt-4 text-center fw-normal">Horizontal Menu - Light</h4>
+            <h4 class="mb-3 mt-4 text-center fw-normal"></h4>
             <div class="d-flex justify-content-center mb-4">
               <!-- <a href="template/demo2/dashboard.html?theme=light" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
               <a href="template/demo2-rtl/dashboard.html?theme=light" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a> -->
             </div>
             <a href="template/demo2/dashboard.html?theme=light" target="_blank" class="item">
-              <img src="{% static 'images/new5.png' %}" alt="" height="300px" width="350px">
+              <img src="{% static 'images/game1.png' %}" alt="" height="200px" width="200px">
             </a>
           </div>
           <div class="col-md-6 col-lg-4 grid-margin">
-            <h4 class="mb-3 mt-4 text-center fw-normal">Horizontal Menu - Dark Header</h4>
+            <h4 class="mb-3 mt-4 text-center fw-normal"></h4>
             <div class="d-flex justify-content-center mb-4">
-              <a href="template/demo2-dh/dashboard.html?theme=light" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
-              <a href="template/demo2-dh-rtl/dashboard.html?theme=light" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
+              <!-- <a href="template/demo2-dh/dashboard.html?theme=light" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
+              <a href="template/demo2-dh-rtl/dashboard.html?theme=light" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a> -->
             </div>
             <a href="template/demo2-dh/dashboard.html?theme=light" target="_blank" class="item">
-              <img src="{% static 'images/new3.1.png' %}" alt="" height="300px" width="350px">
+              <img src="{% static 'images/game4.png' %}" alt="" height="200px" width="200px">
             </a>
           </div>
           <div class="col-md-6 col-lg-4 grid-margin">
-            <h4 class="mb-3 mt-4 text-center fw-normal">Horizontal Menu - Dark</h4>
+            <h4 class="mb-3 mt-4 text-center fw-normal"></h4>
             <div class="d-flex justify-content-center mb-4">
-              <a href="template/demo2/dashboard-1.html?theme=dark" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
-              <a href="template/demo2-rtl/dashboard-1.html?theme=dark" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
+              <!-- <a href="template/demo2/dashboard-1.html?theme=dark" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
+              <a href="template/demo2-rtl/dashboard-1.html?theme=dark" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a> -->
             </div>
             <a href="template/demo2/dashboard-1.html?theme=dark" target="_blank" class="item">
-              <img src="{% static 'images/new5.png' %}" alt="" height="300" width="350">
+              <img src="{% static 'images/game3.png' %}" alt="" height="200" width="200">
             </a>
           </div>
         </div>
@@ -410,133 +414,6 @@ License: For each use you must have a valid license purchased only from above li
         <div class="animation-effect-7">
           <img src="{% static 'images/trophy.png' %}" class="effect-icon" alt="trophy-icon">
         </div>
-        
-        
-        <!-- <header class="section-header mt-5 pt-5">
-          <h2>Applications</h2>
-          <hr>
-          <p class="lead text-secondary">NobleUI is beautifully crafted, clean & modern designed admin theme
-            with different applications.</p>
-        </header>
-        <div class="row">
-          <div class="col-md-6 col-lg-4 grid-margin">
-            <h4 class="mb-3 mt-4 text-center fw-normal">Email</h4>
-            <div class="d-flex justify-content-center mb-4">
-              <a href="https://www.nobleui.com/html/template/demo1/pages/email/inbox.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
-              <a href="https://www.nobleui.com/html/template/demo1-rtl/pages/email/inbox.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
-            </div>
-            <a href="https://www.nobleui.com/html/template/demo1/pages/email/inbox.html" target="_blank" class="item">
-              <img src="images/email.jpg" alt="nobleui" class="d-block mx-auto">
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-4 grid-margin">
-            <h4 class="mb-3 mt-4 text-center fw-normal">Chat</h4>
-            <div class="d-flex justify-content-center mb-4">
-              <a href="https://www.nobleui.com/html/template/demo1/pages/apps/chat.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
-              <a href="https://www.nobleui.com/html/template/demo1-rtl/pages/apps/chat.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
-            </div>
-            <a href="https://www.nobleui.com/html/template/demo1/pages/apps/chat.html" target="_blank" class="item">
-              <img src="images/chat.jpg" alt="nobleui" class="d-block mx-auto">
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-4 grid-margin">
-            <h4 class="mb-3 mt-4 text-center fw-normal">Calendar</h4>
-            <div class="d-flex justify-content-center mb-4">
-              <a href="https://www.nobleui.com/html/template/demo1/pages/apps/calendar.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
-              <a href="https://www.nobleui.com/html/template/demo1-rtl/pages/apps/calendar.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
-            </div>
-            <a href="https://www.nobleui.com/html/template/demo1/pages/apps/calendar.html" target="_blank" class="item">
-              <img src="images/calendar.jpg" alt="nobleui" class="d-block mx-auto">
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-4 grid-margin">
-            <h4 class="mb-3 mt-4 text-center fw-normal">Cropper</h4>
-            <div class="d-flex justify-content-center mb-4">
-              <a href="https://www.nobleui.com/html/template/demo1/pages/advanced-ui/cropper.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
-              <a href="https://www.nobleui.com/html/template/demo1-rtl/pages/advanced-ui/cropper.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
-            </div>
-            <a href="https://www.nobleui.com/html/template/demo1/pages/advanced-ui/cropper.html" target="_blank" class="item">
-              <img src="images/cropper.jpg" alt="nobleui" class="d-block mx-auto">
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-4 grid-margin">
-            <h4 class="mb-3 mt-4 text-center fw-normal">More coming soon...</h4>
-            <div class="d-flex justify-content-center mb-4">
-              <a href="javascript:;" class="btn btn-inverse-primary btn-sm py-1">...</a>
-            </div>
-            <a href="javascript:;" class="item">
-              <img src="images/blank.jpg" alt="nobleui" class="d-block mx-auto">
-            </a>
-          </div>
-        </div>
-
-        <header class="section-header mt-5 pt-5">
-          <h2>Creative Pages</h2>
-          <hr>
-          <p class="lead text-secondary">NobleUI Admin provides many creative pages. It contains all the commonly used pages to 
-            develop any applications which will ease the developer's efforts.</p>
-        </header>
-        <div class="row">
-          <div class="col-md-6 col-lg-4 grid-margin">
-            <h4 class="mb-3 mt-4 text-center fw-normal">Profile</h4>
-            <div class="d-flex justify-content-center mb-4">
-              <a href="https://www.nobleui.com/html/template/demo1/pages/general/profile.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
-              <a href="https://www.nobleui.com/html/template/demo1-rtl/pages/general/profile.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
-            </div>
-            <a href="https://www.nobleui.com/html/template/demo1/pages/general/profile.html" target="_blank" class="item">
-              <img src="images/profile.jpg" alt="nobleui" class="d-block mx-auto">
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-4 grid-margin">
-            <h4 class="mb-3 mt-4 text-center fw-normal">Pricing</h4>
-            <div class="d-flex justify-content-center mb-4">
-              <a href="https://www.nobleui.com/html/template/demo1/pages/general/pricing.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
-              <a href="https://www.nobleui.com/html/template/demo1-rtl/pages/general/pricing.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
-            </div>
-            <a href="https://www.nobleui.com/html/template/demo1/pages/general/pricing.html" target="_blank" class="item">
-              <img src="images/pricing.jpg" alt="nobleui" class="d-block mx-auto">
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-4 grid-margin">
-            <h4 class="mb-3 mt-4 text-center fw-normal">Authentication</h4>
-            <div class="d-flex justify-content-center mb-4">
-              <a href="https://www.nobleui.com/html/template/demo1/pages/auth/login.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
-              <a href="https://www.nobleui.com/html/template/demo1-rtl/pages/auth/login.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
-            </div>
-            <a href="https://www.nobleui.com/html/template/demo1/pages/auth/login.html" target="_blank" class="item">
-              <img src="images/login.jpg" alt="nobleui" class="d-block mx-auto">
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-4 grid-margin">
-            <h4 class="mb-3 mt-4 text-center fw-normal">Error</h4>
-            <div class="d-flex justify-content-center mb-4">
-              <a href="https://www.nobleui.com/html/template/demo1/pages/error/404.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
-              <a href="https://www.nobleui.com/html/template/demo1-rtl/pages/error/404.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
-            </div>
-            <a href="https://www.nobleui.com/html/template/demo1/pages/error/404.html" target="_blank" class="item">
-              <img src="images/error.jpg" alt="nobleui" class="d-block mx-auto">
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-4 grid-margin">
-            <h4 class="mb-3 mt-4 text-center fw-normal">Timeline</h4>
-            <div class="d-flex justify-content-center mb-4">
-              <a href="https://www.nobleui.com/html/template/demo1/pages/general/timeline.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1 me-2">Demo</a>
-              <a href="https://www.nobleui.com/html/template/demo1-rtl/pages/general/timeline.html" target="_blank" class="btn btn-inverse-primary btn-sm py-1">RTL</a>
-            </div>
-            <a href="https://www.nobleui.com/html/template/demo1/pages/general/timeline.html" target="_blank" class="item">
-              <img src="images/timeline.jpg" alt="nobleui" class="d-block mx-auto">
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-4 grid-margin">
-            <h4 class="mb-3 mt-4 text-center fw-normal">And more...</h4>
-            <div class="d-flex justify-content-center mb-4">
-              <a href="javascript:;" class="btn btn-inverse-primary btn-sm py-1">...</a>
-            </div>
-            <a href="javascript:;" class="item">
-              <img src="images/blank.jpg" alt="nobleui" class="d-block mx-auto">
-            </a>
-          </div>
-        </div> -->
 
       </div>
 
@@ -589,8 +466,8 @@ License: For each use you must have a valid license purchased only from above li
       </div>
     </section>
  -->
-
-    <section class="faq">
+    <a class="nav-item nav-link" href="#faq-section">FAQ</a>
+    <section class="faq" id="faq-section">
       <div class="container">
         <header class="section-header">
           <!-- <small>works</small> -->
@@ -699,8 +576,8 @@ License: For each use you must have a valid license purchased only from above li
     <div class="animation-effect-5">
       <img src="{% static 'images/G_cap.png' %}" class="effect-icon" alt="cap-icon">
     </div>
-    
-    <section class="other-products">
+    <a class="nav-item nav-link" href="#contact-section">contact us</a>
+    <section class="other-products" id="contact-section">
       <div class="container">
         <header class="section-header">
           <h2>Contact <span class="fw-light text-primary">Us</span></h2>

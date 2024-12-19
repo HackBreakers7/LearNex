@@ -1,0 +1,1236 @@
+{% load static %}
+<!DOCTYPE html>
+<!--
+Template Name: NobleUI - HTML Bootstrap 5 Admin Dashboard Template
+Author: NobleUI
+Website: https://www.nobleui.com
+Portfolio: https://themeforest.net/user/nobleui/portfolio
+Contact: nobleui123@gmail.com
+Purchase: https://1.envato.market/nobleui_admin
+License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
+-->
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="description" content="Responsive HTML Admin Dashboard Template based on Bootstrap 5">
+        <meta name="author" content="NobleUI">
+        <meta name="keywords"
+            content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+        <title>NobleUI - HTML Bootstrap 5 Admin Dashboard Template</title>
+
+        <!-- color-modes:js -->
+        <script src="{% static 'assets/js/color-modes.js' %}"></script>
+        <!-- endinject -->
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link href="../../../../../css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+        <!-- End fonts -->
+
+        <!-- core:css -->
+        <link rel="stylesheet" href="{% static 'assets/vendors/core/core.css' %}">
+        <!-- endinject -->
+
+        <!-- Plugin css for this page -->
+        <!-- End plugin css for this page -->
+
+        <!-- inject:css -->
+        <link rel="stylesheet" href="{% static 'assets/fonts/feather-font/css/iconfont.css' %}">
+        <!-- endinject -->
+
+        <!-- Layout styles -->
+        <link rel="stylesheet" href="{% static 'assets/css/demo1/style.css' %}">
+        <!-- End layout styles -->
+
+        <link rel="shortcut icon" href="{'% static assets/images/favicon.png' %}">
+        <style>
+            .container1 {
+                display: flex;
+                align-items: center;
+                width: 130% !important;
+                max-width: 1200px !important;
+                height: 50vh;
+                padding-top: 400px;
+				
+                justify-content: center;
+            }
+			
+            #timer {
+                margin-left:500px;
+                margin-top: 20px; /* Adjust this value to move the timer vertically */
+                font-size: 24px; /* Optional: Change the font size if needed */
+              }
+              
+            /* Thinking Boy Animation */
+	  .thinking-boy {
+        position: absolute;
+        bottom: 440px;
+        left: 1100px;
+        width: 300px;
+        animation: float 3s ease-in-out infinite;
+    }
+	  .hen {
+        position: absolute;
+        bottom: 40px;
+        left: 1100px;
+        width: 350px;
+        animation: float 3s ease-in-out infinite;
+    }
+	  .Tiger {
+        position: absolute;
+        bottom: -30px;
+        left: 810px;
+        width: 170px;
+        animation: float 3s ease-in-out infinite;
+    }
+    
+	  .Elephant {
+        position: absolute;
+        bottom: 20px;
+        left: 250px;
+        width: 350px;
+        animation: float 3s ease-in-out infinite;
+    }
+	  .cat {
+        position: absolute;
+        bottom: 390px;
+        left: 250px;
+        width: 250px;
+        animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+        0% { transform: translateY(10); }
+        50% { transform: translateY(-20px); }
+        100% { transform: translateY(0); }
+    }
+
+    
+        h1 {
+			font-family: 'Poppins', sans-serif; /* Modern, clean font */
+			font-size: 48px; /* Large text size */
+			color: #FF6347; /* Attractive tomato red color */
+			text-align: center;
+			letter-spacing: 2px; /* Slightly increased spacing between letters */
+			text-transform: uppercase; /* Make all letters uppercase */
+			margin-bottom: 50px;
+			margin-top:100px;
+			margin-left: 400px;
+			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow to add depth */
+			background: linear-gradient(45deg, #FFD700, #FF8C00); /* Gradient color effect */
+			-webkit-background-clip: text; /* Clip the background to the text */
+			-webkit-text-fill-color: transparent; /* Make the text transparent to show the gradient */
+			
+			
+		}
+		
+
+
+    #game-board {
+        display: grid;
+        grid-template-columns: repeat(4, 100px);
+        gap: 10px;
+		margin-left:450px;
+    }
+
+    .card {
+        width: 100px;
+        height: 100px;
+        background-color: #ccc;
+        border: 1px solid #999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .card-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .card.flipped {
+        background-color: white;
+    }
+
+    .card.matched {
+        background-color: lightgreen;
+        cursor: default;
+    }
+
+    .win-message {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background-color: #4CAF50;
+        color: white;
+        font-size: 2em;
+        border-radius: 10px;
+        text-align: center;
+        z-index: 1000;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    #result {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .decorative-image {
+        width: 100px; /* Adjust size as needed */
+        height: auto;
+        display: block;
+        margin: 0 auto; /* Center the image if desired */
+    }
+    
+	#restart-button {
+		padding: 15px 30px;
+		font-size: 18px;
+		font-weight: bold;
+		color: white;
+		background: linear-gradient(45deg, #4CAF50, #2E7D32);
+		border: none;
+		border-radius: 25px;
+		cursor: pointer;
+		box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+		transition: all 0.3s ease;
+        margin-left:580px;
+        margin-top:275px;
+        
+	}
+	
+	#restart-button:hover {
+		background: linear-gradient(45deg, #66BB6A, #388E3C);
+		box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+		transform: translateY(-3px);
+	}
+	
+	#restart-button:active {
+		transform: translateY(2px);
+		box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	}
+
+    /* chatbot section start css */
+    .draggableIcon {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        cursor: pointer;
+      }
+      .whatsapp-icon {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background: url('https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg') no-repeat center center;
+        background-size: contain;
+      }
+      .modelViewPort {
+        perspective: 1000px;
+        width: 5rem;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        background: transparent;
+      }
+      .eva {
+        --EVA-ROTATION-DURATION: 4s;
+        transform-style: preserve-3d;
+        animation: rotateRight var(--EVA-ROTATION-DURATION) linear infinite alternate;
+      }
+      .head {
+        position: relative;
+        width: 2.5rem;
+        height: 1.6rem;
+        border-radius: 48% 53% 45% 55% / 79% 79% 20% 22%;
+        background: linear-gradient(to right, white 45%, gray);
+      }
+      .eyeChamber {
+        width: 1.8rem;
+        height: 1.1rem;
+        position: relative;
+        left: 50%;
+        top: 55%;
+        border-radius: 45% 53% 45% 48% / 62% 59% 35% 34%;
+        background-color: #0c203c;
+        box-shadow: 0px 0px 2px 2px white, inset 0px 0px 0px 2px black;
+        transform: translate(-50%, -50%);
+        animation: moveRight var(--EVA-ROTATION-DURATION) linear infinite alternate;
+      }
+      .eye {
+        width: 0.6rem;
+        height: 0.75rem;
+        position: absolute;
+        border-radius: 50%;
+      }
+      .eye:first-child {
+        left: 6px;
+        top: 50%;
+        background: repeating-linear-gradient(65deg, #9bdaeb 0px, #9bdaeb 1px, white 2px);
+        box-shadow: inset 0px 0px 5px #04b8d5, 0px 0px 15px 1px #0bdaeb;
+        transform: translate(0, -50%) rotate(-65deg);
+      }
+      .eye:nth-child(2) {
+        right: 6px;
+        top: 50%;
+        background: repeating-linear-gradient(-65deg, #9bdaeb 0px, #9bdaeb 1px, white 2px);
+        box-shadow: inset 0px 0px 5px #04b8d5, 0px 0px 15px 1px #0bdaeb;
+        transform: translate(0, -50%) rotate(65deg);
+      }
+      .bodys {
+        width: 2.5rem;
+        height: 3.2rem;
+        position: relative;
+        margin-block-start: 0.1rem;
+        border-radius: 47% 53% 45% 55% / 12% 9% 90% 88%;
+        background: linear-gradient(to right, white 35%, gray);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .hand {
+        position: absolute;
+        left: -0.75rem;
+        top: 0.35rem;
+        width: 1rem;
+        height: 2.75rem;
+        border-radius: 40%;
+        background: linear-gradient(to left, white 15%, gray);
+        box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.25);
+        transform: rotateY(55deg) rotateZ(10deg);
+      }
+      .hand:first-child {
+        animation: compensateRotation var(--EVA-ROTATION-DURATION) linear infinite alternate;
+      }
+      .hand:nth-child(2) {
+        left: 92%;
+        background: linear-gradient(to right, white 15%, gray);
+        transform: rotateY(55deg) rotateZ(-10deg);
+        animation: compensateRotationRight var(--EVA-ROTATION-DURATION) linear infinite alternate;
+      }
+      .scannerThing {
+        width: 0;
+        height: 0;
+        position: absolute;
+        left: 60%;
+        top: 10%;
+        border-top: 60px solid #9bdaeb;
+        border-left: 80px solid transparent;
+        border-right: 80px solid transparent;
+        transform-origin: top left;
+        mask: linear-gradient(to right, white, transparent 35%);
+        animation: glow 2s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+      }
+      .scannerOrigin {
+        position: absolute;
+        width: 4px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        left: 60%;
+        top: 10%;
+        background: #9bdaeb;
+        box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.5);
+        animation: moveRight var(--EVA-ROTATION-DURATION) linear infinite;
+      }
+      .chestText {
+        position: absolute;
+        font-size: 0.5rem;
+        color: #fff;
+        text-shadow: 1px 1px 2px #000;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        text-align: center;
+      }
+      @keyframes rotateRight {
+        from {
+          transform: rotateY(0deg);
+        }
+        to {
+          transform: rotateY(25deg);
+        }
+      }
+      @keyframes moveRight {
+        from {
+          transform: translate(-50%, -50%);
+        }
+        to {
+          transform: translate(-40%, -50%);
+        }
+      }
+      @keyframes compensateRotation {
+        from {
+          transform: rotateY(55deg) rotateZ(10deg);
+        }
+        to {
+          transform: rotateY(30deg) rotateZ(10deg);
+        }
+      }
+      @keyframes compensateRotationRight {
+        from {
+          transform: rotateY(55deg) rotateZ(-10deg);
+        }
+        to {
+          transform: rotateY(70deg) rotateZ(-10deg);
+        }
+      }
+      @keyframes glow {
+        from {
+          opacity: 0;
+        }
+        20% {
+          opacity: 1;
+        }
+        45% {
+          transform: rotate(-25deg);
+        }
+        75% {
+          transform: rotate(5deg);
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      /* chatbot section end css */
+
+        </style>
+    </head>
+
+    <body class="sidebar-dark">
+        <div class="main-wrapper">
+
+            <!-- partial:../../partials/_sidebar.html -->
+            <nav class="sidebar">
+                <div class="sidebar-header">
+                    <a href="#" class="sidebar-brand">
+                        Learn<span>Nex</span>
+                    </a>
+                    <div class="sidebar-toggler">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="sidebar-body">
+                    <ul class="nav" id="sidebarNav">
+                        <!-- <li class="nav-item nav-category">main</li> -->
+                        <!-- <li class="nav-item">
+            <a href="../../dashboard-1.html" class="nav-link">
+              <i class="link-icon" data-feather="box"></i>
+              <span class="link-title">Dashboard</span>
+            </a>
+          </li> -->
+
+
+
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                                <i class="link-icon" data-feather="home" style="color: white;"></i>
+                                <span class="link-title"><b>HOME</b></span>
+                            </a>
+                        </li>
+
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                                <i class="link-icon" data-feather="book" style="color: white;"></i>
+                                <span class="link-title"><b>standard</b></span>
+                            </a>
+                        </li>
+
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" onclick="changeText(event)">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title" id="nav-link-text"><b>1 st</b></span>
+                            </a>
+                        </li>
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title"><b>2 nd</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title"><b>3 rd</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title"><b>4 th</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="book-open"></i>
+                                <span class="link-title"><b>5 th</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                                <i class="link-icon" data-feather="layers" style="color: white;"></i>
+                                <span class="link-title"><b>Beyond the syllabus</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'memorygame' %}" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>Memory card</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'canvas' %}" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>canvas</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="{% url 'connectdots' %}" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>connectDots</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="{% url 'shapeselect' %}" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>shapeSelect</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'math' %}" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>Maths</b></span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{% url 'orbit' %}" class="nav-link">
+                                <i class="link-icon" data-feather="box"></i>
+                                <span class="link-title"><b>Orbit</b></span>
+                            </a>
+                        </li>
+
+
+
+
+
+
+
+
+
+
+
+
+                        <li class="nav-item">
+                            <a href="{% url 'rhym' %}" class="nav-link">
+                                <i class="link-icon" data-feather="volume-2"></i>
+                                <span class="link-title"><b>Rhym-Game</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="{% url 'animalgame' %}" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                                <i class="link-icon" data-feather="help-circle" style="color: white;"></i>
+                                <span class="link-title"><b>Animal-Game</b></span>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="link-icon" data-feather="alert-circle"></i>
+                                <span class="link-title"><b>Ask Your Doubts??</b></span>
+                            </a>
+                        </li>
+
+
+                        </li>
+                    </ul>
+                </div>
+
+
+
+        </div>
+        </nav>
+        <!-- partial -->
+
+
+        <body class="sidebar-dark">
+        <div class="main-wrapper">
+
+            <!-- partial:../../partials/_sidebar.html -->
+            <nav class="sidebar">
+                <div class="sidebar-header">
+                    <a href="#" class="sidebar-brand">
+                        Learn<span>Nex</span>
+                    </a>
+                    <div class="sidebar-toggler">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="sidebar-body">
+                    <ul class="nav" id="sidebarNav">
+                        <!-- <li class="nav-item nav-category">main</li> -->
+                        <!-- <li class="nav-item">
+            <a href="../../dashboard-1.html" class="nav-link">
+              <i class="link-icon" data-feather="box"></i>
+              <span class="link-title">Dashboard</span>
+            </a>
+          </li> -->
+
+
+
+
+
+
+
+
+
+          <li class="nav-item">
+            <a href="{% url 'main_dash' %}" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                <i class="link-icon" data-feather="home" style="color: white;"></i>
+                <span class="link-title"><b>HOME</b></span>
+            </a>
+         </li>
+
+
+
+
+
+
+
+            <li class="nav-item">
+                <a href="{% url 'subject' %}" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                    <i class="link-icon" data-feather="book" style="color: white;"></i>
+                    <span class="link-title"><b>Subject</b></span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'topic' %}" class="nav-link" onclick="changeText(event)">
+                    <i class="link-icon" data-feather="book-open"></i>
+                    <span class="link-title" id="nav-link-text"><b>Maths</b></span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="link-icon" data-feather="book-open"></i>
+                    <span class="link-title"><b>Science</b></span>
+                </a>
+            </li>
+
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="link-icon" data-feather="book-open"></i>
+                    <span class="link-title"><b>History</b></span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="link-icon" data-feather="book-open"></i>
+                    <span class="link-title"><b> Geography</b></span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="link-icon" data-feather="book-open"></i>
+                    <span class="link-title"><b>Literature</b></span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="link-icon" data-feather="book-open"></i>
+                    <span class="link-title"><b>Art</b></span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                 <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                    <i class="link-icon" data-feather="layers" style="color: white;"></i>
+                    <span class="link-title"><b>Learn And Play</b></span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{% url 'memorygame' %}" class="nav-link">
+                    <i class="link-icon" data-feather="box"></i>
+                    <span class="link-title"><b>Memory card</b></span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'shapeselect' %}" class="nav-link">
+                    <i class="link-icon" data-feather="box"></i>
+                    <span class="link-title"><b>shapeselect</b></span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'animalmatch' %}" class="nav-link">
+                    <i class="link-icon" data-feather="box"></i>
+                    <span class="link-title"><b>animalmatch</b></span>
+                </a>
+            </li>
+        <li class="nav-item">
+          <a href="{% url 'colorpick' %}" class="nav-link">
+            <i class="link-icon" data-feather="box"></i>
+            <span class="link-title"><b>colorpick</b></span>
+          </a>
+        </li>
+        
+        <li class="nav-item">
+          <a href="{% url 'mathadventure' %}" class="nav-link">
+             <i class="link-icon" data-feather="box"></i>
+             <span class="link-title"><b>mathadventure</b></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'rhymgame' %}" class="nav-link">
+             <i class="link-icon" data-feather="box"></i>
+             <span class="link-title"><b>rhymgame</b></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'math' %}" class="nav-link">
+             <i class="link-icon" data-feather="box"></i>
+             <span class="link-title"><b>fun with maths</b></span>
+          </a>
+        </li>
+        
+
+        <li class="nav-item">
+          <a href="{% url 'canvas' %}" class="nav-link">
+            <i class="link-icon" data-feather="box"></i>
+            <span class="link-title"><b>Fun with canvas</b></span>
+          </a>
+        </li>
+
+
+        <li class="nav-item">
+          <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+            <i class="link-icon" data-feather="layers" style="color: white;"></i>
+            <span class="link-title"><b>Learn Something More</b></span>
+          </a>
+        </li>
+
+        
+                    
+</div>
+
+
+
+        </div>
+        </nav>
+        <!-- partial -->
+
+        <div class="page-wrapper">
+
+            <!-- partial:../../partials/_navbar.html -->
+            <nav class="navbar">
+                <div class="navbar-content">
+
+                    <div class="logo-mini-wrapper">
+                        <img src="{% static 'assets/images/logo-mini-light.png' %}" class="logo-mini logo-mini-light"
+                            alt="logo">
+                        <img src="{% static 'assets/images/logo-mini-dark.png' %}" class="logo-mini logo-mini-dark"
+                            alt="logo">
+                    </div>
+
+                    <!-- <form class="search-form">
+						<div class="input-group">
+              <div class="input-group-text">
+                <i data-feather="search"></i>
+              </div>
+							<input type="text" class="form-control" id="navbarForm" placeholder="Search here...">
+						</div>
+					</form> -->
+
+                    <ul class="navbar-nav">
+                        <li class="theme-switcher-wrapper nav-item">
+                            <input type="checkbox" value="" id="theme-switcher">
+                            <label for="theme-switcher">
+                                <div class="box">
+                                    <div class="ball"></div>
+                                    <div class="icons">
+                                        <i class="feather icon-sun"></i>
+
+                                        <i class="feather icon-moon"></i>
+                                    </div>
+                                </div>
+                            </label>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="w-30px h-30px ms-1 rounded-circle"
+                                    src="{% static 'assets/images/faces/face1.jpg' %}" alt="profile">
+                            </a>
+                            <div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
+                                <div class="d-flex flex-column align-items-center border-bottom px-5 py-3">
+                                    <div class="mb-3">
+                                        <img class="w-80px h-80px rounded-circle"
+                                            src="{% static 'assets/images/faces/face1.jpg' %}" alt="">
+                                    </div>
+                                    <div class="text-center">
+                                        <p class="fs-16px fw-bolder">Amiah Burton</p>
+                                        <p class="fs-12px text-secondary">amiahburton@gmail.com</p>
+                                    </div>
+                                </div>
+                                <ul class="list-unstyled p-1">
+                                    <li class="dropdown-item py-2">
+                                        <a href="profile.html" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="user"></i>
+                                            <span>Profile</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="edit"></i>
+                                            <span>Edit Profile</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="repeat"></i>
+                                            <span>Switch User</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="log-out"></i>
+                                            <span>Log Out</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <a href="#" class="sidebar-toggler">
+                        <i data-feather="menu"></i>
+                    </a>
+
+                </div>
+            </nav>
+            <!-- partial -->
+
+
+        <div class="page-wrapper">
+
+            <!-- partial:../../partials/_navbar.html -->
+            <nav class="navbar">
+                <div class="navbar-content">
+
+                    <div class="logo-mini-wrapper">
+                        <img src="{% static 'assets/images/logo-mini-light.png' %}" class="logo-mini logo-mini-light"
+                            alt="logo">
+                        <img src="{% static 'assets/images/logo-mini-dark.png' %}" class="logo-mini logo-mini-dark"
+                            alt="logo">
+                    </div>
+
+                    <!-- <form class="search-form">
+						<div class="input-group">
+              <div class="input-group-text">
+                <i data-feather="search"></i>
+              </div>
+							<input type="text" class="form-control" id="navbarForm" placeholder="Search here...">
+						</div>
+					</form> -->
+
+                    <ul class="navbar-nav">
+                        <li class="theme-switcher-wrapper nav-item">
+                            <input type="checkbox" value="" id="theme-switcher">
+                            <label for="theme-switcher">
+                                <div class="box">
+                                    <div class="ball"></div>
+                                    <div class="icons">
+                                        <i class="feather icon-sun"></i>
+
+                                        <i class="feather icon-moon"></i>
+                                    </div>
+                                </div>
+                            </label>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="w-30px h-30px ms-1 rounded-circle"
+                                    src="{% static 'assets/images/faces/face1.jpg' %}" alt="profile">
+                            </a>
+                            <div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
+                                <div class="d-flex flex-column align-items-center border-bottom px-5 py-3">
+                                    <div class="mb-3">
+                                        <img class="w-80px h-80px rounded-circle"
+                                            src="{% static 'assets/images/faces/face1.jpg' %}" alt="">
+                                    </div>
+                                    <div class="text-center">
+                                        <p class="fs-16px fw-bolder">Amiah Burton</p>
+                                        <p class="fs-12px text-secondary">amiahburton@gmail.com</p>
+                                    </div>
+                                </div>
+                                <ul class="list-unstyled p-1">
+                                    <li class="dropdown-item py-2">
+                                        <a href="profile.html" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="user"></i>
+                                            <span>Profile</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="edit"></i>
+                                            <span>Edit Profile</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="repeat"></i>
+                                            <span>Switch User</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="log-out"></i>
+                                            <span>Log Out</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <a href="#" class="sidebar-toggler">
+                        <i data-feather="menu"></i>
+                    </a>
+
+                </div>
+            </nav>
+            <!-- partial -->
+			
+			
+			<div class="container1">
+			
+            <div class="page-content">
+
+			<h1>Animal Match-Up Game</h1>
+			<div id="game-board">
+			</div>
+			<p id="result"></p>
+			<p id="timer">Time left: <span id="time">60</span> seconds</p>
+			<div id="star-container" class="hidden">
+			</div>
+			<img src="{% static 'C:\Hackathon\hackathon\static\images\Tiger.png' %}" alt="Decorative Image" class="thinking-boy ">
+			<img src="{% static 'C:\Hackathon\hackathon\static\images\Hen.png' %}" alt="Decorative Image" class="hen">
+			<img src="{% static 'C:\Hackathon\hackathon\static\images\Tiger1.png' %}" alt="Decorative Image" class="Tiger">
+			<img src="{% static 'C:\Hackathon\hackathon\static\images\Elephant.png' %}" alt="Decorative Image" class="Elephant">
+			<img src="{% static 'C:\Hackathon\hackathon\static\images\cat.png' %}" alt="Decorative Image" class="cat">
+			<canvas id="confetti-canvas"></canvas>
+			</div>
+			
+			</div>
+			
+            </div>
+			<button id="restart-button">Restart Game</button>
+
+            <!-- partial:../../partials/_footer.html -->
+            <footer
+                class="footer d-flex flex-row align-items-center justify-content-between px-4 py-3 border-top small">
+                <p class="text-secondary mb-1 mb-md-0">Copyright © 2024 <a href="https://www.nobleui.com"
+                        target="_blank">LearNex</a>.</p>
+               <!-- <p class="text-secondary"> <i class="mb-1 text-primary ms-1 icon-sm"
+                        data-feather="heart"></i> 
+                </p>-->
+            </footer>
+            <!-- partial -->
+
+        </div>
+        </div>
+
+        <!-- chatbot section start html-->
+            <div class="draggableIcon" id="icon1" style="bottom: 20px; right: 120px;">
+                <div class="modelViewPort">
+                  <div class="eva">
+                    <div class="head"></div>
+                    <div class="eyeChamber">
+                      <div class="eye"></div>
+                      <div class="eye"></div>
+                    </div>
+                    <div class="bodys">
+                      <div class="scannerThing"></div>
+                      <div class="scannerOrigin"></div>
+                      <div class="hand"></div>
+                      <div class="hand"></div>
+                      <div class="chestText">LearNex.ai</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="draggableIcon" id="icon2" style="bottom: 10px; right: 10px;">
+                <div class="whatsapp-icon"></div>
+              </div>
+                <!-- chatbot section end -->
+        <script>
+		const animals = ['🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐸', '🐯'];
+    const board = document.getElementById('game-board');
+    const restartButton = document.getElementById('restart-button');
+    const result = document.getElementById('result');
+    const timerElement = document.getElementById('time');
+    const starContainer = document.getElementById('star-container');
+    let firstCard = null;
+    let secondCard = null;
+    let lockBoard = false;
+    let matchedPairs = 0;
+    const totalPairs = animals.length;
+    let timer;
+    let timeLeft = 60;
+    
+    // Shuffle function to randomize the cards
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+    
+    // Initialize the game
+    function initGame() {
+        board.innerHTML = ''; // Clear the board
+        const cardValues = [...animals, ...animals];
+        shuffle(cardValues);
+    
+        cardValues.forEach(value => {
+            const card = document.createElement('div');
+            card.classList.add('card');
+            card.dataset.value = value;
+            card.addEventListener('click', flipCard);
+            board.appendChild(card);
+        });
+    
+        matchedPairs = 0; // Reset matched pairs counter
+        timeLeft = 60; // Reset timer
+        timerElement.textContent = timeLeft;
+        startTimer();
+    }
+    
+    // Flip card function
+    function flipCard() {
+        if (lockBoard || this === firstCard) return;
+    
+        this.classList.add('flipped');
+        this.textContent = this.dataset.value;
+    
+        if (!firstCard) {
+            firstCard = this;
+            return;
+        }
+    
+        secondCard = this;
+        lockBoard = true;
+    
+        checkForMatch();
+    }
+    
+    // Check for match
+    function checkForMatch() {
+        if (firstCard.dataset.value === secondCard.dataset.value) {
+            firstCard.classList.add('matched');
+            secondCard.classList.add('matched');
+            matchedPairs++;
+            resetBoard();
+            if (matchedPairs === totalPairs) {
+                setTimeout(showWinMessage, 500);
+            }
+        } else {
+            setTimeout(() => {
+                firstCard.classList.remove('flipped');
+                secondCard.classList.remove('flipped');
+                firstCard.textContent = '';
+                secondCard.textContent = '';
+                resetBoard();
+            }, 1000);
+        }
+    }
+    
+    // Reset the board after checking
+    function resetBoard() {
+        [firstCard, secondCard] = [null, null];
+        lockBoard = false;
+    }
+    
+    // Start the timer
+    function startTimer() {
+        timer = setInterval(() => {
+            timeLeft--;
+            timerElement.textContent = timeLeft;
+    
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                endGame();
+            }
+        }, 1000);
+    }
+    
+    // End the game and show result
+    function endGame() {
+        result.textContent = 'Time is up! Game Over!';
+    }
+    
+    // Function to trigger confetti
+    function triggerConfetti() {
+        confetti({
+            particleCount: 100,
+            angle: 90,
+            spread: 70,
+            origin: { x: 0.5, y: 0.5 }
+        });
+    }
+    
+    // Show winning message
+    function showWinMessage() {
+        const winMessage = document.createElement('div');
+        winMessage.classList.add('win-message');
+        winMessage.textContent = 'Congratulations! You Win!';
+        document.body.appendChild(winMessage);
+    
+        // Trigger confetti effect
+        triggerConfetti();
+    
+        // Show star after winning
+        starContainer.classList.remove('hidden'); // Show star
+    }
+    
+    // Restart the game
+    function restartGame() {
+        const winMessage = document.querySelector('.win-message');
+        if (winMessage) {
+            winMessage.remove(); // Remove the win message if it's present
+        }
+        initGame();
+    }
+    
+    // Set up event listener for the restart button
+    restartButton.addEventListener('click', restartGame);
+    
+    // Start the game
+    initGame();
+
+
+    //  start chatbot section js 
+    function initDraggable(iconId) {
+        const icon = document.getElementById(iconId);
+        let offsetX, offsetY, startX, startY, dragStarted = false;
+  
+        icon.onmousedown = function (e) {
+          e.preventDefault();
+          startX = e.clientX;
+          startY = e.clientY;
+          offsetX = e.offsetX;
+          offsetY = e.offsetY;
+          dragStarted = false;
+  
+          document.onmousemove = function (e) {
+            dragStarted = true;
+            icon.style.left = e.clientX - offsetX + 'px';
+            icon.style.top = e.clientY - offsetY + 'px';
+          };
+  
+          document.onmouseup = function (e) {
+            document.onmousemove = document.onmouseup = null;
+            if (!dragStarted) {
+              // Handle click event
+              if (iconId === 'icon1') {
+                // Navigate to 3D model page on the same window
+                window.location.href = "{% url 'chatbot' %}";
+              } else if (iconId === 'icon2') {
+                // Navigate to WhatsApp chat on the same window
+                window.location.href = 'https://wa.me/+919740094236';
+              }
+            }
+          };
+        };
+      }
+  
+      initDraggable('icon1');
+      initDraggable('icon2');
+    //    end chatbot section js
+        </script>
+        <!-- core:js -->
+        <script src="{% static 'assets/vendors/core/core.js' %}"></script>
+        <!-- endinject -->
+
+        <!-- Plugin js for this page -->
+        <!-- End plugin js for this page -->
+
+        <!-- inject:js -->
+        <script src="{% static 'assets/vendors/feather-icons/feather.min.js' %}"></script>
+        <script src="{% static 'assets/js/app.js' %}"></script>
+        <!-- endinject -->
+
+        <!-- Custom js for this page -->
+        <!-- End custom js for this page -->
+
+
+        
+    </body>
+
+</html>
+
+
+
+</body>
+
+</html>

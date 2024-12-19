@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearNex.ai Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 80vh;
+        }
+        .header {
+            background: hsl(55, 6%, 37%);
+            color: #fff;
+            padding: 20px 20px;
+            display: flex;
+            align-items: center;
+            font-size: 1.2em;
+        }
+        .header img {
+            height: 30px;
+            margin-right: 10px;
+        }
+        .chat-box {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            border-bottom: 1px solid #ddd;
+            background: #f9f9f9;
+        }
+        .chat-box div {
+            margin-bottom: 10px;
+        }
+        .chat-box .user-message {
+            color: #596068;
+        }
+        .chat-box .bot-response {
+            color: #333;
+        }
+        .input-box {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+            background: #fff;
+        }
+        .input-box textarea {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: none;
+            height: 60px;
+        }
+        .input-box button {
+            padding: 10px 20px;
+            border: none;
+            background: #848431;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .input-box button:hover {
+            background: #0056b3;
+        }
+        .history-actions {
+            padding: 10px;
+            background: #fff;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+        }
+        .history-actions button {
+            padding: 5px 10px;
+            border: none;
+            background: #007BFF;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .history-actions button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="LearNex.ai.png" alt="LearNex.ai Logo">
+
+        </div>
+        <div class="history-actions">
+            <button onclick="clearHistory()">Clear History</button>
+        </div>
+        <div class="chat-box" id="chat-box"></div>
+        <div class="input-box">
+            <textarea id="user-input" placeholder="Type your message here..."></textarea>
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+    <script>
+        const responses = {
+            "hi": "Hi! Please tell me what can I do for you?",
+            "hello": "Hello! How can I assist you today?",
+            "what are you doing": "i am working on my improvment, what about you?",
+            "how are you?": "I'm just a program, but I'm doing great! How about you?",
+            "what is your name?": "I am LearNex.ai, your friendly auto-reply bot.",
+            "help": "Sure, I'm here to help. What do you need assistance with?",
+            "how are you": "I'm fine, what about you?",
+            "how to improve my child's concentration?": "Encourage regular breaks, establish a quiet study space, and engage your child in activities that require focus, like puzzles or reading.",
+            "what is the best diet for my child?": "A balanced diet with fruits, vegetables, whole grains, lean proteins, and dairy is key. Limit sugar and junk food to maintain good health.",
+            "how much screen time is recommended for kids?": "It is generally recommended to limit screen time to 1-2 hours per day for children, especially for non-educational purposes.",
+            "how can i improve my child's sleep routine?": "Create a consistent bedtime routine, limit screen exposure before bed, and ensure your child has a quiet, dark sleep environment.",
+            "what activities help with child development?": "Activities like reading, playing with educational toys, engaging in outdoor sports, and socializing with peers help in cognitive and physical development.",
+            "how can i teach my child good manners?": "Lead by example, encourage polite language, and positively reinforce good behavior. Practice makes perfect!",
+            "what is the best way to discipline a child?": "Use positive discipline techniques, set clear rules, and provide natural consequences rather than punishment. Consistency is key.",
+            "how can i support my child's mental health?": "Be available to talk, listen without judgment, and help your child understand and express emotions. Encourage healthy habits like exercise and balanced nutrition.",
+            "what educational apps are good for kids?": "Some great educational apps include Duolingo, Khan Academy Kids, and ABCmouse for interactive and fun learning experiences.",
+            "bye": "Goodbye! I hope you found the information helpful. Take care! Have a great day!",
+            "what is the curriculum coverage?": "Our platform aligns with the prescribed national or state curriculum for classes 1-5, ensuring comprehensive learning.",
+            "how does the platform ensure interactive learning?": "We incorporate various interactive elements like games, quizzes, and simulations to make learning engaging and fun for students.",
+            "what safety measures are in place to protect children online?": "We prioritize child safety with features like age-appropriate content, parental controls, and strict privacy policies.",
+            "how is student progress monitored and feedback provided?": "The platform tracks student performance through assessments and provides detailed reports to parents and teachers, facilitating timely feedback.",
+            "can students access the platform offline?": "Yes, we offer offline access to certain content, allowing students to learn even without an internet connection.",
+            "how do you ensure the quality of educational content?": "Our content is developed by experienced educators and reviewed by subject matter experts to maintain high quality standards.",
+            "what is the cost and payment options?": "We offer flexible subscription plans at affordable rates, with various payment options available.",
+            "how can parents interact with teachers and the platform?": "Parents can communicate with teachers through a dedicated messaging system and access platform resources and announcements.",
+            "what technical requirements are needed to access the platform?": "The platform is compatible with most devices and requires a stable internet connection for optimal performance.",
+            "how do you address learning challenges or difficulties that students may face?": "We provide additional resources, such as tutoring or personalized learning plans, to support students who may need extra assistance.",
+            "which is best learning platform for kids?": "India's most learning platform LearNex.",
+            "how can i login":"enter your username and password in correct "
+        };
+
+        const chatBox = document.getElementById('chat-box');
+        const userInput = document.getElementById('user-input');
+
+        function sendMessage() {
+            const message = userInput.value.trim();
+            if (message) {
+                displayMessage(message, 'user-message');
+                const response = responses[message.toLowerCase()] || "Sorry, I don't understand that question.";
+                displayMessage(response, 'bot-response');
+                userInput.value = '';
+                saveHistory(message, response);
+            }
+        }
+
+        function displayMessage(message, className) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = className;
+            messageDiv.textContent = message;
+            chatBox.appendChild(messageDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function saveHistory(userMessage, botResponse) {
+            let history = JSON.parse(localStorage.getItem('chatHistory')) || [];
+            history.push({ userMessage, botResponse });
+            localStorage.setItem('chatHistory', JSON.stringify(history));
+        }
+
+        function clearHistory() {
+            localStorage.removeItem('chatHistory');
+            chatBox.innerHTML = '';
+        }
+
+        window.onload = function() {
+            let history = JSON.parse(localStorage.getItem('chatHistory')) || [];
+            history.forEach(entry => {
+                displayMessage(entry.userMessage, 'user-message');
+                displayMessage(entry.botResponse, 'bot-response');
+            });
+        };
+
+        document.getElementById('user-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>

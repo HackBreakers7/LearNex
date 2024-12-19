@@ -1,0 +1,1007 @@
+{% load static %}
+<!DOCTYPE html>
+<!--
+Template Name: NobleUI - HTML Bootstrap 5 Admin Dashboard Template
+Author: NobleUI
+Website: https://www.nobleui.com
+Portfolio: https://themeforest.net/user/nobleui/portfolio
+Contact: nobleui123@gmail.com
+Purchase: https://1.envato.market/nobleui_admin
+License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
+-->
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="description" content="Responsive HTML Admin Dashboard Template based on Bootstrap 5">
+        <meta name="author" content="NobleUI">
+        <meta name="keywords"
+            content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+        <title>NobleUI - HTML Bootstrap 5 Admin Dashboard Template</title>
+
+        <!-- color-modes:js -->
+        <script src="{% static 'assets/js/color-modes.js' %}"></script>
+        <!-- endinject -->
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link href="../../../../../css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+        <!-- End fonts -->
+
+        <!-- core:css -->
+        <link rel="stylesheet" href="{% static 'assets/vendors/core/core.css' %}">
+        <!-- endinject -->
+
+        <!-- Plugin css for this page -->
+        <!-- End plugin css for this page -->
+
+        <!-- inject:css -->
+        <link rel="stylesheet" href="{% static 'assets/fonts/feather-font/css/iconfont.css' %}">
+        <!-- endinject -->
+
+        <!-- Layout styles -->
+        <link rel="stylesheet" href="{% static 'assets/css/demo1/style.css' %}">
+        <!-- End layout styles -->
+
+        <link rel="shortcut icon" href="{'% static assets/images/favicon.png' %}">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f0f0f0;
+                margin-left: 30px;
+                
+            }
+    
+            .container {
+                width: 100%;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+    
+            .row {
+                display: flex;
+                flex-wrap: wrap;
+                margin-bottom: 0px;
+                margin-top: 50px;
+                
+            }
+    
+            .col {
+                flex: 1;
+                padding: 10px;
+            }
+    
+            .chart-container {
+                width: 100%;
+                height: 300px;
+            }
+    
+            
+    
+            /* Custom Cards Styling */
+            .cards {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                gap: 15px;
+               
+            }
+    
+            .cards .red {
+                background-color: #fd9c00;
+            }
+    
+            .cards .blue {
+                background-color: #0062ff;
+            }
+    
+            .cards .green {
+                background-color: #00ff5e;
+            }
+    
+            .cards .card {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                text-align: center;
+                height: 100px;
+                width: 300px;
+                border-radius: 10px;
+                color: white;
+                cursor: pointer;
+                transition: 400ms;
+                position: relative;
+                overflow: hidden;
+            }
+    
+            .cards .card::before {
+                content: '\f005'; /* Example FontAwesome icon */
+                font-family: 'FontAwesome';
+                position: absolute;
+                right: -80px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 150px;
+                color: rgba(255, 255, 255, 0.2);
+                z-index: 0;
+                transition: 400ms ease-in-out;
+                filter: drop-shadow(0 0 15px rgba(255, 255, 0, 0.5));
+            }
+    
+            .cards .card:hover::before {
+                font-size: 170px;
+                color: rgba(255, 255, 255, 0.4);
+                filter: drop-shadow(0 0 25px rgba(255, 255, 0, 0.8));
+            }
+    
+            .cards .card p.tip,
+            .cards .card p.second-text {
+                position: relative;
+                z-index: 1;
+            }
+    
+            .cards .card p.tip {
+                font-size: 1em;
+                font-weight: 700;
+            }
+    
+            .cards .card p.second-text {
+                font-size: .7em;
+            }
+    
+            .cards .card:hover {
+                transform: scale(1.1);
+            }
+    
+            .cards:hover > .card:not(:hover) {
+                filter: blur(10px);
+                transform: scale(0.9);
+            }
+    
+    /* Leaderboard Table Styling */
+    table {
+                width: 100%;
+                margin: 0 auto;
+                border-collapse: collapse;
+                background-color: #fff;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                border: 1px solid #ddd;
+            }
+    
+            th, td {
+                padding: 15px; /* Reduced padding */
+                text-align: left;
+                font-size: 1.1rem; /* Adjusted for smaller font */
+                border-bottom: 1px solid #eaeaea;
+            }
+    
+            th {
+                background-color: #042446;
+                color: #ffffff;
+                text-transform: uppercase;
+                font-weight: 700;
+                font-size: 1rem;
+                letter-spacing: 0.05rem;
+            }
+    
+            td {
+                color: #555;
+            }
+    
+            .points {
+                font-weight: 700;
+                color: #28a745;
+            }
+    
+            tr:nth-child(even) {
+                background-color: #f8f9fa;
+            }
+    
+            tr:hover {
+                background-color: #0056b3;
+                color: #fff;
+                transition: background-color 0.3s ease, color 0.3s ease;
+            }
+    
+            /* Floating background elements for subtle motion */
+            .circle {
+                position: absolute;
+                width: 300px; /* Reduced size */
+                height: 300px; /* Reduced size */
+                background: rgba(0, 123, 255, 0.1);
+                border-radius: 50%;
+                animation: floatCircle 25s infinite ease-in-out;
+                z-index: -1;
+            }
+    
+            .circle.small {
+                width: 150px; /* Reduced size */
+                height: 150px; /* Reduced size */
+                background: rgba(52, 58, 64, 0.1);
+            }
+    
+            @keyframes floatCircle {
+                0% {
+                    transform: translateY(0) translateX(0);
+                }
+                50% {
+                    transform: translateY(-30px) translateX(30px);
+                }
+                100% {
+                    transform: translateY(0) translateX(0);
+                }
+            }
+    
+            /* Floating emojis */
+            .emoji {
+                position: absolute;
+                font-size: 1.5rem; /* Adjusted emoji size */
+                animation: floatEmoji 20s infinite linear;
+                opacity: 0.8;
+            }
+    
+            @keyframes floatEmoji {
+                0% {
+                    transform: translateY(0) translateX(0);
+                }
+                50% {
+                    transform: translateY(-20px) translateX(15px);
+                }
+                100% {
+                    transform: translateY(0) translateX(0);
+                }
+            }
+    
+            /* Positioning floating emojis on the full screen */
+            .emoji.emoji1 { top: 5%; left: 5%; }
+            .emoji.emoji2 { top: 10%; left: 35%; }
+            .emoji.emoji3 { top: 15%; right: 20%; }
+            .emoji.emoji4 { top: 40%; left: 10%; }
+            .emoji.emoji5 { top: 50%; left: 60%; }
+            .emoji.emoji6 { top: 60%; right: 30%; }
+            .emoji.emoji7 { bottom: 15%; left: 5%; }
+            .emoji.emoji8 { bottom: 20%; right: 20%; }
+            .emoji.emoji9 { bottom: 10%; left: 40%; }
+            .emoji.emoji10 { bottom: 5%; right: 5%; }
+    
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                th, td {
+                    font-size: 1rem; /* Reduced font size for smaller screens */
+                }
+    
+                h1 {
+                    font-size: 1.5rem; /* Adjust heading size for smaller screens */
+                }
+    
+                .emoji {
+                    font-size: 1rem; /* Reduce emoji size on smaller screens */
+                }
+            }
+
+
+            /* chatbot section start css */
+    .draggableIcon {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        cursor: pointer;
+      }
+      .whatsapp-icon {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background: url('https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg') no-repeat center center;
+        background-size: contain;
+      }
+      .modelViewPort {
+        perspective: 1000px;
+        width: 5rem;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        background: transparent;
+      }
+      .eva {
+        --EVA-ROTATION-DURATION: 4s;
+        transform-style: preserve-3d;
+        animation: rotateRight var(--EVA-ROTATION-DURATION) linear infinite alternate;
+      }
+      .head {
+        position: relative;
+        width: 2.5rem;
+        height: 1.6rem;
+        border-radius: 48% 53% 45% 55% / 79% 79% 20% 22%;
+        background: linear-gradient(to right, white 45%, gray);
+      }
+      .eyeChamber {
+        width: 1.8rem;
+        height: 1.1rem;
+        position: relative;
+        left: 50%;
+        top: 55%;
+        border-radius: 45% 53% 45% 48% / 62% 59% 35% 34%;
+        background-color: #0c203c;
+        box-shadow: 0px 0px 2px 2px white, inset 0px 0px 0px 2px black;
+        transform: translate(-50%, -50%);
+        animation: moveRight var(--EVA-ROTATION-DURATION) linear infinite alternate;
+      }
+      .eye {
+        width: 0.6rem;
+        height: 0.75rem;
+        position: absolute;
+        border-radius: 50%;
+      }
+      .eye:first-child {
+        left: 6px;
+        top: 50%;
+        background: repeating-linear-gradient(65deg, #9bdaeb 0px, #9bdaeb 1px, white 2px);
+        box-shadow: inset 0px 0px 5px #04b8d5, 0px 0px 15px 1px #0bdaeb;
+        transform: translate(0, -50%) rotate(-65deg);
+      }
+      .eye:nth-child(2) {
+        right: 6px;
+        top: 50%;
+        background: repeating-linear-gradient(-65deg, #9bdaeb 0px, #9bdaeb 1px, white 2px);
+        box-shadow: inset 0px 0px 5px #04b8d5, 0px 0px 15px 1px #0bdaeb;
+        transform: translate(0, -50%) rotate(65deg);
+      }
+      .bodys {
+        width: 2.5rem;
+        height: 3.2rem;
+        position: relative;
+        margin-block-start: 0.1rem;
+        border-radius: 47% 53% 45% 55% / 12% 9% 90% 88%;
+        background: linear-gradient(to right, white 35%, gray);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .hand {
+        position: absolute;
+        left: -0.75rem;
+        top: 0.35rem;
+        width: 1rem;
+        height: 2.75rem;
+        border-radius: 40%;
+        background: linear-gradient(to left, white 15%, gray);
+        box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.25);
+        transform: rotateY(55deg) rotateZ(10deg);
+      }
+      .hand:first-child {
+        animation: compensateRotation var(--EVA-ROTATION-DURATION) linear infinite alternate;
+      }
+      .hand:nth-child(2) {
+        left: 92%;
+        background: linear-gradient(to right, white 15%, gray);
+        transform: rotateY(55deg) rotateZ(-10deg);
+        animation: compensateRotationRight var(--EVA-ROTATION-DURATION) linear infinite alternate;
+      }
+      .scannerThing {
+        width: 0;
+        height: 0;
+        position: absolute;
+        left: 60%;
+        top: 10%;
+        border-top: 60px solid #9bdaeb;
+        border-left: 80px solid transparent;
+        border-right: 80px solid transparent;
+        transform-origin: top left;
+        mask: linear-gradient(to right, white, transparent 35%);
+        animation: glow 2s cubic-bezier(0.86, 0, 0.07, 1) infinite;
+      }
+      .scannerOrigin {
+        position: absolute;
+        width: 4px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        left: 60%;
+        top: 10%;
+        background: #9bdaeb;
+        box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.5);
+        animation: moveRight var(--EVA-ROTATION-DURATION) linear infinite;
+      }
+      .chestText {
+        position: absolute;
+        font-size: 0.5rem;
+        color: #fff;
+        text-shadow: 1px 1px 2px #000;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        text-align: center;
+      }
+      @keyframes rotateRight {
+        from {
+          transform: rotateY(0deg);
+        }
+        to {
+          transform: rotateY(25deg);
+        }
+      }
+      @keyframes moveRight {
+        from {
+          transform: translate(-50%, -50%);
+        }
+        to {
+          transform: translate(-40%, -50%);
+        }
+      }
+      @keyframes compensateRotation {
+        from {
+          transform: rotateY(55deg) rotateZ(10deg);
+        }
+        to {
+          transform: rotateY(30deg) rotateZ(10deg);
+        }
+      }
+      @keyframes compensateRotationRight {
+        from {
+          transform: rotateY(55deg) rotateZ(-10deg);
+        }
+        to {
+          transform: rotateY(70deg) rotateZ(-10deg);
+        }
+      }
+      @keyframes glow {
+        from {
+          opacity: 0;
+        }
+        20% {
+          opacity: 1;
+        }
+        45% {
+          transform: rotate(-25deg);
+        }
+        75% {
+          transform: rotate(5deg);
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      /* chatbot section end css */
+    
+        </style>
+    </head>
+
+    <body class="sidebar-dark">
+        <div class="main-wrapper">
+
+            <!-- partial:../../partials/_sidebar.html -->
+            <nav class="sidebar">
+                <div class="sidebar-header">
+                    <a href="#" class="sidebar-brand">
+                        Learn<span>Nex</span>
+                    </a>
+                    <div class="sidebar-toggler">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="sidebar-body">
+                    <ul class="nav" id="sidebarNav">
+                        <!-- <li class="nav-item nav-category">main</li> -->
+                        <!-- <li class="nav-item">
+            <a href="../../dashboard-1.html" class="nav-link">
+              <i class="link-icon" data-feather="box"></i>
+              <span class="link-title">Dashboard</span>
+            </a>
+          </li> -->
+
+
+
+
+
+
+
+
+
+          <body class="sidebar-dark">
+          <div class="main-wrapper">
+  
+              <!-- partial:../../partials/_sidebar.html -->
+              <nav class="sidebar">
+                  <div class="sidebar-header">
+                      <a href="#" class="sidebar-brand">
+                          Learn<span>Nex</span>
+                      </a>
+                      <div class="sidebar-toggler">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                      </div>
+                  </div>
+                  <div class="sidebar-body">
+                      <ul class="nav" id="sidebarNav">
+                          <!-- <li class="nav-item nav-category">main</li> -->
+                          <!-- <li class="nav-item">
+              <a href="../../dashboard-1.html" class="nav-link">
+                <i class="link-icon" data-feather="box"></i>
+                <span class="link-title">Dashboard</span>
+              </a>
+            </li> -->
+  
+  
+  
+  
+  
+  
+  
+            <li class="nav-item">
+              <a href="{% url 'main_dash' %}" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                  <i class="link-icon" data-feather="home" style="color: white;"></i>
+                  <span class="link-title"><b>HOME</b></span>
+              </a>
+           </li>
+  
+  
+  
+  
+  
+  
+  
+              <li class="nav-item">
+                  <a href="{% url 'subject' %}" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                      <i class="link-icon" data-feather="book" style="color: white;"></i>
+                      <span class="link-title"><b>Subject</b></span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a href="{% url 'topic' %}" class="nav-link" onclick="changeText(event)">
+                      <i class="link-icon" data-feather="book-open"></i>
+                      <span class="link-title" id="nav-link-text"><b>Maths</b></span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a href="#" class="nav-link">
+                      <i class="link-icon" data-feather="book-open"></i>
+                      <span class="link-title"><b>Science</b></span>
+                  </a>
+              </li>
+  
+  
+              <li class="nav-item">
+                  <a href="#" class="nav-link">
+                      <i class="link-icon" data-feather="book-open"></i>
+                      <span class="link-title"><b>History</b></span>
+                  </a>
+              </li>
+  
+              <li class="nav-item">
+                  <a href="#" class="nav-link">
+                      <i class="link-icon" data-feather="book-open"></i>
+                      <span class="link-title"><b> Geography</b></span>
+                  </a>
+              </li>
+  
+              <li class="nav-item">
+                  <a href="#" class="nav-link">
+                      <i class="link-icon" data-feather="book-open"></i>
+                      <span class="link-title"><b>Literature</b></span>
+                  </a>
+              </li>
+  
+              <li class="nav-item">
+                  <a href="#" class="nav-link">
+                      <i class="link-icon" data-feather="book-open"></i>
+                      <span class="link-title"><b>Art</b></span>
+                  </a>
+              </li>
+  
+              <li class="nav-item">
+                   <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+                      <i class="link-icon" data-feather="layers" style="color: white;"></i>
+                      <span class="link-title"><b>Learn And Play</b></span>
+                  </a>
+              </li>
+  
+              <li class="nav-item">
+                  <a href="{% url 'memorygame' %}" class="nav-link">
+                      <i class="link-icon" data-feather="box"></i>
+                      <span class="link-title"><b>Memory card</b></span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a href="{% url 'shapeselect' %}" class="nav-link">
+                      <i class="link-icon" data-feather="box"></i>
+                      <span class="link-title"><b>shapeselect</b></span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a href="{% url 'animalmatch' %}" class="nav-link">
+                      <i class="link-icon" data-feather="box"></i>
+                      <span class="link-title"><b>animalmatch</b></span>
+                  </a>
+              </li>
+          <li class="nav-item">
+            <a href="{% url 'colorpick' %}" class="nav-link">
+              <i class="link-icon" data-feather="box"></i>
+              <span class="link-title"><b>colorpick</b></span>
+            </a>
+          </li>
+          
+          <li class="nav-item">
+            <a href="{% url 'mathadventure' %}" class="nav-link">
+               <i class="link-icon" data-feather="box"></i>
+               <span class="link-title"><b>mathadventure</b></span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'rhymgame' %}" class="nav-link">
+               <i class="link-icon" data-feather="box"></i>
+               <span class="link-title"><b>rhymgame</b></span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'math' %}" class="nav-link">
+               <i class="link-icon" data-feather="box"></i>
+               <span class="link-title"><b>fun with maths</b></span>
+            </a>
+          </li>
+          
+  
+          <li class="nav-item">
+            <a href="{% url 'canvas' %}" class="nav-link">
+              <i class="link-icon" data-feather="box"></i>
+              <span class="link-title"><b>Fun with canvas</b></span>
+            </a>
+          </li>
+  
+  
+          <li class="nav-item">
+            <a href="#" class="nav-link" style="color: white; font-family: 'Helvetica', sans-serif;">
+              <i class="link-icon" data-feather="layers" style="color: white;"></i>
+              <span class="link-title"><b>Learn Something More</b></span>
+            </a>
+          </li>
+  
+                        
+                    </ul>
+                </div>
+
+
+
+        </div>
+        </nav>
+        <!-- partial -->
+
+        <div class="page-wrapper">
+
+            <!-- partial:../../partials/_navbar.html -->
+            <nav class="navbar">
+                <div class="navbar-content">
+
+                    <div class="logo-mini-wrapper">
+                        <img src="{% static 'assets/images/logo-mini-light.png' %}" class="logo-mini logo-mini-light"
+                            alt="logo">
+                        <img src="{% static 'assets/images/logo-mini-dark.png' %}" class="logo-mini logo-mini-dark"
+                            alt="logo">
+                    </div>
+
+                    <!-- <form class="search-form">
+						<div class="input-group">
+              <div class="input-group-text">
+                <i data-feather="search"></i>
+              </div>
+							<input type="text" class="form-control" id="navbarForm" placeholder="Search here...">
+						</div>
+					</form> -->
+
+                    <ul class="navbar-nav">
+                        <li class="theme-switcher-wrapper nav-item">
+                            <input type="checkbox" value="" id="theme-switcher">
+                            <label for="theme-switcher">
+                                <div class="box">
+                                    <div class="ball"></div>
+                                    <div class="icons">
+                                        <i class="feather icon-sun"></i>
+
+                                        <i class="feather icon-moon"></i>
+                                    </div>
+                                </div>
+                            </label>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="w-30px h-30px ms-1 rounded-circle"
+                                    src="{% static 'assets/images/faces/face1.jpg' %}" alt="profile">
+                            </a>
+                            <div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
+                                <div class="d-flex flex-column align-items-center border-bottom px-5 py-3">
+                                    <div class="mb-3">
+                                        <img class="w-80px h-80px rounded-circle"
+                                            src="{% static 'assets/images/faces/face1.jpg' %}" alt="">
+                                    </div>
+                                    <div class="text-center">
+                                        <p class="fs-16px fw-bolder">Amiah Burton</p>
+                                        <p class="fs-12px text-secondary">amiahburton@gmail.com</p>
+                                    </div>
+                                </div>
+                                <ul class="list-unstyled p-1">
+                                    <li class="dropdown-item py-2">
+                                        <a href="profile.html" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="user"></i>
+                                            <span>Profile</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="edit"></i>
+                                            <span>Edit Profile</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="repeat"></i>
+                                            <span>Switch User</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item py-2">
+                                        <a href="javascript:;" class="text-body ms-0">
+                                            <i class="me-2 icon-md" data-feather="log-out"></i>
+                                            <span>Log Out</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <a href="#" class="sidebar-toggler">
+                        <i data-feather="menu"></i>
+                    </a>
+
+                </div>
+            </nav>
+            <!-- partial -->
+
+            <div class="page-content">
+                <div class="container">
+                    <!-- First Row: Activity Orbit and Progress Report -->
+                    <div class="row">
+                        <div class="col">
+                            <div class="chart-container">
+                                <h2><b>Activity Orbit</b></h2>
+                                <canvas id="activityOrbit"></canvas>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="chart-container">
+                                <h2><b>Progress Report</b></h2>
+                                <canvas id="progressReport"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Second Row: Leaderboard -->
+                    <div class="container">
+                        <h2><b>Leaderboard</b></h2>
+                        <table id="leaderboard">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Points</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Emily</td>
+                                    <td class="points">450</td>
+                                </tr>
+                                <tr>
+                                    <td>John</td>
+                                    <td class="points">390</td>
+                                </tr>
+                                <tr>
+                                    <td>Sophia</td>
+                                    <td class="points">320</td>
+                                </tr>
+                                <tr>
+                                    <td>Michael</td>
+                                    <td class="points">300</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                
+                    <!-- Third Row: Custom Cards -->
+                
+                    <h2><b>Lets begin!!</b></h2>
+                    <div class="cards">
+                        <div class="card red">
+                            <p class="tip">Learn Syllabus !!</p>
+                            
+                        </div>
+                        <div class="card blue">
+                            <p class="tip">Learn And Play !!</p>
+                            
+                        </div>
+                        <div class="card green">
+                            <p class="tip">Learn Something More..!!</p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- Floating circles for a modern, sleek effect -->
+                <div class="circle" style="top: 4%; left: 2%;"></div>
+                <div class="circle small" style="bottom: 2%; right: 2%;"></div>
+                
+                <!-- Floating Emojis spread across the full screen -->
+                <div class="emoji emoji1">🏆</div>
+                <div class="emoji emoji2">🎉</div>
+                <div class="emoji emoji3">🥇</div>
+                <div class="emoji emoji4">🚀</div>
+                <div class="emoji emoji5">🌟</div>
+                <div class="emoji emoji6">🎮</div>
+                <div class="emoji emoji7">⚽</div>
+                <div class="emoji emoji8">🏅</div>
+                <div class="emoji emoji9">🏆</div>
+        </div>
+
+        <!-- partial:../../partials/_footer.html -->
+        <!-- <footer class="footer d-flex flex-row align-items-center justify-content-between px-4 py-3 border-top small">
+            <p class="text-secondary mb-1 mb-md-0">Copyright © 2024 <a href="https://www.nobleui.com"
+                    target="_blank">NobleUI</a>.</p>
+            <p class="text-secondary">Handcrafted With <i class="mb-1 text-primary ms-1 icon-sm"
+                    data-feather="heart"></i>
+            </p>
+        </footer> -->
+        <!-- partial -->
+
+        </div>
+        
+        
+        <!-- chatbot section start html-->
+            <div class="draggableIcon" id="icon1" style="bottom: 20px; right: 120px;">
+                <div class="modelViewPort">
+                  <div class="eva">
+                    <div class="head"></div>
+                    <div class="eyeChamber">
+                      <div class="eye"></div>
+                      <div class="eye"></div>
+                    </div>
+                    <div class="bodys">
+                      <div class="scannerThing"></div>
+                      <div class="scannerOrigin"></div>
+                      <div class="hand"></div>
+                      <div class="hand"></div>
+                      <div class="chestText">LearNex.ai</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="draggableIcon" id="icon2" style="bottom: 10px; right: 10px;">
+                <div class="whatsapp-icon"></div>
+              </div>
+                <!-- chatbot section end -->
+        </div>
+
+        
+
+            
+            
+
+
+        <script src="{% static 'assets/vendors/core/core.js' %}"></script>
+
+
+        
+        <!-- endinject -->
+
+        <!-- Plugin js for this page -->
+        <!-- End plugin js for this page -->
+
+        <!-- inject:js -->
+        <script src="{% static 'assets/vendors/feather-icons/feather.min.js' %}"></script>
+        <script src="{% static 'assets/js/app.js' %}"></script>
+        <!-- endinject -->
+
+        <!-- Custom js for this page -->
+        <!-- End custom js for this page -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <script>
+            // Activity Orbit Chart
+            const activityOrbitCtx = document.getElementById('activityOrbit').getContext('2d');
+            const activityOrbitChart = new Chart(activityOrbitCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['syllabus','games','co-curricular'],
+                    datasets: [{
+                        data: [120, 100, 80],
+                        backgroundColor: ['#ff6384', '#36a2eb', '#ffcd56',],
+                        hoverOffset: 3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '60%'
+                }
+            });
+        
+            // Progress Report Chart
+            const progressReportCtx = document.getElementById('progressReport').getContext('2d');
+            const progressReportChart = new Chart(progressReportCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['English', 'Marathi', 'Math', 'Science'],
+                    datasets: [{
+                        label: 'Marks',
+                        data: [85, 70, 90, 80],
+                        backgroundColor: ['#ff6384', '#36a2eb', '#ffcd56', '#4bc0c0'],
+                        borderWidth: 1
+                        
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            //  start chatbot section js 
+         function initDraggable(iconId) {
+            const icon = document.getElementById(iconId);
+            let offsetX, offsetY, startX, startY, dragStarted = false;
+      
+            icon.onmousedown = function (e) {
+              e.preventDefault();
+              startX = e.clientX;
+              startY = e.clientY;
+              offsetX = e.offsetX;
+              offsetY = e.offsetY;
+              dragStarted = false;
+      
+              document.onmousemove = function (e) {
+                dragStarted = true;
+                icon.style.left = e.clientX - offsetX + 'px';
+                icon.style.top = e.clientY - offsetY + 'px';
+              };
+      
+              document.onmouseup = function (e) {
+                document.onmousemove = document.onmouseup = null;
+                if (!dragStarted) {
+                  // Handle click event
+                  if (iconId === 'icon1') {
+                    // Navigate to 3D model page on the same window
+                    window.location.href = "{% url 'chatbot' %}";
+                  } else if (iconId === 'icon2') {
+                    // Navigate to WhatsApp chat on the same window
+                    window.location.href = 'https://wa.me/+919740094236';
+                  }
+                }
+              };
+            };
+          }
+      
+          initDraggable('icon1');
+          initDraggable('icon2');
+        //    end chatbot section js
+        </script>
+        
+        
+        
+    </body>
+
+</html>
